@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><ebase version="5.3.2">
+        
+    <dbResource database="datatablestest" dateCreated="2018-02-19T11:21:17.421Z" debug="true" description="User roles, i.e. the roles associated with a user" id="userRoles" table="true">
+                
+        <columns>*</columns>
+                
+        <from>user_roles</from>
+                
+        <fields>
+                        
+            <field id="role_id" key="true" length="10" type="INTEGER"/>
+                        
+            <field id="user_id" key="true" length="10" type="INTEGER"/>
+                    
+        </fields>
+            
+    </dbResource>
+    
+</ebase>

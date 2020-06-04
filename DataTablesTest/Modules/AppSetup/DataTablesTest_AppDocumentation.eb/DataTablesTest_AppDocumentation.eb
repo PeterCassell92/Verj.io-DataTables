@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ebase version="5.4.0">
+    <webForm beforeEvent="/Modules/Shared/Server/Scripts/Events/callDataInit,/Modules/AppSetup/Components/SideBar/Scripts/Events/beforeDocumentation" formHeaderTextRef="TxtALSTfC" htmlTitleTextRef="Txt8ZhpQw" finishButtonTextRef="Txt8Rk2TZ" backButtonSupport="yes" docType="HTML5" template="/Modules/Shared/Client/PresentationTemplate/DataTablesTest_Bootstrap4" firstPage="_Welcome" preferredScriptFolder="/Modules/AppSetup/Scripts/Events" id="DataTablesTest_AppDocumentation" dateCreated="2018-07-06T13:06:02.124+01:00">
+        <clientCallableFunctionScripts>
+            <clientCallableFunctionScript path="/Modules/AppSetup/Scripts/Functions/clientFunctions"/>
+        </clientCallableFunctionScripts>
+        <clientScripts>
+            <clientScript path="$ws/Modules/AppSetup/Client/Javascript/documentation.js"/>
+        </clientScripts>
+        <saveRestore enabled="false" saveButtonTextRef="TxtAEeNKm" restoreButtonTextRef="Txt5TXl6k" saveInfoTextRef="TxtcGSTI" restoreInfoTextRef="Txt1mpY1"/>
+        <finalPage headerTextRef="Txt8mae4Q" infoTextRef="TxtAheuRu" returnTextRef="Txt5jGbUG" inheritStyle="true"/>
+    </webForm>
+</ebase>

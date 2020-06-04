@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceMappings>
+    <resourceMapping id="menuItems">
+        <tableMapping table="menuItems"/>
+        <fieldMapping resourceField="format_class" field="menuItems-format_class"/>
+        <fieldMapping resourceField="menu_item_action" field="menuItems-menu_item_action"/>
+        <fieldMapping resourceField="menu_item_id" field="menuItems-menu_item_id"/>
+        <fieldMapping resourceField="menu_item_text" field="menuItems-menu_item_text"/>
+    </resourceMapping>
+</resourceMappings>

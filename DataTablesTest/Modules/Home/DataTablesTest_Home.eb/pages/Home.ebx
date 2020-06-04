@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page name="Home" pageHeaderTextRef="TxtAX5crh" pageInfoTextReference="Txt9JdjbM" pageTrailerTextReference="Txt9d2ehY" nextPageTextReference="Txt2T7HFe" prevPageTextReference="Txt2jWKYb">
+    <pageContents>
+        <page bootstrapContainerType="@0" ctrl="homePage" outputType="0" pdfFooterText="LocalTxt97CS0F" pdfHeaderText="LocalTxt2SHhs7" uid="J7yRJaM2">
+            <componentPlaceHolder name="header" prefix="aheader"/>
+            <panel cssClass="jumbotron jumbotron-fluid mt-4" ctrl="body" uid="2UzKL23g">
+                <bootstrapcontainer ctrl="BsContainer5K23A" uid="I4dRZjF3">
+                    <text cssClass="text-center" ctrl="Tex9skc3" text="LocalTxt41ynU7" uid="NAWaSpJz"/>
+                    <bootstraprow ctrl="BsRowFJrdT" horizontalAlignment="Center" uid="L6AlKYY1">
+                        <bootstrapcolumn cssClass="mb-3" ctrl="BsColumnHzAqh" extraSmallWidth="-1" smallWidth="0" uid="8gKtCZxk">
+                            <panel ctrl="Pan5kuLh" height="@0" uid="P15Y6ac0" width="200px">
+<rootHtmlElementProperties idLocator="qrcode" jQueryEventHandlers="$;ready;$('#qrcode').empty();&#xA;$('#qrcode').qrcode({&#xA;    // render method: 'canvas', 'image' or 'div'&#xA;    render: 'div',&#xA;&#xA;    // version range somewhere in 1 .. 40&#xA;    minVersion: 1,&#xA;    maxVersion: 40,&#xA;&#xA;    // error correction level: 'L', 'M', 'Q' or 'H'&#xA;    ecLevel: 'L',&#xA;&#xA;    // offset in pixel if drawn onto existing canvas&#xA;    left: 0,&#xA;    top: 0,&#xA;&#xA;    // size in pixel&#xA;    size: 200,&#xA;&#xA;    // code color or image element&#xA;    fill: '#000',&#xA;&#xA;    // background color or image element, null for transparent background&#xA;    background: null,&#xA;&#xA;    // content&#xA;    text: window.location.href,&#xA;&#xA;    // corner radius relative to module width: 0.0 .. 0.5&#xA;    radius: 0,&#xA;&#xA;    // quiet zone in modules&#xA;    quiet: 0,&#xA;&#xA;    // modes&#xA;    // 0: normal&#xA;    // 1: label strip&#xA;    // 2: label box&#xA;    // 3: image strip&#xA;    // 4: image box&#xA;    mode: 0,&#xA;&#xA;    mSize: 0.1,&#xA;    mPosX: 0.5,&#xA;    mPosY: 0.5,&#xA;&#xA;    label: 'no label',&#xA;    fontname: 'sans',&#xA;    fontcolor: '#000',&#xA;&#xA;    image: null&#xA;});&#xA;&#xA;&#xA;"/>
+                            </panel>
+                        </bootstrapcolumn>
+                        <bootstrapcolumn cssClass="text-center text-sm-left" ctrl="BsColumnmv7vD" largeWidth="4" uid="1xy9Wyux">
+                            <text ctrl="TexVbUlY" text="LocalTxt6BM8VA" uid="8oGd07XQ"/>
+                        </bootstrapcolumn>
+                    </bootstraprow>
+                </bootstrapcontainer>
+            </panel>
+            <bootstrapcontainer bootstrapContainerType="Full Width" ctrl="BsContainerDCSPX" uid="N73kcO9M"/>
+            <componentPlaceHolder name="footer" prefix="afooter"/>
+        </page>
+    </pageContents>
+</page>

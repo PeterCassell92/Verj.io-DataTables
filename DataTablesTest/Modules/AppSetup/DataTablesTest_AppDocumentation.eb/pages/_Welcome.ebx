@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page name="_Welcome" nextPage="Using_the_Menu" pageHeaderTextRef="Txt8zII6V" pageInfoTextReference="Txt5XL5tE" pageTrailerTextReference="Txt6CXDzL" nextPageTextReference="TxtA5I1O4" prevPageTextReference="Txt4qfKfP">
+    <pageContents>
+        <page ctrl="PagEmrzc" outputType="0" pdfFooterText="LocalTxt3eMbBh" pdfHeaderText="LocalTxt30dvJ" uid="GkV6abIb">
+            <componentPlaceHolder name="header" prefix="cheader"/>
+            <bootstrapcontainer bootstrapContainerType="Full Width" cssClass="container-lg" ctrl="BsContaineri4JhS" uid="HdGV5mPj">
+                <panel cssClass="mb-4" ctrl="Pan1XegG" uid="RpFNbNoJ">
+                    <text cssClass="h1" ctrl="Tex14obVI" text="LocalTxt4tALvm" uid="BlPjis1n"/>
+                </panel>
+                <bootstraprow cssClass="pb-5" ctrl="BsRowh930x" uid="POAnGzLZ">
+                    <bootstrapcolumn ctrl="BsColumnfwhlo" smallWidth="4" uid="7szITUbG">
+                        <panel cssClass="bg-light p-3" ctrl="PanhygU8" uid="FkRdJ2Lq">
+                            <componentPlaceHolder name="sideBar" prefix="asideBar"/>
+                        </panel>
+                    </bootstrapcolumn>
+                    <bootstrapcolumn ctrl="BsColumneiOgN" smallWidth="8" uid="AhJC64bO">
+                        <text cssClass="mb-3 lead d-block" ctrl="Texx8yiZ" propertySet="paragraph-lead" text="LocalTxt98bZ3e" uid="5PZr3LJw"/>
+                        <text ctrl="Tex10WXJY_2" propertySet="header-5" text="LocalTxt2oKF5U_2" uid="MQtVbGJo"/>
+                        <text ctrl="TexQuVqo_5" propertySet="paragraph" text="LocalTxt8bkeX4_5" uid="mV5z0hc"/>
+                        <text ctrl="Tex10WXJY_3" propertySet="header-5" text="LocalTxt2oKF5U_3" uid="55IfL4Id"/>
+                        <text ctrl="TexQuVqo_2" propertySet="paragraph" text="LocalTxt8bkeX4_2" uid="oLNHK6a"/>
+                        <text ctrl="Tex10WXJY" propertySet="header-5" text="LocalTxt2oKF5U" uid="LN6GZegG"/>
+                        <text ctrl="TexQuVqo" propertySet="paragraph" text="LocalTxt8bkeX4" uid="793WB56A"/>
+                        <text cssClass="h4 d-block mt-5" ctrl="Tex10WXJY_5" propertySet="header-4" text="LocalTxt2oKF5U_5" uid="PbQq1r2S"/>
+                        <text ctrl="TexQuVqo_6" propertySet="paragraph" text="LocalTxt8bkeX4_6" uid="LuwlacZ4"/>
+                    </bootstrapcolumn>
+                </bootstraprow>
+            </bootstrapcontainer>
+            <componentPlaceHolder name="footer" prefix="afooter"/>
+        </page>
+    </pageContents>
+</page>

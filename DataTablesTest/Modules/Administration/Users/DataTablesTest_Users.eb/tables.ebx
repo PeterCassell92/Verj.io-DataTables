@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tables>
+    <table name="users">
+        <column name="confirmed" type="BOOLEAN" labelTextRef="Txt41UN6H" maxLength="3" displayType="CHECKBOX" displayLength="3"/>
+        <column name="first_name" type="CHAR" labelTextRef="Txt5Q5bU3" maxLength="100" displayType="TEXT" displayLength="18"/>
+        <column name="last_name" type="CHAR" labelTextRef="Txt7nu38c" maxLength="100" displayType="TEXT" displayLength="18"/>
+        <column name="newPassword" type="CHAR" labelTextRef="Txt7lrkDZ" displayType="PASSWORD"/>
+        <column name="password" type="CHAR" labelTextRef="Txt3vqa91" maxLength="default" displayType="PASSWORD" displayLength="10"/>
+        <column name="trash" type="CHAR" defaultValue="&lt;i class=&quot;far fa-trash-alt fa-lg&quot;&gt;&lt;/i&gt;" labelTextRef="Txt6YwcRn_2" displayType="TEXT" html="true"/>
+        <column name="user_id" type="INTEGER" labelTextRef="Txt3SDxl5" displayType="TEXT" displayLength="17">
+            <validators>
+                <validator type="MAX_DIGITS" value="10"/>
+                <validator type="MAX_LENGTH" value="17"/>
+                <validator type="DEC_DIG"/>
+            </validators>
+        </column>
+        <column name="username" type="CHAR" labelTextRef="Txt5NKIkh" maxLength="30" displayType="TEXT" displayLength="15"/>
+    </table>
+</tables>

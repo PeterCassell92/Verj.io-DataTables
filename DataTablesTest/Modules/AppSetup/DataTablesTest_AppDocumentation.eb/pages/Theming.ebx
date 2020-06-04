@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page name="Theming" nextPage="App_Building" pageHeaderTextRef="Txt8zII6V_4" pageInfoTextReference="Txt5XL5tE_4" pageTrailerTextReference="Txt6CXDzL_4" nextPageTextReference="TxtA5I1O4_4" prevPageTextReference="Txt4qfKfP_4">
+    <pageContents>
+        <page ctrl="PagEmrzc_4" outputType="0" pdfFooterText="LocalTxt3eMbBh_4" pdfHeaderText="LocalTxt30dvJ_4" uid="86Ncqjnj">
+            <componentPlaceHolder name="header" prefix="Gheader"/>
+            <bootstrapcontainer bootstrapContainerType="Full Width" cssClass="container-lg" ctrl="BsContainer10ES7s_5" uid="7fdDnTyR">
+                <panel cssClass="mb-4" ctrl="PangLmst_11" uid="RmOvhjmt">
+                    <text cssClass="h1" ctrl="Tex14obVI_4" text="LocalTxt4tALvm_4" uid="EKVPp5Dw"/>
+                </panel>
+                <bootstraprow cssClass="pb-5" ctrl="BsRow6iOEt_5" uid="OWLL2dbI">
+                    <bootstrapcolumn ctrl="BsColumnfIM4V_5" smallWidth="4" uid="BCwRsdp7">
+                        <panel cssClass="bg-light p-3" ctrl="PanhygU8_11" uid="ED6ysYYA">
+                            <componentPlaceHolder name="sideBar" prefix="IsideBar"/>
+                        </panel>
+                    </bootstrapcolumn>
+                    <bootstrapcolumn ctrl="BsColumnCkflj_5" smallWidth="8" uid="49mGtgGA">
+                        <text ctrl="TexOuF1C" propertySet="paragraph-lead" text="LocalTxt6VIJwV" uid="4JAZXr5i"/>
+                        <text ctrl="TexuvT4e" propertySet="header-5" text="LocalTxt1ch3WW" uid="I65iebjx"/>
+                        <text ctrl="TexatN5E" propertySet="paragraph" text="LocalTxt2WRWm3" uid="K5h2N1oe"/>
+                        <text cssClass="mb-3 d-block alert alert-info" ctrl="TexmceQI" propertySet="paragraph" text="LocalTxtA7g2gN" uid="5CEx3aB8"/>
+                        <text ctrl="TexatN5E_2" propertySet="paragraph" text="LocalTxt2WRWm3_2" uid="11KK0Bn7"/>
+                        <text ctrl="TexatN5E_3" propertySet="paragraph" text="LocalTxt2WRWm3_3" uid="7oydxHJQ"/>
+                        <text ctrl="TexatN5E_20" propertySet="paragraph" text="LocalTxt2WRWm3_21" uid="6Kuqfs3o"/>
+                        <text ctrl="TexuvT4e_2" propertySet="header-5" text="LocalTxt1ch3WW_2" uid="RpdxUraU"/>
+                        <text ctrl="TexatN5E_4" propertySet="paragraph" text="LocalTxt2WRWm3_4" uid="P2AjOqW4"/>
+                        <text ctrl="TexatN5E_5" propertySet="paragraph" text="LocalTxt2WRWm3_5" uid="LK3yiAoa"/>
+                        <text ctrl="TexuvT4e_3" propertySet="header-5" text="LocalTxt1ch3WW_3" uid="NdE1Wxgu"/>
+                        <text ctrl="Tex88UUz" propertySet="paragraph" text="LocalTxt3DQTDR" uid="1OEhZLY4"/>
+                        <text ctrl="Texk4zlg" propertySet="paragraph" text="LocalTxt9Lhnao" uid="D4RRrK8b"/>
+                    </bootstrapcolumn>
+                </bootstraprow>
+            </bootstrapcontainer>
+            <componentPlaceHolder name="footer" prefix="Hfooter"/>
+        </page>
+    </pageContents>
+</page>

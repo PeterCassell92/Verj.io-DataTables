@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><component page="passwordReset" prefix="bfooter" source="/Modules/Shared/Components/Footer/footer" sourceProject="DataTablesTest" version="0">
+        
+    <texts>
+                
+        <text id="Txt2OHXDX"/>
+                
+        <text id="Txt2em2Dz"/>
+                
+        <text id="Txt3h84M9"/>
+                
+        <text id="Txt4LwgSt">
+                        
+            <languageText language="EN">Place sticky footer content here.</languageText>
+                    
+        </text>
+                
+        <text id="Txt7EkKCw"/>
+                
+        <text id="Txt8SxJA"/>
+                
+        <text id="Txt9HIMwR"/>
+                
+        <text id="Txt9Zj3Lp"/>
+            
+    </texts>
+        
+    <component bootstrapContainerType="@T" componentPrefix="bfooter" contentClass="@T" contentStyle="@T" ctrl="bfooter__CmpB5yOh" default="C" displayOnly="@T" formPanelWidth="@T" hidden="@T" inheritMsg="true" jSPBottom="@T" jSPLeft="@T" jSPLeftWidth="@T" jSPRight="@T" jSPRightWidth="@T" jSPTop="@T" layoutType="@0" localMsg="@T" msgControls="@T" newLine="@T" outputType="0" pdfFooterMarginTextClass="@T" pdfFooterMarginTextStyle="@T" pdfFooterText="Localbfooter__Txt2OHXDX" pdfHeaderMarginTextClass="@T" pdfHeaderMarginTextStyle="@T" pdfHeaderText="Localbfooter__Txt3h84M9" pdfOrientation="@T" sourceUid="BAYRDOAB" uid="LmoIwd2o">
+                
+        <componentOriginals bootstrapContainerType="@0" contentClass="@0" contentStyle="@0" default="T" pdfFooterMarginTextClass="@0" pdfFooterMarginTextStyle="@0" pdfHeaderMarginTextClass="@0" pdfHeaderMarginTextStyle="@0" pdfOrientation="@0"/>
+                
+        <footer componentPrefix="bfooter" ctrl="bfooter__Foot13hH87" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="IL7yh743" uid="AGej0vKr">
+                        
+            <componentOriginals cssClass="footer" default="T"/>
+                        
+            <bootstrapcontainer componentPrefix="bfooter" ctrl="bfooter__BsContainerhTMA5" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="MOdvuM91" uid="9HBS98KG">
+                                
+                <componentOriginals cssClass="py-3 text-center" default="T"/>
+                                
+                <text componentPrefix="bfooter" ctrl="bfooter__Tex12Y945" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="FGVtbEK2" text="Localbfooter__Txt4LwgSt" uid="HS1BVd2I">
+                                        
+                    <componentOriginals cssClass="text-muted" default="T"/>
+                                    
+                </text>
+                            
+            </bootstrapcontainer>
+                    
+        </footer>
+            
+    </component>
+    
+</component>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><ebase version="5.3.2">
+    <script contentType="Javascript" dateCreated="2018-01-29T16:04:15.153Z" id="DataTablesTest_LogonService" preferredComponentPath="/Security/LogonServices/DataTablesTest_LogonService">
+        <scriptText>importPackage(com.ebasetech.xi.api);
+importPackage(com.ebasetech.xi.services);
+
+/* Build user security subject from user/role database */
+
+// lowercase the username so usernames can be case insensitive
+fields.PARAM1_VALUE.value = fields.PARAM1_VALUE.value.toLowerCase();
+// encrypt the password 
+fields.PARAM2_VALUE.value = services.encryption.encryptAES(fields.PARAM2_VALUE.value);
+
+try {
+	// try and find a user with the passed in username and password
+	tables.users.fetchTable(true);
+	if (tables.users.rowCount &gt; 0) {
+		// check the user account has confirmed the email
+		if(!tables.users.confirmed.value){
+			 throw new Error("emailNotConfirmed");
+		}
+		// user found, so set up the user ID
+		fields.USERID.value = tables.users.user_id.value;
+		// set up credentials
+		tables.CREDENTIAL.insertRow();
+		tables.CREDENTIAL.ID.value = 'name';
+		tables.CREDENTIAL.VALUE.value = tables.users.first_name.value + ' ' + tables.users.last_name.value;
+		tables.CREDENTIAL.insertRow();
+		tables.CREDENTIAL.ID.value = 'firstname';
+		tables.CREDENTIAL.VALUE.value = tables.users.first_name.value;
+		// update credentials internal table
+		tables.CREDENTIAL.updateTable();
+		
+		// now set up the users roles
+		tables.userRoles.fetchTable(true);
+		var r = tables.userRoles.rows;
+		while (r.next()) {
+			tables.CUSTOMROLE.insertRow();
+			tables.CUSTOMROLE.ROLEID.value = tables.userRoles.role_id.value;
+		}
+		// update internal roles table
+		tables.CUSTOMROLE.updateTable();
+	}
+	else{
+		throw new Error("User not found.");
+	}
+}
+catch (e){
+	log(e);
+	switch(e.message){
+		case "emailNotConfirmed":
+			// set error code and error description if there was an error
+		  fields.ERRORCODE.value = "999992";
+		  fields.ERRORDESCRIPTION.value = "Email address not confirmed. Please confirm your email address.";
+		break;
+		
+		default:
+			// set error code and error description if there was an error
+		  fields.ERRORCODE.value = "999991";
+		  fields.ERRORDESCRIPTION.value = "Error logging in. Please try again.";//(" + e + ")";
+		break;
+	}
+}</scriptText>
+    </script>
+</ebase>

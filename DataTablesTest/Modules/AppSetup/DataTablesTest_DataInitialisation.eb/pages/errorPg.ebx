@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page name="errorPg" pageHeaderTextRef="Txt7EuFEh_2" pageInfoTextReference="TxtL2QUt_2" pageTrailerTextReference="TxtAPtZyD_2" nextPageTextReference="Txt28wAEl_2" prevPageTextReference="Txt8TcJrv_2">
+    <pageContents>
+        <page cssClass="bg-light" ctrl="Pag10cRy_2" outputType="0" pdfFooterText="LocalTxt44yIWl_2" pdfHeaderText="LocalTxt1POYYJ_2" uid="N46VIFUj">
+            <panel cssClass="d-flex justify-content-center align-items-center" ctrl="PanRmxnk_2" style="min-height:100vh" uid="Efvb4TeR">
+                <panel borderRadius="1em" cssClass="bg-white p-5 text-center" ctrl="Panj8Mse_2" uid="PgllAeOk" width="30em">
+                    <text ctrl="TexQSGm1_2" text="LocalTxt9t4OFp_2" uid="FBqy0iAb"/>
+                </panel>
+            </panel>
+        </page>
+    </pageContents>
+</page>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ebase version="5.3.2">
+            
+    
+    <script contentType="Javascript" dateCreated="2018-02-15T11:44:39.467Z" id="validation" preferredComponentPath="/Modules/Administration/MenuEntries/DataTablesTest_MenuEntries">
+                        
+        
+        <scriptText>importPackage(com.ebasetech.xi.api);
+importPackage(com.ebasetech.xi.services);
+
+// check that the owning menu has been selected: only apply when the event comes from the owning menu
+if (event.owner.elementName=='owningMenu') {
+   if (tables.menuEntries.owning_menu_id.value == null) {
+      event.owner.addErrorMessage('Error: the parent menu must be selected');	
+   }
+   // if the display order hasn't been set, set it to the next highest value
+   if (tables.menuEntries.display_order.value==null) tables.menuEntries.display_order.value=nextDisplayOrder(tables.menuEntries.owning_menu_id.value);
+}
+
+// table row validation validation processing: check that only a menu item or sub menu is chosen, but not both
+if (event.owner.elementName=='entryMenu' || event.owner.elementName=='menuItem') {
+   var em = tables.menuEntries.entry_menu_id.value;
+   var mi = tables.menuEntries.menu_item_id.value;
+   if ((em==null &amp;&amp; mi==null) || (em!=null &amp;&amp; mi!=null)) {
+      event.owner.addErrorMessage('Error: please select either a sub menu OR a menu item');
+   }
+}
+
+// now check if we have introduced a recursive loop
+if (isMenuRecursive(tables.menuEntries.owning_menu_id.value)) {
+	 tables.menuEntries.entry_menu_id.value = null;
+   event.owner.addErrorMessage('Error: this will introduce a menu loop');   
+}</scriptText>
+                    
+    
+    </script>
+        
+
+</ebase>

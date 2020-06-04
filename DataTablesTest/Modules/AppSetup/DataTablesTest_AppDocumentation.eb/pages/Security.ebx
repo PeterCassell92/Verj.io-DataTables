@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page name="Security" nextPage="Theming" pageHeaderTextRef="Txt8zII6V_5" pageInfoTextReference="Txt5XL5tE_5" pageTrailerTextReference="Txt6CXDzL_5" nextPageTextReference="TxtA5I1O4_5" prevPageTextReference="Txt4qfKfP_5">
+    <pageContents>
+        <page ctrl="PagEmrzc_5" outputType="0" pdfFooterText="LocalTxt3eMbBh_5" pdfHeaderText="LocalTxt30dvJ_5" uid="IPcdAvAx">
+            <componentPlaceHolder name="header" prefix="Jheader"/>
+            <bootstrapcontainer bootstrapContainerType="Full Width" cssClass="container-lg" ctrl="BsContainer10ES7s_4" uid="3hKh1E9G">
+                <panel cssClass="mb-4" ctrl="PangLmst_10" uid="24hwcVbf">
+                    <text cssClass="h1" ctrl="Tex14obVI_5" text="LocalTxt4tALvm_5" uid="4XjOhzvi"/>
+                </panel>
+                <bootstraprow cssClass="pb-5" ctrl="BsRow6iOEt_4" uid="NFvJPq9q">
+                    <bootstrapcolumn ctrl="BsColumnfIM4V_4" smallWidth="4" uid="3KY3lUOb">
+                        <panel cssClass="bg-light p-3" ctrl="PanhygU8_10" uid="Bi90ujQi">
+                            <componentPlaceHolder name="sideBar" prefix="LsideBar"/>
+                        </panel>
+                    </bootstrapcolumn>
+                    <bootstrapcolumn ctrl="BsColumnCkflj_4" smallWidth="8" uid="Rj6DNQRn">
+                        <text ctrl="TexOuF1C_2" propertySet="paragraph-lead" text="LocalTxt6VIJwV_2" uid="6xGBtadf"/>
+                        <text ctrl="TexuvT4e_4" propertySet="header-5" text="LocalTxt1ch3WW_6" uid="GSHY7rNS"/>
+                        <text ctrl="TexatN5E_6" propertySet="paragraph" text="LocalTxt2WRWm3_8" uid="QaYgFB5r"/>
+                        <text ctrl="TexuvT4e_7" propertySet="header-5" text="LocalTxt1ch3WW_7" uid="JlXjNlbH"/>
+                        <text ctrl="TexatN5E_7" propertySet="paragraph" text="LocalTxt2WRWm3_6" uid="9ECAPyCM"/>
+                        <text ctrl="TexatN5E_8" propertySet="paragraph" text="LocalTxt2WRWm3_9" uid="HGEnffv0"/>
+                        <text cssClass="mb-3 d-block alert alert-info" ctrl="TexmceQI_2" propertySet="paragraph" text="LocalTxtA7g2gN_2" uid="9EKJGBAe"/>
+                        <text ctrl="TexuvT4e_5" propertySet="header-5" text="LocalTxt1ch3WW_5" uid="GnfFg3Mv"/>
+                        <text ctrl="TexatN5E_9" propertySet="paragraph" text="LocalTxt2WRWm3_10" uid="SEfVxUZp"/>
+                        <text ctrl="TexuvT4e_6" propertySet="header-5" text="LocalTxt1ch3WW_4" uid="1vSExUFo"/>
+                        <text ctrl="TexatN5E_10" propertySet="paragraph" text="LocalTxt2WRWm3_7" uid="3VKl8Tdm"/>
+                    </bootstrapcolumn>
+                </bootstraprow>
+            </bootstrapcontainer>
+            <componentPlaceHolder name="footer" prefix="Kfooter"/>
+        </page>
+    </pageContents>
+</page>

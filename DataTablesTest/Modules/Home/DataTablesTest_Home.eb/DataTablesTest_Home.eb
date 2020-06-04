@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ebase version="5.8.0">
+    <webForm formHeaderTextRef="Txt1ORkt5" htmlTitleTextRef="Txt4yGWFM" finishButtonTextRef="Txt72XC4H" backButtonSupport="yes" docType="HTML5" template="/Modules/Shared/Client/PresentationTemplate/DataTablesTest_Bootstrap4" firstPage="Home" preferredScriptFolder="/Modules/Home/Scripts/Events" id="DataTablesTest_Home" dateCreated="2018-01-20T11:26:49.731Z">
+        <sharedFunctionScripts>
+            <sharedFunctionScript path="/Modules/Home/Scripts/Functions/functions"/>
+            <sharedFunctionScript path="/Modules/Shared/Server/Scripts/Functions/functions"/>
+        </sharedFunctionScripts>
+        <clientCallableFunctionScripts>
+            <clientCallableFunctionScript path="/Modules/Home/Scripts/Functions/functions"/>
+        </clientCallableFunctionScripts>
+        <clientScripts>
+            <clientScript path="$ws/Modules/Shared/Client/JavaScript/jquery-qrcode-0.14.0.min.js"/>
+        </clientScripts>
+        <saveRestore enabled="false" saveButtonTextRef="Txt6qXa1w" restoreButtonTextRef="TxtA84Rlk" saveInfoTextRef="Txt6B2cLY" restoreInfoTextRef="Txt2yUmDU"/>
+        <finalPage headerTextRef="TxtAuFE4h" infoTextRef="Txt8qD5Xs" returnTextRef="Txt45D5qw" inheritStyle="true"/>
+    </webForm>
+</ebase>

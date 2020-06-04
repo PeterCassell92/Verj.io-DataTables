@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceMappings>
+    <resourceMapping id="user">
+        <fieldMapping resourceField="confirmed" field="accountConfirmed"/>
+        <fieldMapping resourceField="password" field="password"/>
+        <fieldMapping resourceField="user_id" field="user_id"/>
+    </resourceMapping>
+    <resourceMapping id="userEmail">
+        <fieldMapping resourceField="email_uid" field="UID"/>
+        <fieldMapping resourceField="actioned" field="actioned"/>
+        <fieldMapping resourceField="expiry" field="expiry"/>
+        <fieldMapping resourceField="type" field="type"/>
+        <fieldMapping resourceField="user_id" field="user_id"/>
+    </resourceMapping>
+</resourceMappings>

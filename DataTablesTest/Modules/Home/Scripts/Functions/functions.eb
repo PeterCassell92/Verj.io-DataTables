@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ebase version="5.3.2">
+            
+    
+    <script contentType="Javascript" dateCreated="2018-02-02T13:09:00.333Z" id="functions" preferredComponentPath="/Modules/Administration/VisibleMenuItems/DataTablesTest_VisibleMenuItems">
+                        
+        
+        <scriptText>importPackage(com.ebasetech.xi.api);
+importPackage(com.ebasetech.xi.services);
+
+// This function overrides the header component function of the same name. It is always available if you want to adjust the screen layout or controls
+// to match a particular device screen size. A component field called range always holds the latest breakpoint range width of the users screen. If you don't care 
+// about changing controls etc. then you can just delete this function...in which case the component will call its own function of the same name, that does
+// nothing.
+
+function breakpointRangeChanged() {
+   if (fields.aheader__range.value == 'sm' || fields.aheader__range.value == 'xs') {
+      // do something
+	 }
+	 else {
+	    // do something
+	 }
+}</scriptText>
+                    
+    
+    </script>
+        
+
+</ebase>

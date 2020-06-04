@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ebase version="5.4.0">
+    <webFormComponent type="PART_PAGE" firstPage="DUMMY_PAGE_03102003" id="sideBar" dateCreated="2018-07-23T10:53:25.019+01:00">
+        <sharedFunctionScripts>
+            <sharedFunctionScript path="/Modules/AppSetup/Scripts/Functions/clientFunctions"/>
+        </sharedFunctionScripts>
+    </webFormComponent>
+</ebase>

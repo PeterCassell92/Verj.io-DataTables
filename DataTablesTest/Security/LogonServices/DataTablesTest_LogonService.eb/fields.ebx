@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<fields>
+    <field name="ERRORCODE" type="CHAR"/>
+    <field name="ERRORDESCRIPTION" type="CHAR"/>
+    <field name="PARAM1_SOURCE" type="CHAR"/>
+    <field name="PARAM1_VALUE" type="CHAR"/>
+    <field name="PARAM2_SOURCE" type="CHAR"/>
+    <field name="PARAM2_VALUE" type="CHAR"/>
+    <field name="PARAM3_SOURCE" type="CHAR"/>
+    <field name="PARAM3_VALUE" type="CHAR"/>
+    <field name="USERID" type="CHAR"/>
+</fields>

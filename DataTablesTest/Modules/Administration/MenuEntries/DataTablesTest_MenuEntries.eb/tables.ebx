@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tables>
+    <table name="menuEntries">
+        <column name="display_order" type="INTEGER" labelTextRef="Txt6KU0Kf" displayType="TEXT" displayLength="2">
+            <validators>
+                <validator type="MAX_DIGITS" value="10"/>
+                <validator type="MAX_LENGTH" value="17"/>
+                <validator type="DEC_DIG"/>
+            </validators>
+        </column>
+        <column name="entry_menu_id" type="INTEGER" labelTextRef="Txt3uFCjn" displayType="SELECT" displayLength="17" dynamicList="/Modules/Administration/MenuEntries/Lists/menus">
+            <listMappings display="menu_description" return="menu_id"/>
+            <validators>
+                <validator type="MAX_DIGITS" value="10"/>
+                <validator type="MAX_LENGTH" value="17"/>
+                <validator type="DEC_DIG"/>
+            </validators>
+        </column>
+        <column name="menu_item_id" type="INTEGER" labelTextRef="Txt5408VG" displayType="SELECT" displayLength="17" dynamicList="/Modules/Administration/MenuEntries/Lists/menuItems">
+            <listMappings display="menu_item_text" return="menu_item_id"/>
+            <validators>
+                <validator type="MAX_DIGITS" value="10"/>
+                <validator type="MAX_LENGTH" value="17"/>
+                <validator type="DEC_DIG"/>
+            </validators>
+        </column>
+        <column name="owning_menu_id" type="INTEGER" labelTextRef="Txt7CaqOI" displayType="SELECT" displayLength="17" dynamicList="/Modules/Administration/MenuEntries/Lists/menus">
+            <listMappings display="menu_description" return="menu_id"/>
+            <validators>
+                <validator type="MAX_DIGITS" value="10"/>
+                <validator type="MAX_LENGTH" value="17"/>
+                <validator type="DEC_DIG"/>
+            </validators>
+        </column>
+        <column name="trash" type="CHAR" defaultValue="&lt;i class=&quot;far fa-trash-alt fa-lg&quot;&gt;&lt;/i&gt;" labelTextRef="Txt3Gapgx" displayType="TEXT" html="true"/>
+    </table>
+</tables>

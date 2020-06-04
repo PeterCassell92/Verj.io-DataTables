@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ebase version="5.4.0">
+    <webForm beforeEvent="/Modules/Administration/Roles/Server/Scripts/Events/formConfiguration,/Modules/Administration/Roles/Server/Scripts/Events/loadRoles" formHeaderTextRef="Txt8L23RS" htmlTitleTextRef="Txt2ORN3j" finishButtonTextRef="Txt6QU5b1" backButtonSupport="yes" docType="HTML5" template="/Modules/Shared/Client/PresentationTemplate/DataTablesTest_Bootstrap4" firstPage="Page_1" preferredScriptFolder="/Modules/Administration/MenuEntries/Server/Scripts/Functions" id="DataTablesTest_Roles" dateCreated="2018-01-30T15:25:57.854Z">
+        <sharedFunctionScripts>
+            <sharedFunctionScript path="/Modules/Administration/Roles/Server/Scripts/Functions/roleFunctions"/>
+            <sharedFunctionScript path="/Modules/Shared/Server/Scripts/Functions/functions"/>
+        </sharedFunctionScripts>
+        <clientCallableFunctionScripts>
+            <clientCallableFunctionScript path="/Modules/Administration/Roles/Server/Scripts/Functions/roleFunctions"/>
+        </clientCallableFunctionScripts>
+        <resources>
+            <resource name="roles" path="/Modules/Administration/Roles/Server/Resources/Database/roles"/>
+        </resources>
+        <htmlPlusPlus>
+</htmlPlusPlus>
+        <saveRestore enabled="false" saveButtonTextRef="Txt65CNi8" restoreButtonTextRef="Txt7rhkAs" saveInfoTextRef="TxtGaM5r" restoreInfoTextRef="Txt6tsC4K"/>
+        <finalPage headerTextRef="Txt3F0Ng7" infoTextRef="TxtcXAgy" returnTextRef="Txt1G5Nur" inheritStyle="true"/>
+    </webForm>
+</ebase>

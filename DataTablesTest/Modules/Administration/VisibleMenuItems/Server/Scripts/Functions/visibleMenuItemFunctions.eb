@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ebase version="5.4.0">
+            
+    
+    <script contentType="Javascript" dateCreated="2018-02-02T13:09:00.333Z" id="visibleMenuItemFunctions" preferredComponentPath="/Modules/Administration/VisibleMenuItems/DataTablesTest_VisibleMenuItems">
+                        
+        
+        <scriptText>importPackage(com.ebasetech.xi.api);
+importPackage(com.ebasetech.xi.services);
+
+// insert a new entry
+function addVisibleMenuItem() {
+   // insert row into table
+   tables.visibleMenuItems.insertRow();      
+   // sort the table so that the new row appears at the top
+   tables.visibleMenuItems.sort(tables.visibleMenuItems.menu_item_id);
+}
+
+// delete visible menu item from the table
+function deleteVisibleMenuItem() {
+   tables.visibleMenuItems.deleteRow();
+}
+
+// load visible menu item table from database
+function loadVisibleMenuItems() {
+	 tables.visibleMenuItems.fetchTable();
+}
+
+// save visible menu items to database
+function saveVisibleMenuItems() {
+   // save visible menu items to database
+   tables.visibleMenuItems.updateTable();
+
+   // issue a message
+   controls.saveMessage.addInfoMessage('All changes saved');	
+}
+
+// remove duplicate visible menu items
+function deleteDuplicateVisibleMenuItems() {
+   // sort the table into menu item, role order
+   tables.visibleMenuItems.sort([tables.visibleMenuItems.menu_item_id,tables.visibleMenuItems.role_id]);
+   var r = tables.visibleMenuItems.rows;
+   // set previous row column values
+   var pm, pr = -1;
+   // loop through and delete duplicates
+   while (r.next()) {
+      if (tables.visibleMenuItems.menu_item_id.value == pm &amp;&amp; tables.visibleMenuItems.role_id.value == pr) {
+         // this row is a duplicate of the previous one, do delete it
+         tables.visibleMenuItems.deleteRow();
+      }
+      else {
+         // not a duplcate, so set previous row column values
+         pm = tables.visibleMenuItems.menu_item_id.value;
+         pr = tables.visibleMenuItems.role_id.value;
+      }
+   }
+   // replace sort order
+   tables.visibleMenuItems.sort(tables.visibleMenuItems.menu_item_id);
+}
+
+// delete rows where the menu item is null
+function deleteBlankVisibleMenuItems() {
+	 var r = tables.visibleMenuItems.rows;
+	 while (r.next()) {
+	    if (tables.visibleMenuItems.menu_item_id.value==null) tables.visibleMenuItems.deleteRow();
+	 }
+}
+</scriptText>
+                    
+    
+    </script>
+        
+
+</ebase>

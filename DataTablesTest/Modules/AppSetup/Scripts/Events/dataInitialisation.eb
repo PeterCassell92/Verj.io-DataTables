@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ebase version="5.4.0">
+            
+    
+    <script contentType="Javascript" dateCreated="2018-02-27T12:31:01.903Z" id="dataInitialisation" preferredComponentPath="/Modules/AppSetup/DataTablesTest_DataInitialisation">
+                        
+        
+        <scriptText>importPackage(com.ebasetech.xi.api);
+importPackage(com.ebasetech.xi.services);
+
+
+var appPrefix = "",
+		dbConnection = "datatablestest",
+		schema = "datatablestest",
+		dropTables = fields.dropTables.value;
+
+// open a database connection for use in all table creations
+var con = system.getDatabaseConnection(dbConnection);
+
+// if the schema name is trying to start with a $, set schema to null
+if(/^\$/.test(schema)) schema = null;
+
+try{
+	//////////////////////////////////////-
+	// Create database tables if necessary
+	/*////////////////////////////////////-
+	 * Uses databaseManagement script attached to the form as a "Shared Functions" script.
+	 * 
+	 * Documentation on the DatabaseTable Class takes can be found using intelisense or by
+	 * 	reading it in the databaseManagement script itself.
+	 */
+	
+	/* Security */
+	
+	// users
+	new DatabaseTable({
+		connection: con,
+		conName: dbConnection,
+		schema: schema,
+		dropTable: dropTables,
+		name: appPrefix + "users",
+		columns: [
+							{
+								name: "user_id",
+								type: "int",
+								primaryKey: true,
+								sequence: "DataTablesTest_Users"
+							},{
+								name: "username",
+								type: "varchar",
+								size: 30
+							},{
+								name: "password",
+								type: "varchar",
+								size: 30
+							},{
+								name: "first_name",
+								type: "varchar",
+								size: 100
+							},{
+								name: "last_name",
+								type: "varchar",
+								size: 100
+							},{
+								name: "confirmed",
+								type: "boolean",
+								defaultValue: false
+							}
+						],
+		data: {
+			rows: [
+				{
+					user_id: 1,
+					username: "ann",
+					password: "Q0HlWm6cEt4eJGwhaXatsw==",
+					first_name: "Ann",
+					last_name: "Admin",
+					confirmed: true
+				},{
+					user_id: 2,
+					username: "mike",
+					password: "pYWr2MRFdSy0fXXzYiTffQ==",
+					first_name: "Mike",
+					last_name: "Manager",
+					confirmed: true
+				},{
+					user_id: 3,
+					username: "sarah",
+					password: "DBIaPFhVzyTVjyEdadz4JQ==",
+					first_name: "Sarah",
+					last_name: "Staff",
+					confirmed: true
+				}
+			]
+		}
+	});
+	
+	
+	// roles
+	new DatabaseTable({
+		connection: con,
+		conName: dbConnection,
+		schema: schema,
+		dropTable: dropTables,
+		name: appPrefix + "roles",
+		columns: [
+							{
+								name: "role_id",
+								type: "int",
+								primaryKey: true,
+								sequence: "DataTablesTest_Roles"
+							},{
+								name: "role_name",
+								type: "varchar",
+								size: 100
+							}
+						],
+		data: {
+			rows: [
+				{
+					role_id: 1,
+					role_name: "System Administrator"
+				},{
+					role_id: 2,
+					role_name: "Manager"
+				},{
+					role_id: 3,
+					role_name: "Staff"
+				}
+			]
+		}
+	});
+	
+	
+	// user roles (roles assigned directly to a user)
+	new DatabaseTable({
+		connection: con,
+		conName: dbConnection,
+		schema: schema,
+		dropTable: dropTables,
+		name: appPrefix + "user_roles",
+		columns: [
+							{
+								name: "user_id",
+								type: "int",
+								primaryKey: true
+							},{
+								name: "role_id",
+								type: "int",
+								primaryKey: true
+							}
+						],
+		data: {
+			rows: [
+				{
+					user_id: 1,
+					role_id: 1
+				},{
+					user_id: 2,
+					role_id: 2
+				},{
+					user_id: 3,
+					role_id: 3
+				}
+			]
+		}
+	});
+	
+	
+	// user emails
+	new DatabaseTable({
+		connection: con,
+		conName: dbConnection,
+		schema: schema,
+		dropTable: dropTables,
+		name: appPrefix + "user_emails",
+		columns: [
+							{
+								name: "email_uid",
+								type: "varchar",
+								size: 50,
+								primaryKey: true
+							},{
+								name: "user_id",
+								type: "int",
+							},{
+								name: "expiry",
+								type: "timestamp"
+							},{
+								name: "actioned",
+								type: "boolean",
+								defaultValue: false
+							},{
+								name: "type",
+								type: "varchar",
+								size: 50
+							}
+						]
+	});
+	
+	
+	/* Navigation */
+	
+	// menus
+	new DatabaseTable({
+		connection: con,
+		conName: dbConnection,
+		schema: schema,
+		dropTable: dropTables,
+		name: appPrefix + "menus",
+		columns: [
+							{
+								name: "menu_id",
+								type: "int",
+								primaryKey: true,
+								sequence: "DataTablesTest_Menus"
+							},{
+								name: "menu_description",
+								type: "varchar",
+								size: 200
+							},{
+								name: "format_class",
+								type: "varchar",
+								size: 200
+							}
+						],
+		data: {
+			rows: [
+				{
+					menu_id: 0,
+					menu_description: "TOP",
+					format_class: ""
+				},{
+					menu_id: 2,
+					menu_description: "Product",
+					format_class: ""
+				},{
+					menu_id: 3,
+					menu_description: "Admin",
+					format_class: ""
+				},{
+					menu_id: 4,
+					menu_description: "Admin Sub Menu",
+					format_class: ""
+				},{
+					menu_id: 5,
+					menu_description: "Manager",
+					format_class: ""
+				},{
+					menu_id: 6,
+					menu_description: "Staff",
+					format_class: ""
+				}
+			]
+		}
+	});
+	
+	
+	// menu items
+	new DatabaseTable({
+		connection: con,
+		conName: dbConnection,
+		schema: schema,
+		dropTable: dropTables,
+		name: appPrefix + "menu_items",
+		columns: [
+							{
+								name: "menu_item_id",
+								type: "int",
+								primaryKey: true,
+								sequence: "DataTablesTest_MenuItems"
+							},{
+								name: "menu_item_text",
+								type: "varchar",
+								size: 200
+							},{
+								name: "menu_item_action",
+								type: "varchar",
+								size: 500
+							},{
+								name: "format_class",
+								type: "varchar",
+								size: 200
+							}
+						],
+		data: {
+			rows: [
+				// TOP menu items
+				{
+					menu_item_id: 16,
+					menu_item_text: "Home",
+					menu_item_action: "DataTablesTest_Home.eb",
+					format_class: "fa fa-home"
+				},{
+					menu_item_id: 3,
+					menu_item_text: "Documentation",
+					menu_item_action: "DataTablesTest_AppDocumentation.eb",
+					format_class: ""
+				},
+				// Level1 - Admin menu items
+				{
+					menu_item_id: 1,
+					menu_item_text: "Menus",
+					menu_item_action: "DataTablesTest_Menus.eb",
+					format_class: "fa fa-bars"
+				},{
+					menu_item_id: 2,
+					menu_item_text: "Menu Items",
+					menu_item_action: "DataTablesTest_MenuItems.eb",
+					format_class: "fa fa-bars"
+				},{
+					menu_item_id: 19,
+					menu_item_text: "Menu Entries",
+					menu_item_action: "DataTablesTest_MenuEntries.eb",
+					format_class: "fa fa-bars"
+				},{
+					menu_item_id: 20,
+					menu_item_text: "Roles",
+					menu_item_action: "DataTablesTest_Roles.eb",
+					format_class: "fa fa-bars"
+				},{
+					menu_item_id: 21,
+					menu_item_text: "Users",
+					menu_item_action: "DataTablesTest_Users.eb",
+					format_class: "fa fa-bars"
+				},{
+					menu_item_id: 22,
+					menu_item_text: "User roles",
+					menu_item_action: "DataTablesTest_UserRoles.eb",
+					format_class: "fa fa-bars"
+				},{
+					menu_item_id: 23,
+					menu_item_text: "Visible Menu Items",
+					menu_item_action: "DataTablesTest_VisibleMenuItems.eb",
+					format_class: "fa fa-bars"
+				},
+				// Level1 - Product menu items
+				{
+					menu_item_id: 17,
+					menu_item_text: "Prod opt-1",
+					menu_item_action: "#",
+					format_class: "fa fa-edit"
+				},{
+					menu_item_id: 18,
+					menu_item_text: "Prod opt-2",
+					menu_item_action: "#",
+					format_class: "fa fa-edit"
+				},
+				// Admin menu items
+				{
+					menu_item_id: 4,
+					menu_item_text: "Admin sub-opt-1",
+					menu_item_action: "#",
+					format_class: ""
+				},{
+					menu_item_id: 5,
+					menu_item_text: "Admin sub opt-2",
+					menu_item_action: "#",
+					format_class: ""
+				},{
+					menu_item_id: 6,
+					menu_item_text: "Admin sub opt-3",
+					menu_item_action: "#",
+					format_class: ""
+				},
+				// Manager menu items
+				{
+					menu_item_id: 7,
+					menu_item_text: "Manager sub opt-1",
+					menu_item_action: "#",
+					format_class: ""
+				},{
+					menu_item_id: 8,
+					menu_item_text: "Manager sub-opt-2",
+					menu_item_action: "#",
+					format_class: ""
+				},{
+					menu_item_id: 9,
+					menu_item_text: "Manager sub-opt-3",
+					menu_item_action: "#",
+					format_class: ""
+				},
+				// Staff menu items
+				{
+					menu_item_id: 10,
+					menu_item_text: "Staff sub-opt-1",
+					menu_item_action: "#",
+					format_class: ""
+				},{
+					menu_item_id: 11,
+					menu_item_text: "Staff sub-opt-2",
+					menu_item_action: "#",
+					format_class: ""
+				},{
+					menu_item_id: 12,
+					menu_item_text: "Staff sub-opt-3",
+					menu_item_action: "#",
+					format_class: ""
+				},{
+					menu_item_id: 13,
+					menu_item_text: "Staff sub-opt-4",
+					menu_item_action: "#",
+					format_class: ""
+				},{
+					menu_item_id: 14,
+					menu_item_text: "Staff sub-opt-5",
+					menu_item_action: "#",
+					format_class: ""
+				},{
+					menu_item_id: 15,
+					menu_item_text: "Staff sub-opt-6",
+					menu_item_action: "#",
+					format_class: ""
+				}
+			]
+		}
+	});
+	
+	
+	// menu entries
+	new DatabaseTable({
+		connection: con,
+		conName: dbConnection,
+		schema: schema,
+		dropTable: dropTables,
+		name: appPrefix + "menu_entries",
+		columns: [
+							{
+								name: "owning_menu_id",
+								type: "int"
+							},{
+								name: "menu_item_id",
+								type: "int"
+							},{
+								name: "entry_menu_id",
+								type: "int"
+							},{
+								name: "display_order",
+								type: "int"
+							}
+						],
+		data: {
+			rows: [
+				// TOP
+				{
+					owning_menu_id: 0,
+					menu_item_id: 16,
+					entry_menu_id: null,
+					display_order: 1
+				},{
+					owning_menu_id: 0,
+					menu_item_id: 3,
+					entry_menu_id: null,
+					display_order: 2
+				},{
+					owning_menu_id: 0,
+					menu_item_id: null,
+					entry_menu_id: 2,
+					display_order: 3
+				},{
+					owning_menu_id: 0,
+					menu_item_id: null,
+					entry_menu_id: 3,
+					display_order: 4
+				},
+				// Level1 - M2
+				{
+					owning_menu_id: 2,
+					menu_item_id: 2,
+					entry_menu_id: null,
+					display_order: 1
+				},{
+					owning_menu_id: 2,
+					menu_item_id: 17,
+					entry_menu_id: null,
+					display_order: 2
+				},{
+					owning_menu_id: 2,
+					menu_item_id: 18,
+					entry_menu_id: null,
+					display_order: 3
+				},
+				// Level1 - M3
+				{
+					owning_menu_id: 3,
+					menu_item_id: 1,
+					entry_menu_id: null,
+					display_order: 4
+				},{
+					owning_menu_id: 3,
+					menu_item_id: 2,
+					entry_menu_id: null,
+					display_order: 5
+				},{
+					owning_menu_id: 3,
+					menu_item_id: 19,
+					entry_menu_id: null,
+					display_order: 6
+				},{
+					owning_menu_id: 3,
+					menu_item_id: 20,
+					entry_menu_id: null,
+					display_order: 2
+				},{
+					owning_menu_id: 3,
+					menu_item_id: 21,
+					entry_menu_id: null,
+					display_order: 1
+				},{
+					owning_menu_id: 3,
+					menu_item_id: 22,
+					entry_menu_id: null,
+					display_order: 3
+				},{
+					owning_menu_id: 3,
+					menu_item_id: 23,
+					entry_menu_id: null,
+					display_order: 7
+				},{
+					owning_menu_id: 3,
+					menu_item_id: null,
+					entry_menu_id: 4,
+					display_order: 8
+				},{
+					owning_menu_id: 3,
+					menu_item_id: null,
+					entry_menu_id: 5,
+					display_order: 9
+				},
+				// Admin
+				{
+					owning_menu_id: 4,
+					menu_item_id: 4,
+					entry_menu_id: null,
+					display_order: 1
+				},{
+					owning_menu_id: 4,
+					menu_item_id: 5,
+					entry_menu_id: null,
+					display_order: 2
+				},{
+					owning_menu_id: 4,
+					menu_item_id: 6,
+					entry_menu_id: null,
+					display_order: 3
+				},
+				// Manager
+				{
+					owning_menu_id: 5,
+					menu_item_id: 7,
+					entry_menu_id: null,
+					display_order: 1
+				},{
+					owning_menu_id: 5,
+					menu_item_id: 8,
+					entry_menu_id: null,
+					display_order: 2
+				},{
+					owning_menu_id: 5,
+					menu_item_id: 9,
+					entry_menu_id: null,
+					display_order: 3
+				},
+				// Staff
+				{
+					owning_menu_id: 6,
+					menu_item_id: 10,
+					entry_menu_id: null,
+					display_order: 1
+				},{
+					owning_menu_id: 6,
+					menu_item_id: 11,
+					entry_menu_id: null,
+					display_order: 2
+				},{
+					owning_menu_id: 6,
+					menu_item_id: 12,
+					entry_menu_id: null,
+					display_order: 3
+				},{
+					owning_menu_id: 6,
+					menu_item_id: 13,
+					entry_menu_id: null,
+					display_order: 4
+				},{
+					owning_menu_id: 6,
+					menu_item_id: 14,
+					entry_menu_id: null,
+					display_order: 5
+				},{
+					owning_menu_id: 6,
+					menu_item_id: 15,
+					entry_menu_id: null,
+					display_order: 6
+				}
+			]
+		}
+	});
+	
+	
+	// visible menu items
+	new DatabaseTable({
+		connection: con,
+		conName: dbConnection,
+		schema: schema,
+		dropTable: dropTables,
+		name: appPrefix + "visible_menu_items",
+		columns: [
+							{
+								name: "menu_item_id",
+								type: "int"
+							},{
+								name: "role_id",
+								type: "int"
+							}
+						],
+		data: {
+			rows: [
+				// Top menu related
+				{
+					menu_item_id: 16,
+					role_id: null
+				},{
+					menu_item_id: 3,
+					role_id: null
+				},
+				// Level1 - M3 related
+				{
+					menu_item_id: 17,
+					role_id: null
+				},{
+					menu_item_id: 18,
+					role_id: null
+				},{
+					menu_item_id: 19,
+					role_id: null
+				},{
+					menu_item_id: 20,
+					role_id: null
+				},{
+					menu_item_id: 21,
+					role_id: null
+				},{
+					menu_item_id: 22,
+					role_id: null
+				},{
+					menu_item_id: 23,
+					role_id: null
+				},
+				// Level1 - M3 related
+				{
+					menu_item_id: 1,
+					role_id: null
+				},{
+					menu_item_id: 2,
+					role_id: null
+				},
+				// Admin related
+				{
+					menu_item_id: 4,
+					role_id: 1
+				},{
+					menu_item_id: 5,
+					role_id: 1
+				},{
+					menu_item_id: 6,
+					role_id: 1
+				},
+				// Manager related
+				{
+					menu_item_id: 7,
+					role_id: 2
+				},{
+					menu_item_id: 8,
+					role_id: 2
+				},{
+					menu_item_id: 9,
+					role_id: 2
+				},
+				// Staff related
+				{
+					menu_item_id: 10,
+					role_id: 3
+				},{
+					menu_item_id: 11,
+					role_id: 3
+				},{
+					menu_item_id: 12,
+					role_id: 3
+				},{
+					menu_item_id: 13,
+					role_id: 3
+				},{
+					menu_item_id: 14,
+					role_id: 3
+				},{
+					menu_item_id: 15,
+					role_id: 3
+				}
+			]
+		}
+	});
+}
+finally{
+	if(con){
+		try{
+			con.close();
+		}
+		catch(e){
+			log(e);
+			// never mind
+		} 
+	}
+}
+
+
+
+/// if this form has been called, return from form
+if(form.isCalledForm()){
+	form.returnFromForm();
+}
+else{
+	form.gotoPage(pages.successPg);
+}
+</scriptText>
+                    
+    
+    </script>
+        
+
+</ebase>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tables>
+    <table name="pages" id="c537e94d-d95d-4447-9228-8e0361566426">
+        <column name="displayName" type="CHAR" labelTextRef="TxthuIHI" displayType="TEXT" id="fa1c9bcd-2b4a-42c1-a560-7d60905bd5a5"/>
+        <column name="pageName" type="CHAR" labelTextRef="Txt4dIqjt" displayType="TEXT" id="6bdeee1b-b14d-466e-b7d7-0de1ed53894b"/>
+    </table>
+</tables>

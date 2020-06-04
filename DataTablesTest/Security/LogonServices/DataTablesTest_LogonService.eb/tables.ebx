@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tables>
+    <table name="CREDENTIAL">
+        <column name="ID" type="CHAR"/>
+        <column name="VALUE" type="CHAR"/>
+    </table>
+    <table name="CUSTOMROLE">
+        <column name="ROLEID" type="CHAR"/>
+    </table>
+    <table name="EBASEROLE">
+        <column name="ROLEID_2" type="CHAR"/>
+    </table>
+    <table name="userRoles">
+        <column name="role_id" type="INTEGER"/>
+    </table>
+    <table name="users">
+        <column name="confirmed" type="BOOLEAN"/>
+        <column name="first_name" type="CHAR"/>
+        <column name="last_name" type="CHAR"/>
+        <column name="user_id" type="INTEGER"/>
+        <column name="username" type="CHAR"/>
+    </table>
+</tables>

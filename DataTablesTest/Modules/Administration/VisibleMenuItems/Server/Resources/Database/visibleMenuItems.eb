@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><ebase version="5.3.2">
+        
+    <dbResource database="datatablestest" dateCreated="2018-02-19T15:16:03.700Z" description="Controls which menu items are visible to which (user) roles" id="visibleMenuItems" table="true">
+                
+        <columns>*</columns>
+                
+        <from>visible_menu_items</from>
+                
+        <additional>order by menu_item_id</additional>
+                
+        <fields>
+                        
+            <field id="menu_item_id" length="10" type="INTEGER"/>
+                        
+            <field id="role_id" length="10" type="INTEGER"/>
+                    
+        </fields>
+            
+    </dbResource>
+    
+</ebase>

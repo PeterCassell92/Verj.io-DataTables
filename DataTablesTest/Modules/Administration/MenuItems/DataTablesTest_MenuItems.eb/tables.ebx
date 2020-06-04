@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tables>
+    <table name="menuItems">
+        <column name="format_class" type="CHAR" labelTextRef="Txt638Z5x" maxLength="200" displayType="TEXT" displayLength="15"/>
+        <column name="menu_item_action" type="CHAR" labelTextRef="Txt4L94m5" maxLength="500" displayType="TEXT" displayLength="18"/>
+        <column name="menu_item_id" type="INTEGER" labelTextRef="Txt2jCov5" displayType="TEXT" displayLength="17">
+            <validators>
+                <validator type="MAX_DIGITS" value="10"/>
+                <validator type="MAX_LENGTH" value="17"/>
+                <validator type="DEC_DIG"/>
+            </validators>
+        </column>
+        <column name="menu_item_text" type="CHAR" labelTextRef="Txt3elINp" maxLength="200" displayType="TEXT" displayLength="18"/>
+        <column name="trash" type="CHAR" defaultValue="&lt;i class=&quot;far fa-trash-alt fa-lg&quot;&gt;&lt;/i&gt;" labelTextRef="Txt6YwcRn" displayType="TEXT" html="true"/>
+    </table>
+</tables>

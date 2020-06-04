@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<component source="/Modules/Shared/Components/Header/header" sourceProject="DataTablesTest" version="0" prefix="aheader" page="Home">
+    <sharedFunctionScripts>
+        <sharedFunctionScript path="/Modules/Shared/Server/Scripts/Functions/functions"/>
+        <sharedFunctionScript path="/Modules/Shared/Components/Header/Server/Scripts/Functions/headerFunctions"/>
+        <sharedFunctionScript path="/Modules/Shared/Server/Scripts/Functions/sharedValidation"/>
+    </sharedFunctionScripts>
+    <clientCallableFunctionScripts>
+        <clientCallableFunctionScript path="/Modules/Shared/Components/Header/Server/Scripts/Functions/loginFunctions"/>
+    </clientCallableFunctionScripts>
+    <clientScripts>
+        <clientScript path="$ws/Modules/Shared/Client/JavaScript/header.js"/>
+    </clientScripts>
+    <resources>
+        <resource name="genericEmail" path="/Modules/Shared/Server/Resources/Email/genericEmail"/>
+        <resource name="menuEntries" path="/Modules/Shared/Components/Header/Server/Resources/Database/menuEntries"/>
+        <resource name="menuItems" path="/Modules/Shared/Components/Header/Server/Resources/Database/menuItems"/>
+        <resource name="menus" path="/Modules/Shared/Components/Header/Server/Resources/Database/menus"/>
+        <resource name="user" path="/Modules/Shared/Server/Resources/Database/user"/>
+        <resource name="userByUsername" path="/Modules/Shared/Components/Header/Server/Resources/Database/userByUsername"/>
+        <resource name="userEmail" path="/Modules/Shared/Server/Resources/Database/userEmail"/>
+        <resource name="visibleMenuItems" path="/Modules/Shared/Components/Header/Server/Resources/Database/visibleMenuItems"/>
+    </resources>
+    <fields>
+        <field name="breadCrumb" type="CHAR" labelTextRef="aheader__Txt4AIyvj" displayType="TEXT" sourceId="efb5475c-8e7d-4ee6-b1e4-8f782c051564"/>
+        <field name="componentPrefix" type="CHAR" labelTextRef="aheader__Txt8YwhEN" displayType="TEXT" sourceId="6d3ea9a4-5733-4f92-bff2-c5ebc53a9341"/>
+        <field name="confirmationType" type="CHAR" labelTextRef="aheader__Txt9krmqZ" displayType="TEXT" sourceId="09579b8f-2cbe-4bef-b186-af1b81c282f9"/>
+        <field name="email" type="CHAR" labelTextRef="aheader__Txt9yypTe" displayType="TEXT" displayLength="40" sourceId="ab310992-4690-4c3b-9492-6a523176c00d"/>
+        <field name="emailExpiry" type="DATETIME" labelTextRef="aheader__Txt4Me9rs" displayType="TEXT" sourceId="4fe6d286-9994-4f60-9d02-8c4a16d1e037"/>
+        <field name="emailUID" type="CHAR" labelTextRef="aheader__Txt7vO1O2" displayType="TEXT" sourceId="a7cbc48d-da11-461f-83e3-81d7835e211a"/>
+        <field name="encryptedPassword" type="CHAR" labelTextRef="aheader__Txt6jmPf4" displayType="TEXT" sourceId="c3630742-27ed-4949-b913-8d605492a8f1"/>
+        <field name="eventField" type="CHAR" eventField="true" labelTextRef="aheader__Txt9iwAyL" displayType="TEXT" sourceId="aa8f408c-26fc-46cb-8679-21dcee701648"/>
+        <field name="firstName" type="CHAR" labelTextRef="aheader__Txt9eQE34" displayType="TEXT" sourceId="4930deb1-87b6-4bda-bec1-f08fc5d83e2c"/>
+        <field name="formDescription" type="CHAR" labelTextRef="aheader__Txt15vsYW" displayType="TEXT" sourceId="5510f1de-cae7-435a-8c01-9847f39d9caa"/>
+        <field name="lastName" type="CHAR" labelTextRef="aheader__Txtuv6Gm" displayType="TEXT" sourceId="625a6d42-28eb-40a1-a581-8059191dda74"/>
+        <field name="menu" type="CHAR" labelTextRef="aheader__TxtAQA5dq" maxLength="2550" displayType="TEXTAREA" displayLength="200" rows="15" sourceId="143c861c-6133-4973-b216-03a082ccaebe"/>
+        <field name="msgSubject" type="CHAR" labelTextRef="aheader__Txt4Dj366" displayType="TEXT" sourceId="6dc03e48-3454-43bb-92fe-ebe74764cfb8"/>
+        <field name="msgText" type="CHAR" labelTextRef="aheader__Txt5ZGBoy" displayType="TEXT" sourceId="3e5f7d7d-e592-4536-b70c-2d087e8ca362"/>
+        <field name="password" type="CHAR" labelTextRef="aheader__TxtLV9SO" displayType="PASSWORD" displayLength="40" sourceId="4d4f0e19-8229-4333-a98d-2af4c9159b01"/>
+        <field name="range" type="CHAR" labelTextRef="aheader__Txt17SYzD" displayType="TEXT" sourceId="5957bc29-0702-48ef-bf38-e03a684302ca"/>
+        <field name="retypePassword" type="CHAR" labelTextRef="aheader__Txt9BS0pe" displayType="TEXT" sourceId="f3f84f5f-a3fb-46a2-a8ce-360b56b08a1c"/>
+        <field name="user_id" type="INTEGER" labelTextRef="aheader__Txt8opwAa" displayType="TEXT" displayLength="17" sourceId="e6af4a61-235e-4211-8907-1312e05fbac8">
+            <validators>
+                <validator type="MAX_DIGITS" value="10"/>
+                <validator type="MAX_LENGTH" value="17"/>
+                <validator type="DEC_DIG"/>
+            </validators>
+        </field>
+        <field name="windowResizeEvent" type="BOOLEAN" labelTextRef="aheader__Txt4NoRTm" displayType="TEXT" sourceId="b79bb75b-08d8-4a78-8760-9bdaba3a6d98"/>
+    </fields>
+    <tables>
+        <table name="menuEntries" sourceId="f0c68f2b-bd66-43b0-a1ea-90bdcb10b6f7">
+            <column name="entry_menu_id" type="INTEGER" labelTextRef="aheader__Txt7ZyvDo" displayType="TEXT" sourceId="afeac0d7-eee8-4b8a-a600-6b07a73d6ad1">
+                <validators>
+                    <validator type="DEC_DIG"/>
+                </validators>
+            </column>
+            <column name="menu_item_id" type="INTEGER" labelTextRef="aheader__Txt4FGjMZ" displayType="TEXT" sourceId="b5aae7f5-9eda-4bac-b3ac-bc2c7f55d0a4">
+                <validators>
+                    <validator type="DEC_DIG"/>
+                </validators>
+            </column>
+            <column name="owning_menu_id" type="INTEGER" labelTextRef="aheader__Txt3JWsRY" displayType="TEXT" sourceId="48967c7b-c23b-4188-afde-dba7ec370af6">
+                <validators>
+                    <validator type="DEC_DIG"/>
+                </validators>
+            </column>
+        </table>
+        <table name="menuItems" sourceId="e9babd5f-687e-477b-b2a5-3baa301657d0">
+            <column name="format_class" type="CHAR" labelTextRef="aheader__Txt48SFEY" displayType="TEXT" sourceId="e062b33f-44d2-48d8-9ca5-dc4e82fea3b4"/>
+            <column name="menu_item_action" type="CHAR" labelTextRef="aheader__Txt8I0HBf" displayType="TEXT" sourceId="a7f9db70-63a5-4e16-a581-ddcc9d30d34b"/>
+            <column name="menu_item_id" type="INTEGER" labelTextRef="aheader__Txt3nsiwu" displayType="TEXT" sourceId="f8dc0b96-a4c0-4b81-b846-a3ef59536ec1">
+                <validators>
+                    <validator type="DEC_DIG"/>
+                </validators>
+            </column>
+            <column name="menu_item_text" type="CHAR" labelTextRef="aheader__TxtAGcZQV" displayType="TEXT" sourceId="51a0f7d5-ab7c-4367-b53d-1c24e682da1c"/>
+        </table>
+        <table name="menus" sourceId="3689bb7f-cdb0-4db8-a3d4-533b1b47a65a">
+            <column name="format_class" type="CHAR" labelTextRef="aheader__Txt33ZWPz" displayType="TEXT" sourceId="3b3570f5-9668-49ca-b8d0-104af45585fd"/>
+            <column name="menu_description" type="CHAR" labelTextRef="aheader__Txt60rXHg" displayType="TEXT" sourceId="240e9d2d-0d48-414c-b1df-437d653d2768"/>
+            <column name="menu_id" type="INTEGER" labelTextRef="aheader__Txt3Pqc87" displayType="TEXT" sourceId="c0e54bd6-70ed-4c8c-9e92-ea8902c6d7d1">
+                <validators>
+                    <validator type="DEC_DIG"/>
+                </validators>
+            </column>
+        </table>
+        <table name="visibleMenuItems" sourceId="caea863b-6eb6-44b1-90e6-cef195c67dab">
+            <column name="menu_item_id" type="INTEGER" labelTextRef="aheader__Txt9EOzXE" displayType="TEXT" sourceId="e195c0e3-9079-4f60-9968-842feb0140e8">
+                <validators>
+                    <validator type="DEC_DIG"/>
+                </validators>
+            </column>
+            <column name="userId" type="INTEGER" labelTextRef="aheader__Txt5FepVW" displayType="TEXT" sourceId="ce828820-68e7-4319-9c1d-96445080db4c">
+                <validators>
+                    <validator type="DEC_DIG"/>
+                </validators>
+            </column>
+        </table>
+    </tables>
+    <resourceMappings>
+        <resourceMapping id="genericEmail">
+            <fieldMapping resourceField="emailAddress" field="email"/>
+            <fieldMapping resourceField="subject" field="msgSubject"/>
+            <fieldMapping resourceField="messageText" field="msgText"/>
+        </resourceMapping>
+        <resourceMapping id="menuEntries">
+            <tableMapping table="menuEntries"/>
+            <fieldMapping resourceField="entry_menu_id" field="menuEntries-entry_menu_id"/>
+            <fieldMapping resourceField="menu_item_id" field="menuEntries-menu_item_id"/>
+            <fieldMapping resourceField="owning_menu_id" field="menuEntries-owning_menu_id"/>
+        </resourceMapping>
+        <resourceMapping id="menuItems">
+            <tableMapping table="menuItems"/>
+            <fieldMapping resourceField="format_class" field="menuItems-format_class"/>
+            <fieldMapping resourceField="menu_item_action" field="menuItems-menu_item_action"/>
+            <fieldMapping resourceField="menu_item_id" field="menuItems-menu_item_id"/>
+            <fieldMapping resourceField="menu_item_text" field="menuItems-menu_item_text"/>
+        </resourceMapping>
+        <resourceMapping id="menus">
+            <tableMapping table="menus"/>
+            <fieldMapping resourceField="format_class" field="menus-format_class"/>
+            <fieldMapping resourceField="menu_description" field="menus-menu_description"/>
+            <fieldMapping resourceField="menu_id" field="menus-menu_id"/>
+        </resourceMapping>
+        <resourceMapping id="user">
+            <fieldMapping resourceField="username" field="email"/>
+            <fieldMapping resourceField="password" field="encryptedPassword"/>
+            <fieldMapping resourceField="first_name" field="firstName"/>
+            <fieldMapping resourceField="last_name" field="lastName"/>
+            <fieldMapping resourceField="user_id" field="user_id"/>
+        </resourceMapping>
+        <resourceMapping id="userByUsername">
+            <fieldMapping resourceField="username" field="email"/>
+            <fieldMapping resourceField="first_name" field="firstName"/>
+            <fieldMapping resourceField="last_name" field="lastName"/>
+            <fieldMapping resourceField="user_id" field="user_id"/>
+        </resourceMapping>
+        <resourceMapping id="userEmail">
+            <fieldMapping resourceField="type" field="confirmationType"/>
+            <fieldMapping resourceField="expiry" field="emailExpiry"/>
+            <fieldMapping resourceField="email_uid" field="emailUID"/>
+            <fieldMapping resourceField="user_id" field="user_id"/>
+        </resourceMapping>
+        <resourceMapping id="visibleMenuItems">
+            <tableMapping table="visibleMenuItems"/>
+            <fieldMapping resourceField="menu_item_id" field="visibleMenuItems-menu_item_id"/>
+            <fieldMapping resourceField="userId" field="visibleMenuItems-userId"/>
+        </resourceMapping>
+    </resourceMappings>
+    <texts>
+        <text id="Txt15vsYW">
+            <languageText language="EN">Formdescription</languageText>
+        </text>
+        <text id="Txt17SYzD">
+            <languageText language="EN">Screenwidth</languageText>
+        </text>
+        <text id="Txt18LvbL"/>
+        <text id="Txt1Hh7Jl"/>
+        <text id="Txt1R6rO7"/>
+        <text id="Txt21KC8P" html="true">
+            <languageText language="EN">Login</languageText>
+        </text>
+        <text id="Txt2CuHfJ"/>
+        <text id="Txt2aIFjB" html="true">
+            <languageText language="EN">Login</languageText>
+        </text>
+        <text id="Txt2aIFjB_2" html="true">
+            <languageText language="EN">Sign up</languageText>
+        </text>
+        <text id="Txt30vmJr"/>
+        <text id="Txt33ZWPz">
+            <languageText language="EN">Format class</languageText>
+        </text>
+        <text id="Txt3JWsRY">
+            <languageText language="EN">Owning menu id</languageText>
+        </text>
+        <text id="Txt3Pqc87">
+            <languageText language="EN">Menu id</languageText>
+        </text>
+        <text id="Txt3UESTF_2"/>
+        <text id="Txt3f0dTj"/>
+        <text id="Txt3mfv94"/>
+        <text id="Txt3nsiwu">
+            <languageText language="EN">Menu item id</languageText>
+        </text>
+        <text id="Txt3wD94f"/>
+        <text id="Txt3yFliF" languageIndependent="true">
+            <languageText language="EBASE">&amp;&amp;aheader__breadCrumb</languageText>
+        </text>
+        <text id="Txt48SFEY">
+            <languageText language="EN">Format class</languageText>
+        </text>
+        <text id="Txt4AIyvj">
+            <languageText language="EN">Breadcrumb</languageText>
+        </text>
+        <text id="Txt4Dj366">
+            <languageText language="EN">Msgsubject</languageText>
+        </text>
+        <text id="Txt4FGjMZ">
+            <languageText language="EN">Menu item id</languageText>
+        </text>
+        <text id="Txt4M0s58" html="true">
+            <languageText language="EN">&lt;i class=&quot;fa fa-cog fa-fw fa-lg&quot;&gt;&lt;/i&gt;</languageText>
+        </text>
+        <text id="Txt4Me9rs">
+            <languageText language="EN">Emailexpiry</languageText>
+        </text>
+        <text id="Txt4NoRTm">
+            <languageText language="EN">Windowresizeevent</languageText>
+        </text>
+        <text id="Txt4cbcub"/>
+        <text id="Txt4xwj9i"/>
+        <text id="Txt5FepVW">
+            <languageText language="EN">Userid</languageText>
+        </text>
+        <text id="Txt5Kb3NA">
+            <languageText language="EN">Logout</languageText>
+        </text>
+        <text id="Txt5ZGBoy">
+            <languageText language="EN">Msgtext</languageText>
+        </text>
+        <text id="Txt5qShOS"/>
+        <text id="Txt60rXHg">
+            <languageText language="EN">Menu description</languageText>
+        </text>
+        <text id="Txt69wK5K_2"/>
+        <text id="Txt6b7sZL" html="true">
+            <languageText language="EN">&lt;span class=&quot;glyphicon glyphicon-log-in&quot;&gt;&lt;/span&gt; Login</languageText>
+        </text>
+        <text id="Txt6b7sZL_2" html="true">
+            <languageText language="EN">&lt;span class=&quot;glyphicon glyphicon-log-in&quot;&gt;&lt;/span&gt; Login</languageText>
+        </text>
+        <text id="Txt6b7sZL_3" html="true">
+            <languageText language="EN">&lt;span class=&quot;glyphicon glyphicon-log-in&quot;&gt;&lt;/span&gt; User: &amp;&amp;user</languageText>
+        </text>
+        <text id="Txt6b7sZL_4" html="true">
+            <languageText language="EN">&amp;&amp;user</languageText>
+        </text>
+        <text id="Txt6jmPf4">
+            <languageText language="EN">Encryptedpassword</languageText>
+        </text>
+        <text id="Txt6wTMyc"/>
+        <text id="Txt72Nc8Q"/>
+        <text id="Txt7N632B"/>
+        <text id="Txt7TMj33">
+            <languageText language="EN">My Organisation</languageText>
+        </text>
+        <text id="Txt7TMj33_2">
+            <languageText language="EN">My Organisation</languageText>
+        </text>
+        <text id="Txt7TMj33_3" html="true">
+            <languageText language="EN">&lt;i class=&quot;fa fa-user-circle fa-3x&quot; style=&quot;color:white;&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;</languageText>
+        </text>
+        <text id="Txt7ZyvDo">
+            <languageText language="EN">Entry menu id</languageText>
+        </text>
+        <text id="Txt7fWbaZ" html="true">
+            <languageText language="EN">&lt;span class=&quot;glyphicon glyphicon-user&quot;&gt;&lt;/span&gt; Sign Up</languageText>
+        </text>
+        <text id="Txt7fWbaZ_2" html="true">
+            <languageText language="EN">&lt;span class=&quot;glyphicon glyphicon-user&quot;&gt;&lt;/span&gt; Sign Up</languageText>
+        </text>
+        <text id="Txt7klR6n"/>
+        <text id="Txt7klR6n_2"/>
+        <text id="Txt7oHMZ6_2"/>
+        <text id="Txt7vO1O2">
+            <languageText language="EN">Emailuid</languageText>
+        </text>
+        <text id="Txt8EQivr">
+            <languageText language="EN">Cancel</languageText>
+        </text>
+        <text id="Txt8EQivr_2">
+            <languageText language="EN">Cancel</languageText>
+        </text>
+        <text id="Txt8I0HBf">
+            <languageText language="EN">Menu item action</languageText>
+        </text>
+        <text id="Txt8MplZ3">
+            <languageText language="EN">Forgot your password?</languageText>
+        </text>
+        <text id="Txt8RRFQ9">
+            <languageText language="EN">Action</languageText>
+        </text>
+        <text id="Txt8RRFQ9_2">
+            <languageText language="EN">Another action</languageText>
+        </text>
+        <text id="Txt8RRFQ9_3">
+            <languageText language="EN">Something else here</languageText>
+        </text>
+        <text id="Txt8RRFQ9_4">
+            <languageText language="EN">Action</languageText>
+        </text>
+        <text id="Txt8RRFQ9_5">
+            <languageText language="EN">Another action</languageText>
+        </text>
+        <text id="Txt8RRFQ9_6">
+            <languageText language="EN">Something else here</languageText>
+        </text>
+        <text id="Txt8RRFQ9_7">
+            <languageText language="EN">Action</languageText>
+        </text>
+        <text id="Txt8RRFQ9_8">
+            <languageText language="EN">Another action</languageText>
+        </text>
+        <text id="Txt8RRFQ9_9">
+            <languageText language="EN">Something else here</languageText>
+        </text>
+        <text id="Txt8UHNNB"/>
+        <text id="Txt8YwhEN">
+            <languageText language="EN">Componentprefix</languageText>
+        </text>
+        <text id="Txt8hL9hJ_2"/>
+        <text id="Txt8opwAa">
+            <languageText language="EN">User id</languageText>
+        </text>
+        <text id="Txt9BS0pe">
+            <languageText language="EN">Retype Password</languageText>
+        </text>
+        <text id="Txt9EOzXE">
+            <languageText language="EN">Menu item id</languageText>
+        </text>
+        <text id="Txt9bQ2hV"/>
+        <text id="Txt9eQE34">
+            <languageText language="EN">First Name</languageText>
+        </text>
+        <text id="Txt9iwAyL">
+            <languageText language="EN">Event</languageText>
+        </text>
+        <text id="Txt9jnqXn" html="true">
+            <languageText language="EN">Page 1 &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;</languageText>
+        </text>
+        <text id="Txt9jnqXn_2" html="true">
+            <languageText language="EN">Page 1 &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;</languageText>
+        </text>
+        <text id="Txt9jnqXn_3" html="true">
+            <languageText language="EN">Page 1 &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;</languageText>
+        </text>
+        <text id="Txt9krmqZ">
+            <languageText language="EN">Type</languageText>
+        </text>
+        <text id="Txt9yypTe">
+            <languageText language="EN">Email</languageText>
+        </text>
+        <text id="TxtA4HmrB"/>
+        <text id="TxtA51xxi">
+            <languageText language="EN">Sign up</languageText>
+        </text>
+        <text id="TxtA51xxi_2">
+            <languageText language="EN">Sign up</languageText>
+        </text>
+        <text id="TxtAGcZQV">
+            <languageText language="EN">Menu item text</languageText>
+        </text>
+        <text id="TxtAQA5dq">
+            <languageText language="EN">Menu</languageText>
+        </text>
+        <text id="TxtATdx4S"/>
+        <text id="TxtAkSfXq" languageIndependent="true">
+            <languageText language="EBASE">&amp;&amp;aheader__menu
+</languageText>
+        </text>
+        <text id="TxtAo81Nz">
+            <languageText language="EN">Disabled</languageText>
+        </text>
+        <text id="TxtAo81Nz_2">
+            <languageText language="EN">Disabled</languageText>
+        </text>
+        <text id="TxtAtpuDl"/>
+        <text id="TxtJ6ozo"/>
+        <text id="TxtJKvJM"/>
+        <text id="TxtLV9SO">
+            <languageText language="EN">Password</languageText>
+        </text>
+        <text id="TxtcyeTA"/>
+        <text id="TxtpBBLX">
+            <languageText language="EN">Home</languageText>
+        </text>
+        <text id="TxtpBBLX_10">
+            <languageText language="EN">Logout</languageText>
+        </text>
+        <text id="TxtpBBLX_2">
+            <languageText language="EN">Home</languageText>
+        </text>
+        <text id="TxtpBBLX_3">
+            <languageText language="EN">Page 1</languageText>
+        </text>
+        <text id="TxtpBBLX_4">
+            <languageText language="EN">Page 2</languageText>
+        </text>
+        <text id="TxtpBBLX_5">
+            <languageText language="EN">Home</languageText>
+        </text>
+        <text id="TxtpBBLX_6">
+            <languageText language="EN">Page 1</languageText>
+        </text>
+        <text id="TxtpBBLX_7">
+            <languageText language="EN">Page 2</languageText>
+        </text>
+        <text id="TxtpBBLX_8">
+            <languageText language="EN">Page 2</languageText>
+        </text>
+        <text id="TxtpBBLX_9">
+            <languageText language="EN">Page 3</languageText>
+        </text>
+        <text id="Txtuv6Gm">
+            <languageText language="EN">Last Name</languageText>
+        </text>
+        <text id="TxtvHiZJ">
+            <languageText language="EN">Register Here</languageText>
+        </text>
+    </texts>
+    <component bootstrapContainerType="@T" componentPrefix="aheader" contentClass="@T" contentStyle="@T" ctrl="aheader__headerComponent" default="C" displayOnly="@T" formPanelWidth="@T" hidden="@T" inheritMsg="true" jSPBottom="@T" jSPLeft="@T" jSPLeftWidth="@T" jSPRight="@T" jSPRightWidth="@T" jSPTop="@T" layoutType="@0" localMsg="@T" msgControls="@T" newLine="@T" outputType="0" pdfFooterMarginTextClass="@T" pdfFooterMarginTextStyle="@T" pdfFooterText="Localaheader__TxtAtpuDl" pdfHeaderMarginTextClass="@T" pdfHeaderMarginTextStyle="@T" pdfHeaderText="Localaheader__Txt1R6rO7" pdfOrientation="@T" sourceUid="JF0mg9ID" uid="BSgTSxMh">
+        <componentOriginals bootstrapContainerType="@0" contentClass="@0" contentStyle="@0" default="T" pdfFooterMarginTextClass="@0" pdfFooterMarginTextStyle="@0" pdfHeaderMarginTextClass="@0" pdfHeaderMarginTextStyle="@0" pdfOrientation="@0"/>
+        <header componentPrefix="aheader" ctrl="aheader__headerPanel" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="N2j91W4A" uid="3MShMIEP">
+            <componentOriginals borderColor="@0" borderRadius="@0" borderStyle="@0" borderWidth="@0" bottomBorderWidth="@0" cssClass="sticky-top" default="T" leftBorderWidth="@0" rightBorderWidth="@0" topBorderWidth="@0">
+                <rootHtmlElementProperties idLocator="header" jQueryEventHandlers="$;ready;// bind to the event that fires when the login panel is shown, focus to first field&#xA;$('.dropdown-menu').parent().on('shown.bs.dropdown', function(e){&#xA;&#x9;$(this).children('.dropdown-menu').find('input').first().focus();&#xA;});"/>
+            </componentOriginals>
+            <nav componentPrefix="aheader" ctrl="aheader__nav" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="JEwOk69q" uid="BglHWlF6">
+                <componentOriginals cssClass="navbar navbar-dark bg-primary navbar-expand-sm" default="T" propertySet="navbar"/>
+                <hyperlink ariaLabelText="@T" componentPrefix="aheader" ctrl="aheader__navbarBrand" default="C" displayOnly="@T" hidden="@T" href="#" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" skipValidation="@T" sourceUid="LcFuhqIA" target="@T" text="Localaheader__Txt7TMj33_2" title="Localaheader__Txt69wK5K_2" uid="Q7Uox9uU" useExternalURL="true">
+                    <componentOriginals cssClass="navbar-brand" default="T">
+                        <rootHtmlElementProperties classLocator="navbar-brand"/>
+                    </componentOriginals>
+                </hyperlink>
+                <button ariaLabelText="@T" buttonText="Localaheader__Txt9bQ2hV" componentPrefix="aheader" ctrl="aheader__navbarToggler" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" mouseOverText="Localaheader__Txt4xwj9i" msgControls="@T" newLine="@T" skipValidation="@T" sourceUid="GSl6yfua" uid="F8wB7o2r">
+                    <componentOriginals bootstrapStyle="@0" default="T">
+                        <rootHtmlElementProperties classLocator="navbar-toggler navbar-toggler-icon" customAttributes="type=&quot;button&quot;, data-toggle=&quot;collapse&quot;, data-target=&quot;#myNavbar&quot;, aria-label=&quot;menu toggle&quot;"/>
+                    </componentOriginals>
+                </button>
+                <panel componentPrefix="aheader" ctrl="aheader__navbarCollapsible" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="IPXTA86c" uid="H7izUeNA">
+                    <componentOriginals cssClass="collapse navbar-collapse" default="T">
+                        <rootHtmlElementProperties classLocator="collapse navbar-collapse" idLocator="myNavbar"/>
+                    </componentOriginals>
+                    <panel componentPrefix="aheader" ctrl="aheader__PanMyFlh" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="Nt2UdCx9" uid="OSosRvks">
+                        <componentOriginals cssClass="navbar-nav" default="T"/>
+                        <html componentPrefix="aheader" ctrl="aheader__menuHTML" default="C" htmlText="Localaheader__TxtAkSfXq" sourceUid="GnAiZmIL" uid="3fPKehch">
+                            <componentOriginals default="T"/>
+                        </html>
+                    </panel>
+                    <panel componentPrefix="aheader" ctrl="aheader__PantyCli" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="RK1K0Bdd" uid="RcG5BydS">
+                        <componentOriginals cssClass="navbar-nav ml-auto" default="T"/>
+                        <panel componentPrefix="aheader" ctrl="aheader__loginPnl" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="Jlrb5GOh" uid="B0YyMeVe">
+                            <componentOriginals cssClass="dropdown order-1" default="T"/>
+                            <button ariaLabelText="@T" buttonText="Localaheader__Txt21KC8P" componentPrefix="aheader" ctrl="aheader__ButFApmT" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" mouseOverText="Localaheader__TxtJKvJM" msgControls="@T" newLine="@T" skipValidation="@T" sourceUid="ASUyurWc" uid="PWcYWWFb">
+<componentOriginals bootstrapStyle="Outline Light" cssClass="dropdown-toggle" default="T">
+    <rootHtmlElementProperties customAttributes="data-toggle=&quot;dropdown&quot;"/>
+</componentOriginals>
+                            </button>
+                            <panel componentPrefix="aheader" ctrl="aheader__loginDropdown" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="My5HwjTt" uid="DaNd3diq">
+<componentOriginals cssClass="dropdown-menu dropdown-menu-right mt-1 p-3" default="T" width="300px"/>
+<field ariaLabelText="@T" buttonDisplayAsImage="@T" buttonImageUrl="@T" buttonSkipValidation="@T" buttonText="Localaheader__Txt3mfv94" componentPrefix="aheader" ctrl="aheader__emailFld" default="C" displayIvAsImage="@T" displayOnly="@T" field="aheader__email" helpButImage="@T" helpPos="@T" helpWindowProperties="@T" hidden="@T" hyperlink="@T" immediateValidation="@T" inheritMsg="@T" labelFor="@T" localMsg="@T" msgControls="@T" newLine="@T" requiredText="@T" sourceUid="22q2Txq2" uid="AV2GmPjP" validationText="@T">
+    <componentOriginals default="T" displayInfoText="false" displayIvAsImage="false" displayLabelText="false" helpButImage="@0" helpPos="3" helpWindowProperties="@0" modifiers="mandatory, email">
+        <editorHtmlElementProperties customAttributes="placeholder=&quot;Email&quot;"/>
+    </componentOriginals>
+</field>
+<field ariaLabelText="@T" buttonDisplayAsImage="@T" buttonImageUrl="@T" buttonSkipValidation="@T" buttonText="Localaheader__Txt7oHMZ6_2" componentPrefix="aheader" ctrl="aheader__passFld" default="C" displayIvAsImage="@T" displayOnly="@T" field="aheader__password" helpButImage="@T" helpPos="@T" helpWindowProperties="@T" hidden="@T" hyperlink="@T" immediateValidation="@T" inheritMsg="@T" labelFor="@T" localMsg="@T" msgControls="@T" newLine="@T" requiredText="@T" sourceUid="BsoRozC5" uid="EFXsa74Q" validationText="@T">
+    <componentOriginals default="T" displayInfoText="false" displayIvAsImage="false" displayLabelText="false" helpButImage="@0" helpPos="3" helpWindowProperties="@0" modifiers="mandatory, password">
+        <editorHtmlElementProperties customAttributes="placeholder=&quot;Password&quot;"/>
+        <rootHtmlElementProperties customAttributes="@0"/>
+    </componentOriginals>
+</field>
+<panel componentPrefix="aheader" ctrl="aheader__registerPanel" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="HffBPKOF" uid="9ptc280M">
+    <componentOriginals default="T" style="display:none;">
+        <layoutProperties>
+            <CUSTOM template="## !Caution: change the logic of this template with care as it can affect the behaviour of your Ebase Xi system.&#xA;## Loop through all child controls&#xA;#foreach( $ctrl in $child_controls )&#xA;&#x9;## Write out any pending messages&#xA;&#x9;#if ( $ctrl.messagesShowing )&#xA;&#x9;&#x9;$MESSAGES&#xA;&#x9;#end&#xA;&#x9;## Only write a control if it's not hidden&#xA;&#x9;#if ( $ctrl.showing )&#xA;&#x9;&#x9;## For Field Controls, $LABEL, $EDITOR and $HELP can be separately configured&#xA;&#x9;&#x9;#if ($ctrl.elementType == &quot;Field Control&quot;)&#xA;&#x9;&#x9;&#x9;&lt;div&gt;&#xA;&#x9;&#x9;&#x9;$FIELD_HEADER&#xA;&#x9;&#x9;&#x9;## Write out the field label&#xA;&#x9;&#x9;&#x9;$LABEL&#xA;&#x9;&#x9;&#x9;## For list fields, the list items can be separately configured using $LIST_BUTTON and $LIST_LABEL&#xA;&#x9;&#x9;&#x9;#if ($ctrl.editableRadioOrCheckboxList)&#xA;&#x9;&#x9;&#x9;&#x9;$LIST_HEADER&#xA;&#x9;&#x9;&#x9;&#x9;&lt;ul style=&quot;list-style-type:none;margin:0;display:inline-block;&quot;&gt;&#xA;&#x9;&#x9;&#x9;&#x9;#foreach( $list_item in $list_items )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;li&gt;$LIST_BUTTON $LIST_LABEL&lt;/li&gt;&#xA;&#x9;&#x9;&#x9;&#x9;#end&#xA;&#x9;&#x9;&#x9;&#x9;&lt;/ul&gt;&#xA;&#x9;&#x9;&#x9;&#x9;$LIST_TRAILER&#xA;&#x9;&#x9;&#x9;#else&#xA;&#x9;&#x9;&#x9;&#x9;## Write out the field editor for non-list fields&#xA;&#x9;&#x9;&#x9;&#x9;&lt;div&gt;$EDITOR&lt;/div&gt;&#xA;&#x9;&#x9;&#x9;#end&#xA;&#x9;&#x9;&#x9;## Write out field help&#xA;&#x9;&#x9;&#x9;&lt;div&gt;$HELP&lt;/div&gt;&#xA;&#x9;&#x9;&#x9;$FIELD_TRAILER&#xA;&#x9;&#x9;&#x9;&lt;/div&gt;&#x9;&#x9;#else&#xA;&#x9;&#x9;&#x9;## Write all controls excluding Field Controls&#xA;&#x9;&#x9;&#x9;$CONTROL&#xA;&#x9;&#x9;#end&#xA;&#x9;#end&#xA;#end&#xA;"/>
+        </layoutProperties>
+        <rootHtmlElementProperties idLocator="registrationPnl"/>
+    </componentOriginals>
+    <field ariaLabelText="@T" buttonDisplayAsImage="@T" buttonImageUrl="@T" buttonSkipValidation="@T" buttonText="Localaheader__Txt6wTMyc" componentPrefix="aheader" ctrl="aheader__retypePassFld" default="C" displayIvAsImage="@T" displayOnly="@T" field="aheader__retypePassword" helpButImage="@T" helpPos="@T" helpWindowProperties="@T" hidden="@T" hyperlink="@T" immediateValidation="@T" inheritMsg="@T" labelFor="@T" localMsg="@T" msgControls="@T" newLine="@T" requiredText="@T" sourceUid="M49opNTd" uid="NrrQoWjx" validationText="@T">
+        <componentOriginals default="T" displayInfoText="false" displayIvAsImage="false" displayLabelText="false" helpButImage="@0" helpPos="3" helpWindowProperties="@0" modifiers="mandatory,password">
+            <editorHtmlElementProperties customAttributes="placeholder=&quot;Retype Password&quot;,type=&quot;password&quot;"/>
+        </componentOriginals>
+    </field>
+    <field ariaLabelText="@T" buttonDisplayAsImage="@T" buttonImageUrl="@T" buttonSkipValidation="@T" buttonText="Localaheader__Txt2CuHfJ" componentPrefix="aheader" ctrl="aheader__fnameFld" default="C" displayIvAsImage="@T" displayOnly="@T" field="aheader__firstName" helpButImage="@T" helpPos="@T" helpWindowProperties="@T" hidden="@T" hyperlink="@T" immediateValidation="@T" inheritMsg="@T" labelFor="@T" localMsg="@T" msgControls="@T" newLine="@T" requiredText="@T" sourceUid="InunbNhQ" uid="4vA6v4S" validationText="@T">
+        <componentOriginals default="T" displayInfoText="false" displayIvAsImage="false" displayLabelText="false" helpButImage="@0" helpPos="3" helpWindowProperties="@0" modifiers="mandatory">
+            <editorHtmlElementProperties customAttributes="placeholder=&quot;First Name&quot;"/>
+        </componentOriginals>
+    </field>
+    <field ariaLabelText="@T" buttonDisplayAsImage="@T" buttonImageUrl="@T" buttonSkipValidation="@T" buttonText="Localaheader__TxtcyeTA" componentPrefix="aheader" ctrl="aheader__lnameFld" default="C" displayIvAsImage="@T" displayOnly="@T" field="aheader__lastName" helpButImage="@T" helpPos="@T" helpWindowProperties="@T" hidden="@T" hyperlink="@T" immediateValidation="@T" inheritMsg="@T" labelFor="@T" localMsg="@T" msgControls="@T" newLine="@T" requiredText="@T" sourceUid="Rnys2sVX" uid="QkqNBM5C" validationText="@T">
+        <componentOriginals default="T" displayInfoText="false" displayIvAsImage="false" displayLabelText="false" helpButImage="@0" helpPos="3" helpWindowProperties="@0" modifiers="mandatory">
+            <editorHtmlElementProperties customAttributes="placeholder=&quot;Last Name&quot;"/>
+        </componentOriginals>
+    </field>
+    <panel componentPrefix="aheader" ctrl="aheader__PanDK3cE_5" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="BJj1khWz" uid="HAWkgBLG">
+        <componentOriginals cssClass="d-flex justify-content-between align-items-center" default="T"/>
+        <button ariaLabelText="@T" buttonText="Localaheader__Txt2aIFjB_2" componentPrefix="aheader" ctrl="aheader__loginButton_2" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" mouseOverText="Localaheader__Txt7klR6n_2" msgControls="@T" newLine="@T" skipValidation="@T" sourceUid="PdPerpn2" uid="ORAzcWUs">
+            <componentOriginals cssClass="btn btn-primary" default="T" propertySet="btn-primary">
+                <rootHtmlElementProperties customAttributes="aria-label=&quot;Register&quot;" htmlEventHandlers=";// call the register function on the server.&#xA;if (!$eb.executeFunction('register', null, true, true)) { &#xA;//&#x9;$eb.executeFunction('preserveDropdown', null, true);  &#xA;&#x9;// registration attempt failed so issue an error message&#xA;&#x9;bootstrapAlert('#loginErrorMesssage','Registration Error. Please try again.',3000);&#xA;}&#xA;else {&#xA;&#x9;// registration attempt successful so issue an success message&#xA;&#x9;bootstrapAlert('#registerSuccessMesssage','Registration Succesful. Please check your emails for an account confirmation link.',6000);&#xA;&#x9;// and reapply the drop down menu events (because the menu may well have changed now)&#xA;&#x9;dropdownMenuEvents();&#xA;}&#xA;&#xA;e.stopImmediatePropagation();" idLocator="registerBtn" jQueryEventHandlers="$;click;// call the register function on the server.&#xA;if (!$eb.executeFunction('register', null, true, true)) {  &#xA;&#x9;// registration attempt failed so issue an error message&#xA;&#x9;bootstrapAlert('#loginMessage', 'danger', 'Registration Error. Please try again.',3000);&#xA;}&#xA;else {&#xA;&#x9;// registration attempt successful so issue an success message&#xA;&#x9;bootstrapAlert('#loginMessage', 'success', 'Registration Succesful. Please check your emails for an account confirmation link.',6000);&#xA;&#x9;// and reapply the drop down menu events (because the menu may well have changed now)&#xA;&#x9;dropdownMenuEvents();&#xA;}&#xA;&#xA;e.stopImmediatePropagation();&#xA;&#xA;return false;"/>
+            </componentOriginals>
+        </button>
+        <hyperlink ariaLabelText="@T" componentPrefix="aheader" ctrl="aheader__regCancelTxt" default="C" displayOnly="@T" hidden="@T" href="#" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" skipValidation="@T" sourceUid="GzcxCwge" target="@T" text="Localaheader__Txt8EQivr_2" title="Localaheader__Txt8hL9hJ_2" uid="KVzcYTvT" useExternalURL="true">
+            <componentOriginals cssClass="ml-5" default="T">
+                <rootHtmlElementProperties htmlEventHandlers="@0" idLocator="regCncl" jQueryEventHandlers="$;click;// hide the rest of the registration fields&#xA;$('#registrationPnl').slideUp();&#xA;$('#loginBtnPnl').slideDown();&#xA;&#xA;// clear validation in the login panel&#xA;clearValidation('#loginPnl');&#xA;&#xA;e.stopImmediatePropagation();"/>
+            </componentOriginals>
+        </hyperlink>
+    </panel>
+</panel>
+<panel componentPrefix="aheader" ctrl="aheader__loginBtnPnl" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="NuUUha8h" uid="D0Y2OO8F">
+    <componentOriginals default="T">
+        <rootHtmlElementProperties idLocator="loginBtnPnl"/>
+    </componentOriginals>
+    <panel componentPrefix="aheader" ctrl="aheader__PanDK3cE_3" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="EEmdRplc" uid="NH6cxEyZ">
+        <componentOriginals cssClass="d-flex justify-content-between align-items-end" default="T"/>
+        <button ariaLabelText="@T" buttonText="Localaheader__Txt2aIFjB" componentPrefix="aheader" ctrl="aheader__loginButton" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" mouseOverText="Localaheader__Txt7klR6n" msgControls="@T" newLine="@T" skipValidation="@T" sourceUid="FlFGHhP" uid="HQ56mLGo">
+            <componentOriginals cssClass="btn btn-primary" default="T" propertySet="btn-primary">
+                <rootHtmlElementProperties customAttributes="aria-label=&quot;Login&quot;" htmlEventHandlers=";// call the login function on the server.&#xA;// NB. we submit all page data with the call but don't ask for a screen refresh. We handle the posting&#xA;// of any login messages locally on the browser&#xA;//&#xA;if (!$eb.executeFunction('login', null, true, true)) {   &#xA;//&#x9;$eb.executeFunction('preserveDropdown', null, true);&#xA;&#x9;// login attempt failed so issue an error message&#xA;&#x9;bootstrapAlert('#loginErrorMesssage','Error logging in. Please try again.',3000);&#xA;}&#xA;else {&#xA;&#x9;// the log in was good so hide the login and show the logout buttons&#xA;&#x9;$eb.executeFunction('loggedInDisplay', null, true);&#xA;&#x9;// and reapply the drop down menu events (because the menu may well have changed now)&#xA;&#x9;dropdownMenuEvents();&#xA;}&#xA;&#xA;// prevent verj.io from submitting the form, which would cause it to redraw the page and lose&#xA;// the dropped down login screen and login response message&#xA;return false;" idLocator="loginBtn" jQueryEventHandlers="$;click;// call the login function on the server.&#xA;&#xA;var res = $eb.executeFunction('login', null, true, true);&#xA;&#xA;if (!res.success) {   &#xA;//&#x9;$eb.executeFunction('preserveDropdown', null, true);&#xA;&#x9;// login attempt failed so issue an error message&#xA;&#x9;bootstrapAlert('#loginMessage', 'danger', res.message,3000);&#xA;}&#xA;else {&#xA;&#x9;// and reapply the drop down menu events (because the menu may well have changed now)&#xA;&#x9;dropdownMenuEvents();&#xA;}&#xA;&#xA;// prevent verj.io from submitting the form, which would cause it to redraw the page and lose&#xA;// the dropped down login screen and login response message&#xA;e.stopImmediatePropagation();&#xA;&#xA;return false;"/>
+            </componentOriginals>
+        </button>
+        <panel componentPrefix="aheader" ctrl="aheader__PanaQHK9" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="D18IMwl9" uid="FpGMbkwD">
+            <componentOriginals cssClass="d-flex flex-column text-right" default="T"/>
+            <hyperlink ariaLabelText="@T" componentPrefix="aheader" ctrl="aheader__Lnk5mZjF" default="C" displayOnly="@T" hidden="@T" href="#" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" skipValidation="@T" sourceUid="Ayt89y9S" target="@T" text="Localaheader__TxtA51xxi" title="Localaheader__Txt1Hh7Jl" uid="PwGVABHA" useExternalURL="true">
+                <componentOriginals cssClass="@0" default="T">
+                    <rootHtmlElementProperties htmlEventHandlers="@0" idLocator="reg" jQueryEventHandlers="$;click;// show the rest of the registration fields&#xA;$('#registrationPnl').slideDown();&#xA;$('#loginBtnPnl').slideUp();&#xA;&#xA;// clear validation in the login panel&#xA;clearValidation('#loginPnl');&#xA;&#xA;e.stopImmediatePropagation();"/>
+                </componentOriginals>
+            </hyperlink>
+            <hyperlink ariaLabelText="Localaheader__Txt8UHNNB" componentPrefix="aheader" ctrl="aheader__Lnktxc0H" default="C" displayOnly="@T" hidden="@T" href="#" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" skipValidation="@T" sourceUid="5NyKWpnd" target="@T" text="Localaheader__Txt8MplZ3" title="Localaheader__TxtATdx4S" uid="QeL45eql" useExternalURL="true">
+                <componentOriginals default="T">
+                    <rootHtmlElementProperties idLocator="pwdReset" jQueryEventHandlers="$;click;// call the password reset request function on the server&#xA;&#xA;var res = $eb.executeFunction('requestPasswordReset', null, false, true);&#xA;&#xA;if (!res.success) {   &#xA;&#x9;// request failed so issue an error message&#xA;&#x9;bootstrapAlert('#loginMessage', 'danger',res.message,3000);&#xA;}&#xA;else {&#xA;&#x9;// request successful, show a message&#xA;&#x9;bootstrapAlert('#loginMessage', 'info',res.message,3000);&#xA;}&#xA;&#xA;// prevent verj.io from submitting the form, which would cause it to redraw the page and lose&#xA;// the dropped down login screen and login response message&#xA;e.stopImmediatePropagation();&#xA;&#xA;//return false;"/>
+                </componentOriginals>
+            </hyperlink>
+        </panel>
+    </panel>
+</panel>
+<panel componentPrefix="aheader" ctrl="aheader__loginMessage" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="HgZwK1TR" uid="12yiGEs3">
+    <componentOriginals cssClass="alert alert-danger mt-2 mb-0" default="T" style="display: none;">
+        <rootHtmlElementProperties idLocator="loginMessage"/>
+    </componentOriginals>
+</panel>
+                            </panel>
+                        </panel>
+                        <panel componentPrefix="aheader" ctrl="aheader__logoutPnl" default="C" displayOnly="@T" hidden="true" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="BD5AoW1Q" uid="2ZLvgxhz">
+                            <componentOriginals default="T"/>
+                            <panel componentPrefix="aheader" ctrl="aheader__PanfDwG1_2" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="6j4FOSLE" uid="BReaKNyK">
+<componentOriginals cssClass="dropdown-divider d-sm-none" default="T"/>
+                            </panel>
+                            <text componentPrefix="aheader" ctrl="aheader__userTxt" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="ICx2Qeza" text="Localaheader__Txt3wD94f" uid="EHXH3Dfa">
+<componentOriginals cssClass="text-light mr-2" default="T"/>
+                            </text>
+                            <hyperlink ariaLabelText="@T" componentPrefix="aheader" ctrl="aheader__logoutLink" default="C" displayOnly="@T" hidden="@T" href="DataTablesTest_home.eb" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" onClickEvent="/Modules/Shared/Components/Header/Server/Scripts/Events/logout" skipValidation="@T" sourceUid="ryIq30a" target="@T" text="Localaheader__TxtpBBLX_10" title="Localaheader__Txt3UESTF_2" uid="MYIxTKdF" useExternalURL="@T">
+<componentOriginals cssClass="nav-link d-inline-block" default="T" propertySet="nav-link"/>
+                            </hyperlink>
+                        </panel>
+                    </panel>
+                </panel>
+            </nav>
+        </header>
+        <html componentPrefix="aheader" ctrl="aheader__breadCrumbHTML" default="C" htmlText="Localaheader__Txt3yFliF" sourceUid="ROQnKMhR" uid="3PbuxLWk">
+            <componentOriginals default="T"/>
+        </html>
+        <panel componentPrefix="aheader" ctrl="aheader__Pan1aAXs" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="6AL9UwKo" uid="GxrvVxbV">
+            <componentOriginals cssClass="d-none" default="T"/>
+            <field ariaLabelText="@T" buttonDisplayAsImage="@T" buttonImageUrl="@T" buttonSkipValidation="@T" buttonText="Localaheader__Txt7N632B" componentPrefix="aheader" ctrl="aheader__Fld2smOt" default="C" displayIvAsImage="@T" displayOnly="@T" field="aheader__componentPrefix" helpButImage="@T" helpPos="@T" helpWindowProperties="@T" hidden="@T" hyperlink="@T" immediateValidation="@T" inheritMsg="@T" labelFor="@T" localMsg="@T" mandatory="@T" msgControls="@T" newLine="@T" requiredText="@T" sourceUid="EKeLLCY4" uid="CSeUmXqd" validationText="@T">
+                <componentOriginals default="T" displayIvAsImage="false" helpButImage="@0" helpPos="3" helpWindowProperties="@0">
+                    <editorHtmlElementProperties idLocator="cpID"/>
+                </componentOriginals>
+            </field>
+            <field ariaLabelText="@T" beforeEvent="/Modules/Shared/Components/Header/Server/Scripts/Events/eventFieldProcessing" buttonDisplayAsImage="@T" buttonImageUrl="@T" buttonSkipValidation="@T" buttonText="Localaheader__Txt30vmJr" componentPrefix="aheader" ctrl="aheader__Fld2c0As" default="C" displayIvAsImage="@T" displayOnly="@T" field="aheader__eventField" helpButImage="@T" helpPos="@T" helpWindowProperties="@T" hidden="@T" hyperlink="@T" immediateValidation="@T" inheritMsg="@T" labelFor="@T" localMsg="@T" mandatory="@T" msgControls="@T" newLine="@T" requiredText="@T" sourceUid="1FpsEpjq" uid="HyOzhf9Q" validationText="@T">
+                <componentOriginals default="T" displayIvAsImage="false" helpButImage="@0" helpPos="3" helpWindowProperties="@0"/>
+            </field>
+            <field ariaLabelText="@T" buttonDisplayAsImage="@T" buttonImageUrl="@T" buttonSkipValidation="@T" buttonText="Localaheader__TxtA4HmrB" componentPrefix="aheader" ctrl="aheader__Fldyxhd4" default="C" displayIvAsImage="@T" displayOnly="@T" field="aheader__windowResizeEvent" helpButImage="@T" helpPos="@T" helpWindowProperties="@T" hidden="@T" hyperlink="@T" immediateValidation="@T" inheritMsg="@T" labelFor="@T" localMsg="@T" mandatory="@T" msgControls="@T" newLine="@T" requiredText="@T" sourceUid="IBclVb9Q" uid="K2hxiqrj" validationText="@T">
+                <componentOriginals default="T" displayIvAsImage="false" helpButImage="@0" helpPos="3" helpWindowProperties="@0">
+                    <editorHtmlElementProperties idLocator="windowResizeEvent"/>
+                </componentOriginals>
+            </field>
+            <field ariaLabelText="@T" buttonDisplayAsImage="@T" buttonImageUrl="@T" buttonSkipValidation="@T" buttonText="Localaheader__Txt4cbcub" componentPrefix="aheader" ctrl="aheader__Fld14oYZe" default="C" displayIvAsImage="@T" displayOnly="@T" field="aheader__range" helpButImage="@T" helpPos="@T" helpWindowProperties="@T" hidden="@T" hyperlink="@T" immediateValidation="@T" inheritMsg="@T" labelFor="@T" localMsg="@T" mandatory="@T" msgControls="@T" newLine="@T" requiredText="@T" sourceUid="LTHUYZxd" uid="1Mnaierk" validationText="@T">
+                <componentOriginals default="T" displayIvAsImage="false" helpButImage="@0" helpPos="3" helpWindowProperties="@0">
+                    <editorHtmlElementProperties idLocator="range"/>
+                </componentOriginals>
+            </field>
+        </panel>
+    </component>
+    <nestedComponents>
+        <component prefix="p1_navbar" embedded="true">
+            <texts>
+                <text id="Txt8RRFQ9">
+                    <languageText language="EN">Action</languageText>
+                </text>
+                <text id="Txt8RRFQ9_2">
+                    <languageText language="EN">Another action</languageText>
+                </text>
+                <text id="Txt8RRFQ9_3">
+                    <languageText language="EN">Something else here</languageText>
+                </text>
+                <text id="Txt9jnqXn" html="true">
+                    <languageText language="EN">Page 1 &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;</languageText>
+                </text>
+                <text id="TxtAo81Nz">
+                    <languageText language="EN">Disabled</languageText>
+                </text>
+                <text id="TxtpBBLX">
+                    <languageText language="EN">Home</languageText>
+                </text>
+            </texts>
+        </component>
+    </nestedComponents>
+</component>

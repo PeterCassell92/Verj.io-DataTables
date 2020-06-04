@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page name="successPg" nextPage="errorPg" pageHeaderTextRef="Txt7EuFEh_3" pageInfoTextReference="TxtL2QUt_3" pageTrailerTextReference="TxtAPtZyD_3" nextPageTextReference="Txt28wAEl_3" prevPageTextReference="Txt8TcJrv_3">
+    <pageContents>
+        <page cssClass="bg-light" ctrl="Pag10cRy_3" outputType="0" pdfFooterText="LocalTxt44yIWl_3" pdfHeaderText="LocalTxt1POYYJ_3" uid="5uyGvvIR">
+            <rootHtmlElementProperties jQueryEventHandlers="$;ready;verj.pageReady();"/>
+            <panel cssClass="d-flex justify-content-center align-items-center" ctrl="PanRmxnk_3" style="min-height:100vh" uid="DlXrrKSf">
+                <panel borderRadius="1em" cssClass="bg-white p-5 text-center" ctrl="Panj8Mse_3" uid="6HHsz17O" width="25em">
+                    <text ctrl="TexQSGm1_3" text="LocalTxt9t4OFp_3" uid="1QXKZEzF"/>
+                </panel>
+            </panel>
+        </page>
+    </pageContents>
+</page>

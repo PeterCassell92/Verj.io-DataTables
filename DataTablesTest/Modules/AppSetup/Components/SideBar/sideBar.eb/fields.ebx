@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<fields>
+    <field name="eventFld" type="CHAR" eventField="true" labelTextRef="TxtAAP5QO" displayType="TEXT" id="33da4a93-0c37-4fbd-afd4-989b65651d61"/>
+</fields>

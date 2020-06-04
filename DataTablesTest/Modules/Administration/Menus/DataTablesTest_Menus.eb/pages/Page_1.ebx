@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page name="Page_1" pageHeaderTextRef="TxtAJQCz7" pageInfoTextReference="TxtA1d5eJ" pageTrailerTextReference="Txt5O31xf" nextPageTextReference="Txtml2km" prevPageTextReference="Txt8FZDvV">
+    <pageContents>
+        <page ctrl="Pago8YgW" outputType="0" pdfFooterText="LocalTxt4XozHV" pdfHeaderText="LocalTxt1Y7duY" uid="1RgcZnP9">
+            <componentPlaceHolder name="header" prefix="aheader"/>
+            <bootstrapcontainer bootstrapContainerType="Full Width" cssClass="container-lg" ctrl="BsContainerbFHVX" uid="JWC78wqb">
+                <bootstraprow ctrl="BsRow130ipQ" uid="58aWgpYh">
+                    <bootstrapcolumn ctrl="BsColumngBW2w" extraSmallWidth="12" uid="DOmNdXdO">
+                        <panel ctrl="Pan2ARet" uid="7DqUs4jW">
+                            <text ctrl="TexJjMHy" text="LocalTxt9Abs1E" uid="18cm1o5f"/>
+                        </panel>
+                        <panel bottomMargin="20px" cssClass="mb-3" ctrl="newSavePanel" uid="j2DoJFI">
+                            <button buttonText="LocalTxtlho5" cssClass="mr-2" ctrl="newButton" mouseOverText="LocalTxtVGXHr" onClickEvent="/Modules/Administration/Menus/Server/Scripts/Events/addMenu" uid="8NPcDB8B"/>
+                            <button buttonText="LocalTxtlho5_2" cssClass="mr-2" ctrl="saveButton" mouseOverText="LocalTxtVGXHr_2" onClickEvent="/Modules/Administration/Menus/Server/Scripts/Events/saveMenus" uid="Ch6HwUsp"/>
+                            <message ctrl="saveMessage" infoMsgClass="alert alert-success" propertySet="alert" uid="2pBp3gtL">
+<errorMessageStyle topMargin="5px"/>
+<infoMessageStyle topMargin="15px"/>
+<warningMessageStyle topMargin="5px"/>
+                            </message>
+                        </panel>
+                        <panel ctrl="menuTablePanel" style="max-width: 40em;" uid="Cn3Lbrc5">
+                            <fieldTable ctrl="menuTable" field="menus" propertySet="DataTablesTest_TableEdit" tableHeaderText="LocalTxt5T0kle" tableInfoText="LocalTxtwxWzA" tableTrailerText="LocalTxt92jXpu" uid="GlAyQr8P">
+<tablePage ctrl="TpgCIUNr" default="L" uid="4xgGKj4y">
+    <fieldColumn buttonText="LocalTxtHjntj" ctrl="Col2VwUZ" field="menus-menu_description" uid="GbsNQYTx" width="50%">
+        <rootHtmlElementProperties customAttributes="data-th=&quot;Menu Description&quot;"/>
+    </fieldColumn>
+    <fieldColumn buttonText="LocalTxt17YA0t" ctrl="ColctuAO" field="menus-format_class" uid="2qWxYi0H" width="45%">
+        <rootHtmlElementProperties customAttributes="data-th=&quot;Styling&quot;"/>
+    </fieldColumn>
+    <fieldColumn buttonText="LocalTxt3elQcV" ctrl="ColiVamo" displayOnly="true" field="menus-trash" hyperlink="true" immedEvent="/Modules/Administration/Menus/Server/Scripts/Events/deleteMenu" propertySet="tableEditDeleteRow" uid="1N1nQJte" width="5%">
+        <editorHtmlElementProperties classLocator="text-danger" customAttributes="data-th=&quot;Delete&quot;"/>
+        <rootHtmlElementProperties classLocator="button"/>
+    </fieldColumn>
+</tablePage>
+                            </fieldTable>
+                        </panel>
+                    </bootstrapcolumn>
+                </bootstraprow>
+            </bootstrapcontainer>
+            <componentPlaceHolder name="footer" prefix="afooter"/>
+        </page>
+    </pageContents>
+</page>

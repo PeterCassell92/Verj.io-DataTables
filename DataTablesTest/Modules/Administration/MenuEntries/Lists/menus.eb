@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><ebase version="5.3.2">
+        
+    <dynamicList database="datatablestest" dateCreated="2018-02-15T11:12:00.822Z" id="menus">
+                
+        <columns>menu_id, menu_description</columns>
+                
+        <from>menus</from>
+                
+        <additional>order by menu_description</additional>
+                
+        <fields>
+                        
+            <field id="menu_id" input="false" type="INTEGER"/>
+                        
+            <field id="menu_description" input="false"/>
+                    
+        </fields>
+            
+    </dynamicList>
+    
+</ebase>

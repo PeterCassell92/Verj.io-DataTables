@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project version="5.8.0" name="DataTablesTest" structure="Empty Project">
+    <dependencies>
+        <dependency>VerjSamples</dependency>
+    </dependencies>
+</project>

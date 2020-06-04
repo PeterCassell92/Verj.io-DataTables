@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ebase version="5.3.2">
+            
+    
+    <script contentType="Javascript" dateCreated="2018-01-31T12:16:47.342Z" id="saveMenuEntries" preferredComponentPath="/Modules/Administration/MenuEntries/DataTablesTest_MenuEntries">
+                        
+        
+        <scriptText>importPackage(com.ebasetech.xi.api);
+importPackage(com.ebasetech.xi.services);
+
+// check that rows are valid:
+//    the parent menu is mandatory
+//    a menu item OR a sub menu must be selected, but not both
+//    there mustn't be any recursion in a nested menu structure, i.e. to prevent a loop when we build the menu
+
+// delete duplicate rows
+deleteDuplicateMenuEntries();
+
+// delete rows where the parent menu has been left unselected
+deleteBlankOwningMenuEntries();
+
+// save menu entries to database
+saveMenuEntries();
+
+</scriptText>
+                    
+    
+    </script>
+        
+
+</ebase>

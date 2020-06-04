@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceMappings>
+    <resourceMapping id="users">
+        <tableMapping table="users"/>
+        <fieldMapping resourceField="confirmed" field="users-confirmed"/>
+        <fieldMapping resourceField="first_name" field="users-first_name"/>
+        <fieldMapping resourceField="last_name" field="users-last_name"/>
+        <fieldMapping resourceField="password" field="users-password"/>
+        <fieldMapping resourceField="user_id" field="users-user_id"/>
+        <fieldMapping resourceField="username" field="users-username"/>
+    </resourceMapping>
+</resourceMappings>

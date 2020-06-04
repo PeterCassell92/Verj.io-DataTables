@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><ebase version="5.3.2">
+        
+    <dbResource database="datatablestest" dateCreated="2018-02-18T16:06:24.648Z" description="Roles wihtin your application. A user may have one or more roles." id="roles" table="true">
+                
+        <columns>*</columns>
+                
+        <from>roles</from>
+                
+        <fields>
+                        
+            <field id="role_id" key="true" length="10" type="INTEGER"/>
+                        
+            <field id="role_name" length="100" type="VARCHAR"/>
+                    
+        </fields>
+            
+    </dbResource>
+    
+</ebase>

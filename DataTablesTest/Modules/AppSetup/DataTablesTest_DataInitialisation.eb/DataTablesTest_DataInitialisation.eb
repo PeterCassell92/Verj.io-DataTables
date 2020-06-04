@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ebase version="5.4.0">
+    <webForm beforeEvent="/Modules/AppSetup/Scripts/Events/dataInitialisation" formHeaderTextRef="Txt2IxPHr" htmlTitleTextRef="Txt3zn9jU" finishButtonTextRef="TxtAj3qfY" backButtonSupport="yes" docType="HTML5" template="/Modules/Shared/Client/PresentationTemplate/DataTablesTest_Bootstrap4" firstPage="Page_1" onErrorEvent="/Modules/AppSetup/Scripts/Events/dataInitError" preferredScriptFolder="/Modules/AppSetup/Scripts/Events" id="DataTablesTest_DataInitialisation" dateCreated="2018-02-27T12:28:15.855Z">
+        <sharedFunctionScripts>
+            <sharedFunctionScript path="/Modules/AppSetup/Scripts/Functions/databaseManagement"/>
+        </sharedFunctionScripts>
+        <saveRestore enabled="false" saveButtonTextRef="Txtx5B7S" restoreButtonTextRef="Txt6EzMS0" saveInfoTextRef="Txt6gRVWc" restoreInfoTextRef="Txt6Q9wWV"/>
+        <finalPage headerTextRef="Txt8nKPcf" infoTextRef="Txt5Ly7Ml" returnTextRef="Txt2d9MoF" inheritStyle="true"/>
+    </webForm>
+</ebase>

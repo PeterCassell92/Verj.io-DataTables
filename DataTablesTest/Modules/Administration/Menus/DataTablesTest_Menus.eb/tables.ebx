@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tables>
+    <table name="menus">
+        <column name="format_class" type="CHAR" labelTextRef="Txt5fpxCY" maxLength="200" displayType="TEXT" displayLength="20"/>
+        <column name="menu_description" type="CHAR" labelTextRef="Txt9NGYDd" maxLength="200" displayType="TEXT" displayLength="22"/>
+        <column name="menu_id" type="INTEGER" labelTextRef="Txt63s3Iq" displayType="TEXT" displayLength="17">
+            <validators>
+                <validator type="MAX_DIGITS" value="10"/>
+                <validator type="MAX_LENGTH" value="17"/>
+                <validator type="DEC_DIG"/>
+            </validators>
+        </column>
+        <column name="trash" type="CHAR" defaultValue="&lt;i class=&quot;far fa-trash-alt fa-lg&quot;&gt;&lt;/i&gt;" labelTextRef="Txt6YwcRn" displayType="TEXT" html="true"/>
+    </table>
+</tables>

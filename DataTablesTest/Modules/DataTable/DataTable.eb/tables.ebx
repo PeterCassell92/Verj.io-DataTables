@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tables>
+    <table name="employees">
+        <column name="age" type="INTEGER" labelTextRef="Txt95KcyG" displayType="TEXT" displayLength="17">
+            <validators>
+                <validator type="MAX_DIGITS" value="10"/>
+                <validator type="MAX_LENGTH" value="17"/>
+                <validator type="DEC_DIG"/>
+            </validators>
+        </column>
+        <column name="employee_id" type="INTEGER" labelTextRef="TxtA5Mg0Z" displayType="TEXT" displayLength="17">
+            <validators>
+                <validator type="MAX_DIGITS" value="10"/>
+                <validator type="MAX_LENGTH" value="17"/>
+                <validator type="DEC_DIG"/>
+            </validators>
+        </column>
+        <column name="first_name" type="CHAR" labelTextRef="Txt4S2KNS" maxLength="2147483647" displayType="TEXT" displayLength="60"/>
+        <column name="last_name" type="CHAR" labelTextRef="Txt7g1zjE" displayType="TEXT"/>
+        <column name="office" type="CHAR" labelTextRef="Txt8FwIYx" maxLength="2147483647" displayType="TEXT" displayLength="60"/>
+        <column name="position" type="CHAR" labelTextRef="Txt8o95Q3" maxLength="2147483647" displayType="TEXT" displayLength="60"/>
+        <column name="salary" type="INTEGER" labelTextRef="Txt7lEN6O" displayType="TEXT" displayLength="17">
+            <validators>
+                <validator type="MAX_DIGITS" value="10"/>
+                <validator type="MAX_LENGTH" value="17"/>
+                <validator type="DEC_DIG"/>
+            </validators>
+        </column>
+        <column name="year_joined" type="INTEGER" labelTextRef="Txt2wqdjO" displayType="TEXT" displayLength="17">
+            <validators>
+                <validator type="MAX_DIGITS" value="10"/>
+                <validator type="MAX_LENGTH" value="17"/>
+                <validator type="DEC_DIG"/>
+            </validators>
+        </column>
+    </table>
+</tables>

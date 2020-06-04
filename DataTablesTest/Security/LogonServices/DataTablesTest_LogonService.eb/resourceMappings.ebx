@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceMappings>
+    <resourceMapping id="DataTablesTest_LogonServiceResource">
+        <tableMapping resourceField="CREDENTIAL" table="CREDENTIAL"/>
+        <tableMapping resourceField="CUSTOMROLE" table="CUSTOMROLE"/>
+        <tableMapping resourceField="EBASEROLE" table="EBASEROLE"/>
+        <fieldMapping resourceField="ID" field="CREDENTIAL-ID"/>
+        <fieldMapping resourceField="VALUE" field="CREDENTIAL-VALUE"/>
+        <fieldMapping resourceField="ROLEID" field="CUSTOMROLE-ROLEID"/>
+        <fieldMapping resourceField="ROLEID.2" field="EBASEROLE-ROLEID_2"/>
+        <fieldMapping resourceField="ERRORCODE" field="ERRORCODE"/>
+        <fieldMapping resourceField="ERRORDESCRIPTION" field="ERRORDESCRIPTION"/>
+        <fieldMapping resourceField="PARAM1_SOURCE" field="PARAM1_SOURCE"/>
+        <fieldMapping resourceField="PARAM1_VALUE" field="PARAM1_VALUE"/>
+        <fieldMapping resourceField="PARAM2_SOURCE" field="PARAM2_SOURCE"/>
+        <fieldMapping resourceField="PARAM2_VALUE" field="PARAM2_VALUE"/>
+        <fieldMapping resourceField="PARAM3_SOURCE" field="PARAM3_SOURCE"/>
+        <fieldMapping resourceField="PARAM3_VALUE" field="PARAM3_VALUE"/>
+        <fieldMapping resourceField="USERID" field="USERID"/>
+    </resourceMapping>
+    <resourceMapping id="userRoles">
+        <tableMapping table="userRoles"/>
+        <fieldMapping resourceField="role_id" field="userRoles-role_id"/>
+        <fieldMapping resourceField="user_id" field="users-user_id"/>
+    </resourceMapping>
+    <resourceMapping id="users">
+        <tableMapping table="users"/>
+        <fieldMapping resourceField="username" field="PARAM1_VALUE"/>
+        <fieldMapping resourceField="password" field="PARAM2_VALUE"/>
+		<fieldMapping resourceField="confirmed" field="users-confirmed"/>
+        <fieldMapping resourceField="first_name" field="users-first_name"/>
+        <fieldMapping resourceField="last_name" field="users-last_name"/>
+        <fieldMapping resourceField="user_id" field="users-user_id"/>
+    </resourceMapping>
+</resourceMappings>

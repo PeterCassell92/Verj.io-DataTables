@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tables>
+    <table name="roles">
+        <column name="role_id" type="INTEGER" labelTextRef="TxtpIBic" displayType="TEXT" displayLength="17">
+            <validators>
+                <validator type="MAX_DIGITS" value="10"/>
+                <validator type="MAX_LENGTH" value="17"/>
+                <validator type="DEC_DIG"/>
+            </validators>
+        </column>
+        <column name="role_name" type="CHAR" labelTextRef="Txt2B85NH" maxLength="100" displayType="TEXT" displayLength="30"/>
+        <column name="trash" type="CHAR" defaultValue="&lt;i class=&quot;far fa-trash-alt fa-lg&quot;&gt;&lt;/i&gt;" labelTextRef="Txt3Gapgx_2" displayType="TEXT" html="true"/>
+    </table>
+</tables>

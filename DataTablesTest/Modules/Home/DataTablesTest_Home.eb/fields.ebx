@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<fields>
+    <field name="FIELD1" type="DATE" labelTextRef="Txt1hejiN" helpTextRef="Txt9piaTw" displayType="DATE"/>
+</fields>

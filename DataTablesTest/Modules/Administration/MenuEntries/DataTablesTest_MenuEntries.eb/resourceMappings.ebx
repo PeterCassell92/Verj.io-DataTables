@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceMappings>
+    <resourceMapping id="menuEntries">
+        <tableMapping table="menuEntries"/>
+        <fieldMapping resourceField="display_order" field="menuEntries-display_order"/>
+        <fieldMapping resourceField="entry_menu_id" field="menuEntries-entry_menu_id"/>
+        <fieldMapping resourceField="menu_item_id" field="menuEntries-menu_item_id"/>
+        <fieldMapping resourceField="owning_menu_id" field="menuEntries-owning_menu_id"/>
+    </resourceMapping>
+</resourceMappings>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<fields>
+    <field name="UID" type="CHAR" parameter="true" labelTextRef="Txt5tbgOi" displayType="TEXT"/>
+    <field name="accountConfirmed" type="BOOLEAN" labelTextRef="Txt2HQtr0" displayType="CHECKBOX"/>
+    <field name="action" type="CHAR" labelTextRef="Txt3HplB0" displayType="TEXT"/>
+    <field name="actioned" type="INTEGER" labelTextRef="Txt9TGbRL" displayType="TEXT" displayLength="3">
+        <validators>
+            <validator type="MAX_DIGITS" value="1"/>
+            <validator type="MAX_LENGTH" value="3"/>
+            <validator type="DEC_DIG"/>
+        </validators>
+    </field>
+    <field name="expiry" type="DATETIME" labelTextRef="Txt8S2NAV" displayType="TEXT"/>
+    <field name="feedbackMessage" type="CHAR" labelTextRef="Txt5L10cd" displayType="TEXT"/>
+    <field name="formDescription" type="CHAR" defaultValue="Account Confirmation" labelTextRef="Txt6tuoJq" displayType="TEXT"/>
+    <field name="newPassword" type="CHAR" labelTextRef="Txt6qAlbd" displayType="PASSWORD"/>
+    <field name="newPasswordConfirm" type="CHAR" labelTextRef="Txt8KBjZz" displayType="PASSWORD"/>
+    <field name="password" type="CHAR" labelTextRef="Txt55hs91" maxLength="500" displayType="TEXT" displayLength="60"/>
+    <field name="status" type="CHAR" labelTextRef="Txt1fJGkI" displayType="TEXT"/>
+    <field name="type" type="CHAR" labelTextRef="Txt9Al6o2" displayType="TEXT"/>
+    <field name="user_id" type="INTEGER" labelTextRef="Txt32Udgm" displayType="TEXT" displayLength="17">
+        <validators>
+            <validator type="MAX_DIGITS" value="10"/>
+            <validator type="MAX_LENGTH" value="17"/>
+            <validator type="DEC_DIG"/>
+        </validators>
+    </field>
+</fields>

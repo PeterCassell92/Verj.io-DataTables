@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page name="Page_1" pageHeaderTextRef="TxtAJQCz7" pageInfoTextReference="TxtA1d5eJ" pageTrailerTextReference="Txt5O31xf" nextPageTextReference="Txtml2km" prevPageTextReference="Txt8FZDvV">
+    <pageContents>
+        <page ctrl="Pago8YgW" outputType="0" pdfFooterText="LocalTxt4XozHV" pdfHeaderText="LocalTxt1Y7duY" uid="1RgcZnP9">
+            <componentPlaceHolder name="header" prefix="aheader"/>
+            <bootstrapcontainer bootstrapContainerType="Full Width" cssClass="container-lg" ctrl="BsContaineruwZjS" uid="LuFX0tar">
+                <bootstraprow ctrl="BsRowUUevP" uid="FwQoiGN8">
+                    <bootstrapcolumn ctrl="BsColumn73RSK" extraSmallWidth="12" uid="Eyev0tH">
+                        <panel ctrl="PanN78Ra" uid="89EahuxC">
+                            <text ctrl="TexJjMHy" text="LocalTxt9Abs1E" uid="34GGlf1Q"/>
+                        </panel>
+                        <panel bottomMargin="20px" cssClass="mb-3" ctrl="newSavePanel" layoutType="@0" uid="j2DoJFI">
+                            <button buttonText="LocalTxtlho5" cssClass="mr-2" ctrl="newButton" mouseOverText="LocalTxtVGXHr" onClickEvent="/Modules/Administration/MenuEntries/Server/Scripts/Events/addMenuEntry" uid="8NPcDB8B"/>
+                            <button buttonText="LocalTxtlho5_2" cssClass="mr-2" ctrl="saveButton" mouseOverText="LocalTxtVGXHr_2" onClickEvent="/Modules/Administration/MenuEntries/Server/Scripts/Events/saveMenuEntries" uid="Ch6HwUsp"/>
+                            <message ctrl="saveMessage" infoMsgClass="alert alert-success" propertySet="alert" uid="2pBp3gtL">
+<errorMessageStyle topMargin="5px"/>
+<infoMessageStyle topMargin="15px"/>
+<warningMessageStyle topMargin="5px"/>
+                            </message>
+                        </panel>
+                        <panel ctrl="menuEntriesTablePanel" style="max-width: 50em;" uid="Cn3Lbrc5">
+                            <fieldTable ctrl="TblP6m0V" field="menuEntries" propertySet="DataTablesTest_TableEdit" tableHeaderText="LocalTxt1oUGtj" tableInfoText="LocalTxtMxfE4" tableTrailerText="LocalTxt1TKAd4" uid="Orm7zgSX">
+<tablePage ctrl="TpgFVkW" default="L" uid="QU6BLTi6">
+    <fieldColumn buttonText="LocalTxt6Gdk71" ctrl="owningMenu" field="menuEntries-owning_menu_id" immediateValidation="true" uid="DXg5DuAH" validationEvent="/Modules/Administration/MenuEntries/Server/Scripts/Events/validation" width="23%">
+        <rootHtmlElementProperties customAttributes="data-th=&quot;Parent Menu&quot;"/>
+    </fieldColumn>
+    <fieldColumn buttonText="LocalTxtSVm3J" ctrl="entryMenu" field="menuEntries-entry_menu_id" immediateValidation="true" uid="GSMlOVGU" validationEvent="/Modules/Administration/MenuEntries/Server/Scripts/Events/validation" width="26%">
+        <rootHtmlElementProperties customAttributes="data-th=&quot;Sub Menu&quot;"/>
+    </fieldColumn>
+    <fieldColumn buttonText="LocalTxt6AASzh" ctrl="menuItem" field="menuEntries-menu_item_id" immediateValidation="true" uid="BRiBPuAr" validationEvent="/Modules/Administration/MenuEntries/Server/Scripts/Events/validation" width="27%">
+        <rootHtmlElementProperties customAttributes="data-th=&quot;Menu Item&quot;"/>
+    </fieldColumn>
+    <fieldColumn buttonText="LocalTxt7qQUqA" ctrl="ColVASLD" field="menuEntries-display_order" hAlign="@0" uid="IWtkszZv" width="17%">
+        <columnHeaderProperties hAlign="@0"/>
+        <rootHtmlElementProperties customAttributes="data-th=&quot;Order&quot;"/>
+        <stripeProperties hAlign="@0"/>
+    </fieldColumn>
+    <fieldColumn buttonText="LocalTxt5eQsfh" ctrl="ColnBvpV" field="menuEntries-trash" hyperlink="true" immedEvent="/Modules/Administration/MenuEntries/Server/Scripts/Events/deleteMenuEntry" propertySet="tableEditDeleteRow" uid="BHWagzU2" width="7%">
+        <editorHtmlElementProperties classLocator="text-danger" customAttributes="data-th=&quot;Delete&quot;"/>
+        <rootHtmlElementProperties classLocator="button"/>
+    </fieldColumn>
+</tablePage>
+                            </fieldTable>
+                        </panel>
+                    </bootstrapcolumn>
+                </bootstraprow>
+            </bootstrapcontainer>
+            <componentPlaceHolder name="footer" prefix="afooter"/>
+        </page>
+    </pageContents>
+</page>

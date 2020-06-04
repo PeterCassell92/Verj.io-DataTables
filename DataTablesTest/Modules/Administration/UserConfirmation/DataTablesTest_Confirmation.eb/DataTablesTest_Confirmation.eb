@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ebase version="5.4.0">
+    <webForm beforeEvent="/Modules/Administration/UserConfirmation/Server/Scripts/Events/confirmAccount" formHeaderTextRef="Txt1ORkt5" htmlTitleTextRef="Txt4yGWFM" finishButtonTextRef="Txt72XC4H" backButtonSupport="yes" docType="HTML5" template="/Modules/Shared/Client/PresentationTemplate/DataTablesTest_Bootstrap4" firstPage="Confirm" preferredScriptFolder="/Modules/Shared/Components/Header/Server/Scripts/Events" id="DataTablesTest_Confirmation" dateCreated="2018-01-20T11:26:49.731Z">
+        <sharedFunctionScripts>
+            <sharedFunctionScript path="/Modules/Shared/Server/Scripts/Functions/functions"/>
+        </sharedFunctionScripts>
+        <clientScripts>
+            <clientScript path="https://use.fontawesome.com/5d95b0a9ca.js"/>
+        </clientScripts>
+        <resources>
+            <resource name="user" path="/Modules/Shared/Server/Resources/Database/user"/>
+            <resource name="userEmail" path="/Modules/Shared/Server/Resources/Database/userEmail"/>
+        </resources>
+        <htmlPlusPlus>
+</htmlPlusPlus>
+        <saveRestore enabled="false" saveButtonTextRef="Txt6qXa1w" restoreButtonTextRef="TxtA84Rlk" saveInfoTextRef="Txt6B2cLY" restoreInfoTextRef="Txt2yUmDU"/>
+        <finalPage headerTextRef="TxtAuFE4h" infoTextRef="Txt8qD5Xs" returnTextRef="Txt45D5qw" inheritStyle="true"/>
+    </webForm>
+</ebase>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><ebase version="5.3.2">
+        
+    <dynamicList database="datatablestest" dateCreated="2018-02-15T11:12:00.822Z" id="roles">
+                
+        <columns>role_id, role_name</columns>
+                
+        <from>roles</from>
+                
+        <additional>order by role_name</additional>
+                
+        <fields>
+                        
+            <field id="role_id" input="false" type="INTEGER"/>
+                        
+            <field id="role_name" input="false"/>
+                    
+        </fields>
+            
+    </dynamicList>
+    
+</ebase>

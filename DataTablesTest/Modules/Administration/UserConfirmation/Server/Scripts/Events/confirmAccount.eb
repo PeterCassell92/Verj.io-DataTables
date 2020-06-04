@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ebase version="5.4.0">
+            
+    
+    <script contentType="Javascript" dateCreated="2018-03-21T11:52:54.487Z" id="confirmAccount" preferredComponentPath="/Modules/Administration/UserConfirmation/DataTablesTest_Confirmation">
+                        
+        
+        <scriptText>importPackage(com.ebasetech.xi.api);
+importPackage(com.ebasetech.xi.services);
+
+// this form recieves a UID as a URL parameter, checks the database for user emails we're expecting a response for
+// and confirms the user's account if relavent
+try{
+	attemptConfirmation();
+}
+catch(e){
+	log("ERROR: " + e);
+	log("at line: " + e.lineNumber);
+	fail(e.message);
+}
+
+
+// attempt to confirm the user's account, show an appropriate message depending on how successful it was
+function attemptConfirmation(){
+	// check if there is a uid
+	if(!fields.UID.value) throw new Error();
+	
+	// fetch the user email
+	if(resources.userEmail.fetch()){
+
+		// if such a user email exists, check that it's valid
+		// if this link has expired, fail
+		if(fields.expiry.value &lt; new Date())	throw new Error("This link has expired.");
+		// if this link has already been used, fail
+		if(fields.actioned.value)							throw new Error("This link has already been used.");
+		
+		// switch on the type of confirmation
+		switch(fields.type.value){
+			case "accountConfirmation":
+				confirmAccount();
+			break;
+		}
+		
+		// invalidate link
+		fields.actioned.value = true;
+		resources.userEmail.update();
+
+		
+		// switch on the type of confirmation
+		switch(fields.type.value){
+			case "passwordReset":
+				gotoPasswordReset();
+			break;
+		}
+	}
+	// if no such user email was found, fail
+	else{
+		throw new Error("This link is invalid.");
+	}
+}
+
+
+// confirm account
+function confirmAccount(){
+	fields.action.value = "Account Confirmation";
+	
+	// fetch the user details
+	resources.user.fetch();
+
+	// if the account is already confirmed, success!
+	if(fields.accountConfirmed.value)						return success();
+
+	// if we got this far then the account needs confirming and the link is valid so confirm!	
+	// confirm account
+	fields.accountConfirmed.value = true;
+	if(resources.user.update()) 					return success();
+
+	// at this point we tried to confirm the account but failed
+	fail("Failed to confirm account");
+}
+
+// go to reset password
+function gotoPasswordReset(){
+	fields.action.value = "Password Reset";
+	form.gotoPage(pages.passwordReset);
+}
+
+// show messages to the user
+function success(msg){
+	// change the icon and colour
+	controls.statusText.addCssClass("text-success fa-check-circle");
+	msg = msg || "Your account has been successfully confirmed. Please login from the top menu.";
+	fields.feedbackMessage.value = msg;
+}
+
+function fail(msg){
+	// change the icon and colour
+	controls.statusText.addCssClass("text-danger fa-times-circle");
+	msg = msg || "This link is invalid.";
+	fields.feedbackMessage.value = msg;
+}
+</scriptText>
+                    
+    
+    </script>
+        
+
+</ebase>

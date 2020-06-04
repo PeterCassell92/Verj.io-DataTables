@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><ebase version="5.3.2">
+        
+    <dbResource database="datatablestest" dateCreated="2018-01-30T15:43:21.404Z" description="Menus" id="menus" table="true">
+                
+        <columns>*</columns>
+                
+        <from>menus</from>
+                
+        <fields>
+                        
+            <field id="format_class" length="200" type="VARCHAR"/>
+                        
+            <field id="menu_description" length="200" type="VARCHAR"/>
+                        
+            <field id="menu_id" key="true" length="10" type="INTEGER"/>
+                    
+        </fields>
+            
+    </dbResource>
+    
+</ebase>

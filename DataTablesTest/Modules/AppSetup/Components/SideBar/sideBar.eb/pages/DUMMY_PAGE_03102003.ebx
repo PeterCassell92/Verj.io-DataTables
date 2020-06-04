@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page name="DUMMY_PAGE_03102003" pageHeaderTextRef="Txt9HuuCC" pageInfoTextReference="Txt7PY2rV" pageTrailerTextReference="Txt7J3XVP" nextPageTextReference="Txt56iMLy" prevPageTextReference="Txt4syvwl">
+    <pageContents>
+        <component ctrl="Cmp44zKB" inheritMsg="true" outputType="0" pdfFooterText="LocalTxt708dWm" pdfHeaderText="LocalTxt5Ha3WV" uid="O2TameMj">
+            <field ariaLabelText="LocalTxt51bOvv" beforeEvent="/Modules/AppSetup/Components/SideBar/Scripts/Events/beforeDocumentation" buttonText="LocalTxt7kH7ov" ctrl="FldgdeB" field="eventFld" fieldClass="d-none" requiredText="LocalTxt7smLyF" uid="9T8KsY6N" validationText="LocalTxtAhgFAu"/>
+            <repeater ctrl="RepWEDKe_2" field="pages" uid="HMdYijSL">
+                <repeaterRow ctrl="Repr5vrl2_2" uid="9vTnF9w2">
+                    <rootHtmlElementProperties jQueryEventHandlers="@0"/>
+                    <hyperlink ariaLabelText="LocalTxt5ZakIX_2" ctrl="pageLnk" onClickEvent="/Modules/AppSetup/Scripts/Events/gotoPage" text="LocalTxt9VHWlC_2" title="LocalTxt5Bv78d_2" uid="L0C3PaQr"/>
+                </repeaterRow>
+            </repeater>
+        </component>
+    </pageContents>
+</page>

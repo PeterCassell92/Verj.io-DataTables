@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><ebase version="5.3.2">
+    <integrationService contentType="Logon" dateCreated="2018-02-03T17:58:46.210Z" id="DataTablesTest_LogonService" integrationEvent="/Security/LogonServices/Server/Scripts/DataTablesTest_LogonService" systemService="true">
+        <resources>
+            <resource name="DataTablesTest_LogonServiceResource" path="/Security/LogonServices/DataTablesTest_LogonServiceResource"/>
+            <resource name="userRoles" path="/Security/LogonServices/Server/Resources/Database/userRoles"/>
+            <resource name="users" path="/Security/LogonServices/Server/Resources/Database/users"/>
+        </resources>
+        <webServiceConfigurations>
+            <webServiceConfiguration enabled="true" name="DataTablesTest_LogonService" soapVersion="http://schemas.xmlsoap.org/wsdl/soap/"/>
+        </webServiceConfigurations>
+    </integrationService>
+</ebase>

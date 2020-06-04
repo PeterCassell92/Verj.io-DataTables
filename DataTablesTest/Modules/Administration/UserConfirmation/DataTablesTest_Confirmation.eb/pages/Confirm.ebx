@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page name="Confirm" nextPage="passwordReset" pageHeaderTextRef="TxtAX5crh" pageInfoTextReference="Txt9JdjbM" pageTrailerTextReference="Txt9d2ehY" nextPageTextReference="Txt2T7HFe" prevPageTextReference="Txt2jWKYb">
+    <pageContents>
+        <page cssClass="bg-light" ctrl="homePage" outputType="0" pdfFooterText="LocalTxt97CS0F" pdfHeaderText="LocalTxt2SHhs7" uid="J7yRJaM2">
+            <componentPlaceHolder name="header" prefix="aheader"/>
+            <panel cssClass="d-flex justify-content-center align-items-center" ctrl="PangdZ4z" style="min-height:70vh;" uid="UpXoDS4">
+                <panel borderRadius="1em" cssClass="p-5 text-center bg-white" ctrl="PanNR6pi" uid="Paq3qzL6" width="32em">
+                    <text cssClass="fas fa-4x mb-3" ctrl="statusText" text="LocalTxt6QSetO" uid="PmauC72e"/>
+                    <text ctrl="Tex9Nge3" text="LocalTxt4Q4x7I" uid="ROxk8c4w"/>
+                    <text ctrl="TextOSir" text="LocalTxt1x0kw9" uid="L87527yO"/>
+                </panel>
+            </panel>
+            <componentPlaceHolder name="footer" prefix="afooter"/>
+        </page>
+    </pageContents>
+</page>

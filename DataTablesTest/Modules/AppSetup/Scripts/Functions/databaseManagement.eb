@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ebase version="5.5.0">
+            
+    
+    <script contentType="Javascript" dateCreated="2016-05-10T22:30:42.052+01:00" id="databaseManagement" preferredComponentPath="/Vault/calendar/calendar">
+                        
+        
+        <scriptText>importPackage(com.ebasetech.xi.api);
+importPackage(com.ebasetech.xi.services);
+
+/**
+ * DatabaseTable provides an easy way to create tables in a database agnostic fashion.
+ * 	The SQL outputted is therefore limited to syntax which will run in Derby, Oracle, SqlServer,
+ * 	MySQL and PostgreSQL.&lt;p&gt;
+ * 	
+ * If the table given exists on the database connection given then the table is not created unless
+ * 	the dropTable parameter is given as true. If data is provided it is inserted where it's valid.
+ * 	The DatabaseTable object is then returned and &lt;strong&gt;insertData&lt;/strong&gt; and &lt;strong&gt;updateData&lt;/strong&gt;
+ * 	methods can be called.&lt;p&gt;
+ * 	
+ * Allowed columnn types are:
+ * &lt;ul&gt;&lt;li&gt;BIGINT&lt;/li&gt;
+ *		&lt;li&gt;DECIMAL&lt;/li&gt;
+ *		&lt;li&gt;FLOAT&lt;/li&gt;
+ *		&lt;li&gt;INT&lt;/li&gt;
+ *		&lt;li&gt;NUMERIC&lt;/li&gt;
+ *		&lt;li&gt;REAL&lt;/li&gt;
+ *		&lt;li&gt;SMALLINT&lt;/li&gt;
+ *		&lt;li&gt;CHAR&lt;/li&gt;
+ *		&lt;li&gt;VARCHAR&lt;/li&gt;
+ *		&lt;li&gt;DATE&lt;/li&gt;
+ *		&lt;li&gt;TIME&lt;/li&gt;
+ *		&lt;li&gt;TIMESTAMP&lt;/li&gt;&lt;/ul&gt;
+ * 	
+ * &lt;strong&gt;Example&lt;/strong&gt;
+ * &lt;pre&gt;
+ * var table = new DatabaseTable({
+ * 	connection: "EBASE_SAMPLES", 	// the name of a database connection configured in the server admin app
+ * 	name: "exampleTable",		// the name of the table to be created
+ * 	dropTable: true,		// if the table already exists it will be dropped and recreated if true
+ * 	columns: [
+ * 		{
+ * 		 name: "id",		// name of a column to define
+ * 		 type: "int",		// column type from the list of allowed types above
+ * 		 primaryKey: true,	// if true this column is made part of the primary key for this table
+ * 		 sequence: true		// if true an ebase sequence is created (tableNameColumnName) or can specify a string sequence name to create
+ * 		},{
+ * 		 name: "columnName",
+ * 		 type: "varchar",
+ * 		 size: "256",		// size of the column
+ * 		 precision: null,	// precision for the column if a floating point type eg. numeric
+ * 		 defaultValue: null	// default value for this column [null | type-appropriate value]
+ * 		}
+ * 	],
+ * 	data: {		// data object in the form given by Table.toJSON()
+ * 	 rows: [
+ * 	   {
+ * 	     id: 1,	// id will be over-ridden by the sequence defined on the id column, can therefore be omitted
+ * 	     columnName: "foo"
+ * 	   },
+ * 	   {
+ * 	     columnName: "bar"
+ * 	   }
+ * 	  ]
+ * 	}
+ * })
+ * &lt;/pre&gt;
+ * 
+ * &lt;strong&gt;Example&lt;/strong&gt;
+ * &lt;pre&gt;
+ * var table.insertData({});	// object in the same form as above
+ * &lt;/pre&gt;
+ * 
+ * &lt;strong&gt;Example&lt;/strong&gt;
+ * &lt;pre&gt;
+ * var table.updateData({
+ * 	set: {
+ * 	 columnName: "cheese"	// name value pairs to update the table with
+ * 	},
+ * 	where: "id &lt; 4",		// the where clause to set the above values on 
+ * 	rows: [			// the rows array as before
+ * 	 {
+ * 	   id: 1,		// every column in the primary key must be given for each row in order to identify it
+ * 	   columnName: "cheese"
+ * 	 },
+ * 	 {
+ * 	   columnName: "cake"	// without the primary key values, the update will fail
+ * 	 }
+ * 	]
+ * });	
+ * &lt;/pre&gt;
+ *
+ */
+function DatabaseTable(o){
+	// set some default values where needed and declar some variables
+	var connection = o.connection,
+			conName = o.conName || "VerjSamples",
+			schema = o.schema || null;
+			columns = {},						// columns in this table
+			primaryKeys = [],				// array of primary key column names
+			name = o.name;					// the name of this table
+
+	// if connection is an open connection, use that, else open a new database connection
+	var tblCon = false;
+	if(!(connection &amp;&amp; !connection.closed)){
+		connection = system.getDatabaseConnection(conName);
+		tblCon = true;
+	}
+	try{
+		// list externally accessible methods
+		this.insertData = insertData;
+		this.updateData = updateData;
+	
+	
+		// for each column given, creat a DatabaseColumn object
+		for each(var colDef in o.columns){
+			// create the column
+			var col = new DatabaseColumn(colDef, name);
+	
+			// if the column is valid, store it in the columns object
+			if(col){
+				columns[col.getName()] = col;
+	
+				// if the column is defined a primary key, add its name to the primaryKey array
+				if(col.isPrimaryKey()) primaryKeys.push(col.getName());
+			}
+		}
+	
+		// attempt to create the table, if the table exists or otherwise fails to be created, execution stops here
+		if(!createTable()) return;
+	
+		/* if data has been provided, attempt to insert it
+				if an insert fails for any given row, it is skipped */
+		if(o.data){
+			insertData(o.data);
+		}
+	
+		system.transactionManager.commitAndRestartTransaction();
+	}
+	finally{
+		if(tblCon &amp;&amp; connection){
+			connection.close();
+			connection = null;
+		}
+	}
+
+	return this;
+
+	//-------------------------------
+	// externally accessible methods
+	//-------------------------------
+	function insertData(d){
+		var localCon = false;
+		if(!connection){
+			connection = system.getDatabaseConnection(conName);
+			localCon = true;
+		}
+		try{
+			// track the number of rows we're inserting
+			var rowsInserted = 0;
+	
+			// for each row of inserted data, build an insert statement
+			for each(var row in d.rows){
+				var cols = [],				// store columns to insert into
+						vals = [];				// store values to insert
+	
+				// for each column in the data...
+				for each(var col in columns){
+					var colName = col.getName(),								// the name of the column
+							seqVal = col.getSequenceValue();				// the next value in the associated sequence, false if no such sequence
+	
+					// if the column appears in the provided data, push that
+					if(row[colName] !== undefined){
+						cols.push(colName);
+						var val = col.prepareValue(row[colName]);
+						vals.push(val);
+					}
+					// else if there is an associaited sequence, push the new value
+					else if(seqVal){
+						cols.push(colName);
+						vals.push(seqVal);
+					}
+				}
+	
+				// now compile the string
+				var sql = "INSERT into " + name + " ("
+								+ cols.join(",")
+								+ ") VALUES ("
+								+ vals.join(",")
+								+ ")";
+	
+				// execute the sql, returning the number of rows inserted (should only ever be one) and adding to the total
+				rowsInserted += executeSQL(connection, sql);
+				
+			}
+	
+			log(rowsInserted + " rows inserted");
+		}
+		finally{
+			if(localCon &amp;&amp; connection){
+				connection.close();
+				connection = null;
+			}
+		}
+	}
+
+	function updateData(d){
+		var localCon = false;
+		if(!connection){
+			connection = system.getDatabaseConnection(conName);
+			localCon = true;
+		}
+		try{
+			// track the number of rows we're updating
+			var rowsUpdated = 0;
+	
+			// if the rows array is not defined, define it
+			if(typeof d.rows != "array") d.rows = [];
+	
+			// if an update with a specific where clause is given, add that to the array to update
+			if(d.set &amp;&amp; d.where){
+				d.set.$where = d.where;
+				d.rows.push(d.set);
+			}
+			
+			// for each row of inserted data, build an insert statement
+			for each(var row in d.rows){
+				var updates = [],					// store columns to insert into
+						wheres = row.$where ? [row.$where] : [];					// store values to insert
+	
+	
+				// if no where clause is specified, check that every column that makes up the primary key is present in the row data
+				if(!row.$where){
+					var valid = true;
+					for each(var pk in primaryKeys){
+						if(!row[pk]) valid = false;
+					}
+	
+					// if this row therefore might update more than one row in an uncontrolled fashion, skip this row
+					if(!valid) continue;
+				}
+	
+				// for each column in the data...
+				for each(var col in columns){
+					var colName = col.getName();								// the name of the column
+	
+					// if the column appears in the provided data, push that
+					if(row[colName]){
+						var val = col.prepareValue(row[colName]);
+						
+						if(col.isPrimaryKey() &amp;&amp; !row.$where){
+							wheres.push(colName + "=" + val);
+						}
+						else{
+							updates.push(colName + "=" + val);
+						}
+					}
+				}
+	
+				// now compile the string
+				var sql = "UPDATE " + name + " SET "
+								+ updates.join(", ")
+								+ " WHERE "
+								+ wheres.join(" AND ");
+	
+				// execute the sql, returning the number of rows inserted (should only ever be one) and adding to the total
+				rowsUpdated += executeSQL(connection, sql);
+				
+			}
+	
+			log(rowsUpdated + " rows updated");
+		}
+		finally{
+			if(localCon &amp;&amp; connection){
+				connection.close();
+				connection = null;
+			}
+		}
+	}
+
+
+	//--------------------
+	// internal functions
+	//--------------------
+	function createTable(){
+		// first check if a table exists by this name
+		if(checkTableExists(name)){
+			// if dropTable is true, drop the table
+			if(o.dropTable){
+				var success = executeSQL(connection, "DROP TABLE " + name);
+				if(!success) return false;
+			}
+			// if it isn't (or the drop fails), return false to stop further execution
+			else{
+				return false;
+			}
+		}
+
+		// now we know the table doesn't exist, build the sql to create the table
+		var sql = "CREATE TABLE " + name + "("
+							// loop the stored columns
+						+ Object.getOwnPropertyNames(columns).map(function(c){
+								// get the spec as sql from the DatabaseColumn object
+								return columns[c].getCreateSQL();
+							}).join(", ")
+							// add a primary key constraint where necessary
+						+ (primaryKeys.length &gt; 0 ? 
+								", CONSTRAINT pk_" + name + " PRIMARY KEY (" + primaryKeys.join(",") + ")" :
+								"")
+						+ ")";
+
+		// run the sql, if it fails, false will be returned and further execution will stop
+		return executeSQL(connection, sql);
+	}
+
+
+	function checkTableExists(name){
+		try{
+			/* get the full list of tables at the connection
+			*  We can't narrow by schema or table name because different databases implement
+			*                            schemas differently and handle case differently                 */
+			var dbmd = connection.getMetaData();
+			var types = ["TABLE", "VIEW"];
+			tbls = dbmd.getTables(null, schema, name + "%", types);
+			
+			// loop through the returned tables, if any of them match the given name, return true
+			while(tbls.next()){
+				var dbname = tbls.getString("TABLE_NAME");
+				if(dbname &amp;&amp; dbname.toUpperCase() == name.toUpperCase()){
+					return true;
+				}
+			}
+			
+			// if no match is found, return false
+			return false;
+		}
+		catch(e){
+			log("Table exists check failed \nTable Name: " + name + "\n" + e);
+			return true;
+			throw e;
+		}
+	}
+
+
+	
+	/**
+	 * Takes the definition of a column and creates an object with some helpful methods. If no name is
+	 * 	provided or the type provided is invalid, returns false, else returns this.&lt;p&gt;
+	 * 
+	 * Methods:
+	 * &lt;ul&gt;&lt;li&gt;&lt;strong&gt;getName()&lt;/strong&gt; - gets the name of the column&lt;/li&gt;
+	 *		&lt;li&gt;&lt;strong&gt;getCreateSQL()&lt;/strong&gt; - gets a string which defines this column for a table create statement&lt;/li&gt;
+	 *		&lt;li&gt;&lt;strong&gt;getSequenceValue()&lt;/strong&gt; gets the next value in the associated sequence or false if there is none&lt;/li&gt;
+	 *		&lt;li&gt;&lt;strong&gt;isPrimaryKey()&lt;/strong&gt; - returns true/false dependent on wheter this column is included in the primary key&lt;/li&gt;
+	 *		&lt;li&gt;&lt;strong&gt;prepareValue(val)&lt;/strong&gt; - parses val depending on the column type for hopefully smooth inserting/updating&lt;/li&gt;&lt;/ul&gt;
+	 * 
+	 */
+	
+	function DatabaseColumn(o, tableName){
+	
+		// set some default values and declare variables
+		var name = o.name,													// the name of the column
+				type = validateType(o.type),						// validated column type
+				size = o.size,													// size of the column
+				precision = o.precision || false,				// precision (for floating point numbers)
+				sizeStr = "",
+				notNull = o.notNull || false,						// boolean are nulls allowed
+				pk = o.primaryKey || false,							// is this column part of the primary key
+				seq,
+				defaultVal = o.defaultValue === null ? "NULL" : (typeof o.defaultValue != 'undefined' ? prepareVal(o.defaultValue) : null);
+																								// if the default value is js null, we'll write DEFAULT NULL
+																								// if it's defined any other way, wrap in single quotes
+																								// if no value was specified we'll write false
+	
+		// if this column has a sequence given
+		if(o.sequence){
+			// if a sequence name is given, use that
+			if(typeof o.sequence == "string"){
+				seq = o.sequence;
+			}
+			// if not, we'll write our own sequence name based on the table and column names
+			else{
+				seq = tableName + name.charAt(0).toUpperCase() + name.substring(1).toLowerCase();
+			}
+		}
+	
+		// if the column has no name, abandon all hope
+		if(!name){
+			log("Column attempted to create without a name!");
+			return false;
+		}
+		// if it has no valid type, again, stop
+		if(!type){
+			log("Column type for " + name + " is invalid");
+			return false;
+		}
+	
+		// now we know type is valid, validate the size
+		size = validateSize();
+	
+		// if size (and precision) are appropriate to the data type, write an appropriate string: size[,precision]
+		if(size){
+			sizeStr = size + (precision ? "," + precision : "");
+		}
+	
+		
+		//-------------------------------
+		// externally accessible methods
+		//-------------------------------
+		this.getName = getName;
+		this.getCreateSQL = getCreateSQL;
+		this.getSequenceValue = getSeqVal;
+		this.isPrimaryKey = isPrimaryKey;
+		this.prepareValue = prepareVal;
+	
+		function getName(){
+			return name;
+		}
+		
+		function getCreateSQL(){
+			return name + " "																									// the name of the column
+					 + type																												// the type of the column
+					 + (sizeStr ? "(" + sizeStr + ")" : "")												// the size of the column (if needed)
+					 + (defaultVal != null ? " DEFAULT " + defaultVal : "")				// default value of the column (if given)
+					 + (notNull || pk ? " NOT NULL" : "");												// not null constraint if given or primary key
+		}
+	
+		function getSeqVal(){
+			if(seq) return system.sequenceManager.sequence(seq);
+			else		return false;
+		}
+	
+		function isPrimaryKey(){
+			return pk;
+		}
+	
+		function prepareVal(val){
+			// depending on the data type of this column, we'll process the value passed in and pass back a processed version
+			if(val === null) return "NULL";
+	
+			try{
+				switch(type.toUpperCase()){
+					case "BIGINT":
+					case "INT":
+						return parseInt(val);
+					break;
+					
+					case "SMALLINT":
+						if(typeof val == "boolean") return val ? 1 : 0;
+						else												return parseInt(val);
+					break;
+					
+					case "DECIMAL":
+					case "FLOAT":
+					case "NUMERIC":
+					case "REAL":
+						return parseFloat(val);
+					break;
+
+					case "DATE":
+					case "TIME":
+					case "TIMESTAMP":
+						var date = new Date(val);
+						return "'" + services.date.formatDate(date, "yyyy-MM-dd HH:mm:ss.ssss") + "'";
+					break;
+
+					default:
+						// if value is a string, escape single quotes as ''
+						if(typeof val == "string"){
+							val = val.replace(/'/g, "''");
+						}
+						// and wrap in single quotes
+						return "'" + val + "'";
+					break;
+				}
+			}
+			catch(e){
+				log("value prep failed: " + e);
+				return val;
+			}
+		}
+	
+	
+		//--------------------
+		// internal functions
+		//--------------------
+		function validateType(type){
+			// only accept column types which work in all supported databases (or some possible easy to catch others)
+			switch(type.toUpperCase()){
+				// supported by all databases
+				case "BIGINT":
+				case "DECIMAL":
+				case "FLOAT":
+				case "INT":
+				case "NUMERIC":
+				case "REAL":
+				case "SMALLINT":
+				case "CHAR":
+				case "VARCHAR":
+				case "DATE":
+				case "TIME":
+				case "TIMESTAMP":
+					return type;
+				break;
+	
+				// some don't list integer they only list int, for safety make them all int
+				case "INTEGER":
+					return "int";
+				break;
+	
+				// boolean is not standard, store booleans as smallints (0 or 1) ebase will interpret these correctly via db resources
+				case "BOOLEAN":
+					return "smallint";
+				break;
+	
+				// some people might feasibly try to create a string type column, make these varchar, they'll be none-the-wiser
+				case "STRING":
+				case "STR":
+					return "varchar";
+				break;
+	
+				// if none of the above we'll reject the data type because we can't 'guarantee' it will work in *most* databases
+				default:
+					log("Column " + name + ", type " + type + " not db agnostic enough");
+					return false;
+				break;
+			}
+		}
+	
+		function validateSize(size){
+			// dependent on the data type, either return a size or 0 for no size req.
+			switch(type.toUpperCase()){
+				// char types: if size is valid use that, else fall back to 500 characters (&lt;-- quite arbitrary...)
+				case "CHAR":
+				case "VARCHAR":
+					if(size &amp;&amp; !isNan(size) &amp;&amp; size &gt; 0) return size;
+					else																 return 500;
+				break;
+	
+				// floating point types: if size is valid use that, if precision is valid, use that, else fall back to 18,2
+				case "DECIMAL":
+				case "FLOAT":
+				case "NUMERIC":
+				case "REAL":
+					if(!precision || isNaN(precision) || precision &lt; 0) precision = 2;
+					
+					if(size &amp;&amp; !isNan(size) &amp;&amp; size &gt; 0) return size;
+					else																 return 18;
+				break;
+	
+				// all other types require no size definition so set size to 0
+				default:
+					return 0;
+				break;
+			}
+		}
+
+		return this;
+	}
+}
+
+
+
+
+
+/**
+ * 
+ */
+
+function executeSQL(con, sql){
+	log("executing sql: " + sql);
+	try{
+		var type;
+		// take the first word of the sql to execute to work out what to return
+		if(typeof sql == "string"){
+			type = sql.split(" ", 1)[0].toLowerCase();
+		}
+		
+		// open the database connection
+		var stmt = con.createStatement(),
+				rs;
+
+		// depending on the type of statement we'll return boolean or a result set or an integer
+		switch(type){
+			case "create":
+			case "drop":
+			case "alter":
+			case "execute":
+				stmt.execute(sql);
+				rs = true;												// executed succesfully
+			break;
+
+			case "query":
+			case "select":
+			case "rs":
+			//TODO: RENDER RESULT SET TO JSON (so it can be closed)
+				rs = stmt.executeQuery(sql);			// result set of selected data
+			break;
+
+			case "update":
+			case "insert":
+			case "delete":
+			default:
+				rs = stmt.executeUpdate(sql);			// number of rows affect by statement
+			break;
+		}
+
+		return rs;
+	}
+	catch(e){
+		log("SQL execution failed \nSQL to execute: " + sql + "\n" + e);
+		return false;
+	}
+	finally{
+		// close the rs, stmt and con
+		if(rs &amp;&amp; rs.close) rs.close();
+		if(stmt) stmt.close();
+	}
+}</scriptText>
+                    
+    
+    </script>
+        
+
+</ebase>

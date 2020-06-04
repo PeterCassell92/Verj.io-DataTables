@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><component page="Security" prefix="LsideBar" source="/Modules/AppSetup/Components/SideBar/sideBar" sourceProject="DataTablesTest" version="0">
+        
+    <sharedFunctionScripts>
+                
+        <sharedFunctionScript path="/Modules/AppSetup/Scripts/Functions/clientFunctions"/>
+            
+    </sharedFunctionScripts>
+        
+    <fields>
+                
+        <field displayType="TEXT" eventField="true" labelTextRef="LsideBar__TxtAAP5QO" name="eventFld" sourceId="33da4a93-0c37-4fbd-afd4-989b65651d61" type="CHAR"/>
+            
+    </fields>
+        
+    <tables>
+                
+        <table name="pages" sourceId="c537e94d-d95d-4447-9228-8e0361566426">
+                        
+            <column displayType="TEXT" labelTextRef="LsideBar__TxthuIHI" name="displayName" sourceId="fa1c9bcd-2b4a-42c1-a560-7d60905bd5a5" type="CHAR"/>
+                        
+            <column displayType="TEXT" labelTextRef="LsideBar__Txt4dIqjt" name="pageName" sourceId="6bdeee1b-b14d-466e-b7d7-0de1ed53894b" type="CHAR"/>
+                    
+        </table>
+            
+    </tables>
+        
+    <texts>
+                
+        <text id="Txt4dIqjt">
+                        
+            <languageText language="EN">Pagename</languageText>
+                    
+        </text>
+                
+        <text id="Txt4syvwl"/>
+                
+        <text id="Txt51bOvv"/>
+                
+        <text id="Txt56iMLy"/>
+                
+        <text id="Txt5Bv78d_2"/>
+                
+        <text id="Txt5Ha3WV"/>
+                
+        <text id="Txt5ZakIX_2"/>
+                
+        <text id="Txt708dWm"/>
+                
+        <text id="Txt7J3XVP"/>
+                
+        <text id="Txt7PY2rV"/>
+                
+        <text id="Txt7kH7ov"/>
+                
+        <text id="Txt7smLyF"/>
+                
+        <text id="Txt9HuuCC"/>
+                
+        <text id="Txt9VHWlC_2">
+                        
+            <languageText language="EN">&amp;&amp;LsideBar__pages-displayName</languageText>
+                    
+        </text>
+                
+        <text id="TxtAAP5QO">
+                        
+            <languageText language="EN">Field1</languageText>
+                    
+        </text>
+                
+        <text id="TxtAhgFAu"/>
+                
+        <text id="TxthuIHI">
+                        
+            <languageText language="EN">Displayname</languageText>
+                    
+        </text>
+            
+    </texts>
+        
+    <component componentPrefix="LsideBar" contentClass="@T" contentStyle="@T" ctrl="LsideBar__Cmp44zKB" default="C" displayOnly="@T" formPanelWidth="@T" hidden="@T" inheritMsg="true" jSPBottom="@T" jSPLeft="@T" jSPLeftWidth="@T" jSPRight="@T" jSPRightWidth="@T" jSPTop="@T" layoutType="@0" localMsg="@T" msgControls="@T" newLine="@T" outputType="0" pdfFooterMarginTextClass="@T" pdfFooterMarginTextStyle="@T" pdfFooterText="LocalLsideBar__Txt708dWm" pdfHeaderMarginTextClass="@T" pdfHeaderMarginTextStyle="@T" pdfHeaderText="LocalLsideBar__Txt5Ha3WV" pdfOrientation="@T" sourceUid="O2TameMj" uid="LkULvszS">
+                
+        <componentOriginals contentClass="@0" contentStyle="@0" default="T" pdfFooterMarginTextClass="@0" pdfFooterMarginTextStyle="@0" pdfHeaderMarginTextClass="@0" pdfHeaderMarginTextStyle="@0" pdfOrientation="@0"/>
+                
+        <field ariaLabelText="LocalLsideBar__Txt51bOvv" beforeEvent="/Modules/AppSetup/Components/SideBar/Scripts/Events/beforeDocumentation" buttonDisplayAsImage="@T" buttonImageUrl="@T" buttonSkipValidation="@T" buttonText="LocalLsideBar__Txt7kH7ov" componentPrefix="LsideBar" ctrl="LsideBar__FldgdeB" default="C" displayIvAsImage="@T" displayOnly="@T" field="LsideBar__eventFld" helpButImage="@T" helpPos="@T" helpWindowProperties="@T" hidden="@T" hyperlink="@T" immediateValidation="@T" inheritMsg="@T" labelFor="@T" localMsg="@T" mandatory="@T" msgControls="@T" newLine="@T" requiredText="LocalLsideBar__Txt7smLyF" sourceUid="9T8KsY6N" uid="PGZDCLfN" validationText="LocalLsideBar__TxtAhgFAu">
+                        
+            <componentOriginals default="T" displayIvAsImage="false" fieldClass="d-none" helpButImage="@0" helpPos="3" helpWindowProperties="@0"/>
+                    
+        </field>
+                
+        <repeater componentPrefix="LsideBar" ctrl="LsideBar__RepWEDKe_2" default="C" displayOnly="@T" field="LsideBar__pages" filterExpression="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="HMdYijSL" uid="9I4fiIHN">
+                        
+            <componentOriginals default="T"/>
+                        
+            <repeaterRow componentPrefix="LsideBar" ctrl="LsideBar__Repr5vrl2_2" default="C" displayOnly="@T" hidden="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" sourceUid="9vTnF9w2" uid="2L07b6OZ">
+                                
+                <componentOriginals default="T">
+                                        
+                    <rootHtmlElementProperties jQueryEventHandlers="@0"/>
+                                    
+                </componentOriginals>
+                                
+                <hyperlink ariaLabelText="LocalLsideBar__Txt5ZakIX_2" componentPrefix="LsideBar" ctrl="LsideBar__pageLnk" default="C" displayOnly="@T" hidden="@T" href="@T" inheritMsg="@T" localMsg="@T" msgControls="@T" newLine="@T" onClickEvent="/Modules/AppSetup/Scripts/Events/gotoPage" skipValidation="@T" sourceUid="L0C3PaQr" target="@T" text="LocalLsideBar__Txt9VHWlC_2" title="LocalLsideBar__Txt5Bv78d_2" uid="GBAZddpe" useExternalURL="@T">
+                                        
+                    <componentOriginals default="T"/>
+                                    
+                </hyperlink>
+                            
+            </repeaterRow>
+                    
+        </repeater>
+            
+    </component>
+    
+</component>

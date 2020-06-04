@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tables>
+    <table name="userRoles">
+        <column name="role_id" type="INTEGER" labelTextRef="Txt9LhsOJ" displayType="SELECT" displayLength="17" dynamicList="/Modules/Administration/UserRoles/Lists/roles">
+            <listMappings display="role_name" return="role_id"/>
+            <validators>
+                <validator type="MAX_DIGITS" value="10"/>
+                <validator type="MAX_LENGTH" value="17"/>
+                <validator type="DEC_DIG"/>
+            </validators>
+        </column>
+        <column name="trash" type="CHAR" defaultValue="&lt;i class=&quot;far fa-trash-alt fa-lg&quot;&gt;&lt;/i&gt;" labelTextRef="Txt3Gapgx" displayType="TEXT" html="true"/>
+        <column name="user_id" type="INTEGER" labelTextRef="Txt7RBp8K" displayType="SELECT" displayLength="17" dynamicList="/Modules/Administration/UserRoles/Lists/users">
+            <listMappings display="username" return="user_id"/>
+            <validators>
+                <validator type="MAX_DIGITS" value="10"/>
+                <validator type="MAX_LENGTH" value="17"/>
+                <validator type="DEC_DIG"/>
+            </validators>
+        </column>
+    </table>
+</tables>

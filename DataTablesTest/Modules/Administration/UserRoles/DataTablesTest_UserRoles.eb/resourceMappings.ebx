@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceMappings>
+    <resourceMapping id="userRoles">
+        <tableMapping table="userRoles"/>
+        <fieldMapping resourceField="role_id" field="userRoles-role_id"/>
+        <fieldMapping resourceField="user_id" field="userRoles-user_id"/>
+    </resourceMapping>
+</resourceMappings>

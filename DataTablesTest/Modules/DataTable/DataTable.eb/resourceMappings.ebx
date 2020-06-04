@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceMappings>
+    <resourceMapping id="employees">
+        <tableMapping table="employees"/>
+        <fieldMapping resourceField="age" field="employees-age"/>
+        <fieldMapping resourceField="employee_id" field="employees-employee_id"/>
+        <fieldMapping resourceField="first_name" field="employees-first_name"/>
+        <fieldMapping resourceField="last_name" field="employees-last_name"/>
+        <fieldMapping resourceField="office" field="employees-office"/>
+        <fieldMapping resourceField="position" field="employees-position"/>
+        <fieldMapping resourceField="salary" field="employees-salary"/>
+        <fieldMapping resourceField="year_joined" field="employees-year_joined"/>
+    </resourceMapping>
+</resourceMappings>

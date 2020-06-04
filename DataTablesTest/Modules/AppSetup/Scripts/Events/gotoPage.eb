@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ebase version="5.4.0">
+            
+    
+    <script contentType="Javascript" dateCreated="2018-07-13T12:59:34.571+01:00" id="gotoPage" preferredComponentPath="/Modules/AppSetup/DataTablesTest_AppDocumentation">
+                        
+        
+        <scriptText>importPackage(com.ebasetech.xi.api);
+importPackage(com.ebasetech.xi.services);
+
+// go to the page whose name is on this row of the table
+gotoPage(tables.pages.pageName.value);</scriptText>
+                    
+    
+    </script>
+        
+
+</ebase>

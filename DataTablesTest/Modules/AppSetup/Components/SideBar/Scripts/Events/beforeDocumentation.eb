@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ebase version="5.4.0">
+            
+    
+    <script contentType="Javascript" dateCreated="2018-07-13T12:28:21.646+01:00" id="beforeDocumentation" preferredComponentPath="/Modules/AppSetup/Components/SideBar/sideBar">
+                        
+        
+        <scriptText>importPackage(com.ebasetech.xi.api);
+importPackage(com.ebasetech.xi.services);
+
+var tbl = tables.pages;
+tbl.resetTable();
+
+// Find the pages in this for build xml for the dynamic menu item
+for each(var page in form.allPages){
+	// we'll ignore pages whose names start with a double underscore
+	if(!/^_x_/.test(page.elementName)){
+		tbl.insertRow();
+		tbl.pageName.value = page.elementName;
+		tbl.displayName.value = page.elementName.replace(/^_/, "").replace(/_/g, " ");
+
+		// if this is the current page, make the menu item bold
+		if(form.currentPage &amp;&amp; form.currentPage.elementName == page.elementName){
+			controls.pageLnk.addCssClass("font-weight-bold");
+		}
+	}
+}
+
+tbl.sort(tbl.pageName, "asc");</scriptText>
+                    
+    
+    </script>
+        
+
+</ebase>

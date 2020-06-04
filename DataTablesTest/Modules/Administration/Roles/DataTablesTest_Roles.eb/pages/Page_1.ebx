@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page name="Page_1" pageHeaderTextRef="TxtAJQCz7" pageInfoTextReference="TxtA1d5eJ" pageTrailerTextReference="Txt5O31xf" nextPageTextReference="Txtml2km" prevPageTextReference="Txt8FZDvV">
+    <pageContents>
+        <page ctrl="Pago8YgW" outputType="0" pdfFooterText="LocalTxt4XozHV" pdfHeaderText="LocalTxt1Y7duY" uid="1RgcZnP9">
+            <componentPlaceHolder name="header" prefix="aheader"/>
+            <bootstrapcontainer bootstrapContainerType="Full Width" cssClass="container-lg" ctrl="BsContainerXzLtA" uid="4ggCqWQx">
+                <bootstraprow ctrl="BsRowz1RYD" uid="1SFvgNqt">
+                    <bootstrapcolumn ctrl="BsColumnloBwW" extraSmallWidth="12" uid="7ShUoL8K">
+                        <panel ctrl="PanN78Ra" uid="89EahuxC">
+                            <text ctrl="TexJjMHy" text="LocalTxt9Abs1E" uid="34GGlf1Q"/>
+                        </panel>
+                        <panel bottomMargin="20px" cssClass="mb-3" ctrl="newSavePanel" layoutType="@0" uid="j2DoJFI">
+                            <button buttonText="LocalTxtlho5" cssClass="mr-2" ctrl="newButton" mouseOverText="LocalTxtVGXHr" onClickEvent="/Modules/Administration/Roles/Server/Scripts/Events/addRole" uid="8NPcDB8B"/>
+                            <button buttonText="LocalTxtlho5_2" cssClass="mr-2" ctrl="saveButton" mouseOverText="LocalTxtVGXHr_2" onClickEvent="/Modules/Administration/Roles/Server/Scripts/Events/saveRoles" uid="Ch6HwUsp"/>
+                            <message ctrl="saveMessage" infoMsgClass="alert alert-success" propertySet="alert" uid="2pBp3gtL">
+<errorMessageStyle topMargin="5px"/>
+<infoMessageStyle topMargin="15px"/>
+<warningMessageStyle topMargin="5px"/>
+                            </message>
+                        </panel>
+                        <panel ctrl="rolesTablePanel" style="max-width: 25em;" uid="Cn3Lbrc5">
+                            <fieldTable ctrl="Tbl3jZGx" field="roles" propertySet="DataTablesTest_TableEdit" tableHeaderText="LocalTxt44euQY" tableInfoText="LocalTxt5u0zai" tableTrailerText="LocalTxt5Wcs3H" uid="PrRZeWP8">
+<tablePage ctrl="Tpgkky2v" default="L" uid="7A2rT3Sm">
+    <fieldColumn buttonText="LocalTxt5zjbbE" ctrl="Col15cwZy" field="roles-role_name" uid="5dMpPpfD" width="90%">
+        <rootHtmlElementProperties customAttributes="data-th=&quot;Role name&quot;"/>
+    </fieldColumn>
+    <fieldColumn buttonText="LocalTxt7WCPxy" ctrl="Colqs6cX" field="roles-trash" hyperlink="true" immedEvent="/Modules/Administration/Roles/Server/Scripts/Events/deleteRole" propertySet="tableEditDeleteRow" uid="PKJKabCG" width="10%">
+        <editorHtmlElementProperties classLocator="text-danger" customAttributes="data-th=&quot;Delete&quot;"/>
+        <rootHtmlElementProperties classLocator="button"/>
+    </fieldColumn>
+</tablePage>
+                            </fieldTable>
+                        </panel>
+                    </bootstrapcolumn>
+                </bootstraprow>
+            </bootstrapcontainer>
+            <componentPlaceHolder name="footer" prefix="afooter"/>
+        </page>
+    </pageContents>
+</page>

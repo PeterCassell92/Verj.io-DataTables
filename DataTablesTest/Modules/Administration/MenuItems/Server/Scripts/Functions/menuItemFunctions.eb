@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ebase version="5.4.0">
+            
+    
+    <script contentType="Javascript" dateCreated="2018-02-02T13:09:00.333Z" id="menuItemFunctions" preferredComponentPath="/Modules/Administration/MenuItems/DataTablesTest_MenuItems">
+                        
+        
+        <scriptText>importPackage(com.ebasetech.xi.api);
+importPackage(com.ebasetech.xi.services);
+
+// insert a new menu into the menu table
+function addMenuItem() {
+   // insert menu row into table
+   tables.menuItems.insertRow();
+   
+   // tables ID sequence
+   tables.menuItems.menu_item_id.value = system.sequenceManager.sequence('DataTablesTest_MenuItems');
+   
+   // sort the table so that the new row appears at the top
+   tables.menuItems.sort(tables.menuItems.menu_item_id,tables.menuItems.SORT_DIRECTION_DESCENDING);
+}
+
+// delete menu item from the menus table
+function deleteMenuItem() {
+   tables.menuItems.deleteRow();
+}
+
+// load menu item table from database
+function loadMenuItems() {
+	 tables.menuItems.fetchTable();
+}
+
+// save menu items to database
+function saveMenuItems() {
+   // save menu items to database
+   tables.menuItems.updateTable();
+
+   // issue a message
+   controls.saveMessage.addInfoMessage('All changes saved');	
+}</scriptText>
+                    
+    
+    </script>
+        
+
+</ebase>

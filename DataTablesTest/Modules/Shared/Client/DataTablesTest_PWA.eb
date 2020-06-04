@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ebase version="5.5.1">
+    <progressiveWebApplication id="DataTablesTest_PWA" dateCreated="2018-06-28T12:32:00.344+01:00">
+        <manifest shortName="DataTablesTest_" name="Starter App 104" splashScreenColor="#007BFF" themeColor="#007BFF">
+            <startForm path="/Modules/Home/DataTablesTest_Home"/>
+            <icons>
+                <icon type="image/png" size="192x192">
+                    <location path="$ws/Modules/Shared/Client/Images/android-chrome-192x192.png"/>
+                </icon>
+                <icon type="image/png" size="512x512">
+                    <location path="$ws/Modules/Shared/Client/Images/android-chrome-512x512.png"/>
+                </icon>
+            </icons>
+        </manifest>
+        <associatedForms>
+            <associatedForm path="/Modules/Home/DataTablesTest_Home"/>
+        </associatedForms>
+    </progressiveWebApplication>
+</ebase>
