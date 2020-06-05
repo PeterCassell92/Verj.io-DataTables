@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ebase version="5.5.1">
+<ebase version="5.8.0">
     <progressiveWebApplication id="DataTablesTest_PWA" dateCreated="2018-06-28T12:32:00.344+01:00">
         <manifest shortName="DataTablesTest_" name="Starter App 104" splashScreenColor="#007BFF" themeColor="#007BFF">
             <startForm path="/Modules/Home/DataTablesTest_Home"/>
@@ -12,8 +12,5 @@
                 </icon>
             </icons>
         </manifest>
-        <associatedForms>
-            <associatedForm path="/Modules/Home/DataTablesTest_Home"/>
-        </associatedForms>
     </progressiveWebApplication>
 </ebase>

@@ -80,7 +80,7 @@ function selectRandomFromArr(arr){
 	var rand = Math.random()*(arr.length-1);
 	var selection = arr[Math.round(rand)]; 
 
-	return selection
+	return selection;
 }
 
 function getRandomWorkingAge(){
