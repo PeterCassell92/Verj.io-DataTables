@@ -72,7 +72,7 @@ t.updateTable();
 
 function basicTxtFileToArray(filePath){
 	var fileStr = services.file.readFile(filePath);
-	var arr = fileStr.split('\r');	
+	var arr = fileStr.split('\r\n');	
 	return arr;
 }
 
@@ -91,6 +91,8 @@ function getRandomWorkingAge(){
 function getRandomValueBetween(lowerLim, upperLim){
 	var num = lowerLim+ Math.random()*(upperLim-lowerLim);
 	return Math.round(num);
-}</scriptText>
+}
+
+tables.employees.to</scriptText>
     </script>
 </ebase>

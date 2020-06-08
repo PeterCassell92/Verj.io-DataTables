@@ -2,19 +2,24 @@
 <page name="Page_1" beforePageEvent="/Modules/DataTable/Scripts/DataTableBP" pageHeaderTextRef="Txt218aNU" pageInfoTextReference="Txt46kN1s" pageTrailerTextReference="Txt6sJweT" nextPageTextReference="Txtid3ou" prevPageTextReference="Txt5sIE1B">
     <pageContents>
         <page ctrl="PagnIdhn" outputType="0" pdfFooterText="LocalTxt1i6K3Q" pdfHeaderText="LocalTxt7wooWA" uid="8ODqlAHe">
-            <fieldTable ctrl="employeesTable" displayOnly="true" field="employees" numVisibleRows="0" tableHeaderText="LocalTxt3cY7bZ" tableInfoText="LocalTxtK0c0X" tableTrailerText="LocalTxt1yhwHo" uid="7ASoBDyS">
-                <rootHtmlElementProperties idLocator="employeesTable"/>
-                <tablePage ctrl="Tpg2ixzZ" default="L" uid="QQ15PuFy">
-                    <fieldColumn ariaLabelText="LocalTxt185lfV" buttonText="LocalTxtAGlMJy" ctrl="ColwCmxo" field="employees-employee_id" placeHolderText="LocalTxt52idIg" requiredText="LocalTxt6Ixey7" uid="Ml6zEdyK" validationText="LocalTxt7D0C9e" width="12%"/>
-                    <fieldColumn ariaLabelText="LocalTxt8RfEKH" buttonText="LocalTxt6lYOKT" ctrl="ColQstBm" field="employees-first_name" placeHolderText="LocalTxt5wtHH4" requiredText="LocalTxt6MNqZU" uid="LmJUJXjE" validationText="LocalTxt9xBD9s" width="7%"/>
-                    <fieldColumn ariaLabelText="LocalTxt1exNJw" buttonText="LocalTxt5JLo9A" ctrl="ColDYmTL" field="employees-last_name" placeHolderText="LocalTxt5cqpiv" requiredText="LocalTxt3yHah4" uid="A1HZ9uVh" validationText="LocalTxt47NaJa" width="7%"/>
-                    <fieldColumn ariaLabelText="LocalTxt6MzpjD" buttonText="LocalTxtVc3QR" ctrl="ColgUe2W" field="employees-age" placeHolderText="LocalTxt7BZQ1l" requiredText="LocalTxt8sJFgj" uid="3heLKe6H" validationText="LocalTxt4t0HyK" width="12%"/>
-                    <fieldColumn ariaLabelText="LocalTxt18lRLj" buttonText="LocalTxt5fIBi6" ctrl="ColGTIuo" field="employees-office" placeHolderText="LocalTxtwlMWg" requiredText="LocalTxtB9eo" uid="QP5gItJK" validationText="LocalTxt89qGub" width="12%"/>
-                    <fieldColumn ariaLabelText="LocalTxt1ofHd4" buttonText="LocalTxtA7otJ9" ctrl="Col4Ua9l" field="employees-position" placeHolderText="LocalTxt2IIFk9" requiredText="LocalTxt8FedJq" uid="Lr8mHou3" validationText="LocalTxt3nn1Yt" width="12%"/>
-                    <fieldColumn ariaLabelText="LocalTxt1V4cLX" buttonText="LocalTxt5PkdGj" ctrl="ColpKcsL" field="employees-salary" placeHolderText="LocalTxt2Q6qTX" requiredText="LocalTxt1pjlpS" uid="FEjPR8uz" validationText="LocalTxt4l9K9s" width="12%"/>
-                    <fieldColumn ariaLabelText="LocalTxt3ZRoTh" buttonText="LocalTxt47A40j" ctrl="Col1Zbkd" field="employees-year_joined" placeHolderText="LocalTxt4lstGl" requiredText="LocalTxttYl11" uid="KF9lSwfp" validationText="LocalTxt34cQir" width="12%"/>
-                </tablePage>
-            </fieldTable>
+            <panel ctrl="Pan158hPS" layoutType="CUSTOM" uid="2sUR8ymp">
+                <layoutProperties>
+                    <CUSTOM template="#set ($MINIMAL_HTML = true)&#xA;&#xA;## !Caution: change the logic of this template with care as it can affect the behaviour of your Ebase Xi system.&#xA;## Loop through all child controls&#xA;#foreach( $ctrl in $child_controls )&#xA;&#x9;## Write out any pending messages&#xA;&#x9;#if ( $ctrl.messagesShowing )&#xA;&#x9;&#x9;$MESSAGES&#xA;&#x9;#end&#xA;&#x9;## Only write a control if it's not hidden&#xA;&#x9;#if ( $ctrl.showing )&#xA;&#x9;&#x9;## For Field Controls, $LABEL, $EDITOR and $HELP can be separately configured&#xA;&#x9;&#x9;#if ($ctrl.elementType == &quot;Field Control&quot;)&#xA;&#x9;&#x9;&#x9;&lt;div&gt;&#xA;&#x9;&#x9;&#x9;$FIELD_HEADER&#xA;&#x9;&#x9;&#x9;## Write out the field label&#xA;&#x9;&#x9;&#x9;$LABEL&#xA;&#x9;&#x9;&#x9;## For list fields, the list items can be separately configured using $LIST_BUTTON and $LIST_LABEL&#xA;&#x9;&#x9;&#x9;#if ($ctrl.editableRadioOrCheckboxList)&#xA;&#x9;&#x9;&#x9;&#x9;$LIST_HEADER&#xA;&#x9;&#x9;&#x9;&#x9;&lt;ul style=&quot;list-style-type:none;margin:0;display:inline-block;&quot;&gt;&#xA;&#x9;&#x9;&#x9;&#x9;#foreach( $list_item in $list_items )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;li&gt;$LIST_BUTTON $LIST_LABEL&lt;/li&gt;&#xA;&#x9;&#x9;&#x9;&#x9;#end&#xA;&#x9;&#x9;&#x9;&#x9;&lt;/ul&gt;&#xA;&#x9;&#x9;&#x9;&#x9;$LIST_TRAILER&#xA;&#x9;&#x9;&#x9;#else&#xA;&#x9;&#x9;&#x9;&#x9;## Write out the field editor for non-list fields&#xA;&#x9;&#x9;&#x9;&#x9;&lt;div&gt;$EDITOR&lt;/div&gt;&#xA;&#x9;&#x9;&#x9;#end&#xA;&#x9;&#x9;&#x9;## Write out field help&#xA;&#x9;&#x9;&#x9;&lt;div&gt;$HELP&lt;/div&gt;&#xA;&#x9;&#x9;&#x9;$FIELD_TRAILER&#xA;&#x9;&#x9;&#x9;&lt;/div&gt;&#x9;&#x9;#else&#xA;&#x9;&#x9;&#x9;## Write all controls excluding Field Controls&#xA;&#x9;&#x9;&#x9;&lt;div&gt;$CONTROL&lt;/div&gt;&#xA;&#x9;&#x9;#end&#xA;&#x9;#end&#xA;#end&#xA;"/>
+                </layoutProperties>
+                <fieldTable ctrl="employeesTable" displayOnly="true" field="employees" numVisibleRows="0" tableHeaderText="LocalTxt3cY7bZ" tableInfoText="LocalTxtK0c0X" tableTrailerText="LocalTxt1yhwHo" uid="7ASoBDyS">
+                    <rootHtmlElementProperties idLocator="employeesTable"/>
+                    <tablePage ctrl="Tpg2ixzZ" default="L" uid="QQ15PuFy">
+                        <fieldColumn ariaLabelText="LocalTxt185lfV" buttonText="LocalTxtAGlMJy" ctrl="ColwCmxo" field="employees-employee_id" placeHolderText="LocalTxt52idIg" requiredText="LocalTxt6Ixey7" uid="Ml6zEdyK" validationText="LocalTxt7D0C9e" width="12%"/>
+                        <fieldColumn ariaLabelText="LocalTxt8RfEKH" buttonText="LocalTxt6lYOKT" ctrl="ColQstBm" field="employees-first_name" placeHolderText="LocalTxt5wtHH4" requiredText="LocalTxt6MNqZU" uid="LmJUJXjE" validationText="LocalTxt9xBD9s" width="7%"/>
+                        <fieldColumn ariaLabelText="LocalTxt1exNJw" buttonText="LocalTxt5JLo9A" ctrl="ColDYmTL" field="employees-last_name" placeHolderText="LocalTxt5cqpiv" requiredText="LocalTxt3yHah4" uid="A1HZ9uVh" validationText="LocalTxt47NaJa" width="7%"/>
+                        <fieldColumn ariaLabelText="LocalTxt6MzpjD" buttonText="LocalTxtVc3QR" ctrl="ColgUe2W" field="employees-age" placeHolderText="LocalTxt7BZQ1l" requiredText="LocalTxt8sJFgj" uid="3heLKe6H" validationText="LocalTxt4t0HyK" width="12%"/>
+                        <fieldColumn ariaLabelText="LocalTxt18lRLj" buttonText="LocalTxt5fIBi6" ctrl="ColGTIuo" field="employees-office" placeHolderText="LocalTxtwlMWg" requiredText="LocalTxtB9eo" uid="QP5gItJK" validationText="LocalTxt89qGub" width="12%"/>
+                        <fieldColumn ariaLabelText="LocalTxt1ofHd4" buttonText="LocalTxtA7otJ9" ctrl="Col4Ua9l" field="employees-position" placeHolderText="LocalTxt2IIFk9" requiredText="LocalTxt8FedJq" uid="Lr8mHou3" validationText="LocalTxt3nn1Yt" width="12%"/>
+                        <fieldColumn ariaLabelText="LocalTxt1V4cLX" buttonText="LocalTxt5PkdGj" ctrl="ColpKcsL" field="employees-salary" placeHolderText="LocalTxt2Q6qTX" requiredText="LocalTxt1pjlpS" uid="FEjPR8uz" validationText="LocalTxt4l9K9s" width="12%"/>
+                        <fieldColumn ariaLabelText="LocalTxt3ZRoTh" buttonText="LocalTxt47A40j" ctrl="Col1Zbkd" field="employees-year_joined" placeHolderText="LocalTxt4lstGl" requiredText="LocalTxttYl11" uid="KF9lSwfp" validationText="LocalTxt34cQir" width="12%"/>
+                    </tablePage>
+                </fieldTable>
+            </panel>
         </page>
     </pageContents>
 </page>

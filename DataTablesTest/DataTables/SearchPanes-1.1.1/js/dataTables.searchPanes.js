@@ -589,7 +589,8 @@
             var table = this.s.dt;
             var column = table.column(this.colExists ? this.s.index : 0);
             var colOpts = this.s.colOpts;
-            var rowData = this.s.rowData;
+            var rowData = this.s.rowData//.replace( _re_html, "" ) ; PETES FIX ATTEMPT #1
+            console.log(rowData);
             // Other Variables
             var countMessage = table.i18n('searchPanes.count', '{total}');
             var filteredMessage = table.i18n('searchPanes.countFiltered', '{shown} ({total})');
@@ -740,6 +741,7 @@
                         className: 'dtsp-nameColumn',
                         data: 'display',
                         render: function (data, type, row) {
+                        		data= data.replace( _re_html, "" ); //PETE FIX TWO
                             if (type === 'sort') {
                                 return row.sort;
                             }

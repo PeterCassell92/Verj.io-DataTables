@@ -7,11 +7,11 @@
             <field id="age" type="INTEGER" length="10"/>
             <field id="employee_id" type="INTEGER" length="10" required="true" key="true" readOnly="true"/>
             <field id="first_name" type="VARCHAR" length="2147483647"/>
+            <field id="last_name" type="VARCHAR"/>
             <field id="office" type="VARCHAR" length="2147483647"/>
             <field id="position" type="VARCHAR" length="2147483647"/>
             <field id="salary" type="INTEGER" length="10"/>
             <field id="year_joined" type="INTEGER" length="10"/>
-            <field id="last_name" type="VARCHAR"/>
         </fields>
     </dbResource>
 </ebase>

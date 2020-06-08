@@ -260,8 +260,7 @@
 		 */
 		this.fnAddData = function( data, redraw )
 		{
-			var api = this.api( true );
-		
+			var api = this.api( true );		
 			/* Check if we want to add multiple rows or not */
 			var rows = $.isArray(data) && ( $.isArray(data[0]) || $.isPlainObject(data[0]) ) ?
 				api.rows.add( data ) :
@@ -2270,7 +2269,8 @@
 						// Use a cache array so we only need to get the type data
 						// from the formatter once (when using multiple detectors)
 						if ( cache[k] === undefined ) {
-							cache[k] = _fnGetCellData( settings, k, i, 'type' );
+							cache[k] = 
+( settings, k, i, 'type' );
 						}
 	
 						detectedType = types[j]( cache[k], settings );
@@ -2407,7 +2407,6 @@
 			src: nTr ? 'dom' : 'data',
 			idx: iRow
 		} );
-	
 		oData._aData = aDataIn;
 		oSettings.aoData.push( oData );
 	
@@ -2457,11 +2456,11 @@
 		if ( ! (trs instanceof $) ) {
 			trs = $(trs);
 		}
-	
+		
 		return trs.map( function (i, el) {
 			row = _fnGetRowElements( settings, el );
 			return _fnAddData( settings, row.data, el, row.cells );
-		} );
+		});
 	}
 	
 	
@@ -2976,20 +2975,19 @@
 	 */
 	function _fnGetRowElements( settings, row, colIdx, d )
 	{
-		var
-			tds = [],
+		var	tds = [],
 			td = row.firstChild,
 			name, col, o, i=0, contents,
 			columns = settings.aoColumns,
 			objectRead = settings._rowReadObject;
-	
+			
 		// Allow the data object to be passed in, or construct
 		d = d !== undefined ?
 			d :
 			objectRead ?
 				{} :
 				[];
-	
+		console.log(columns);
 		var attr = function ( str, td  ) {
 			if ( typeof str === 'string' ) {
 				var idx = str.indexOf('@');
@@ -3006,15 +3004,21 @@
 		var cellProcess = function ( cell ) {
 			if ( colIdx === undefined || colIdx === i ) {
 				col = columns[i];
-				contents = $.trim(cell.innerHTML);
-	
+
+				//if specified, read data from last child of cell
+				if(col.srcDataFromLastChild && cell.lastChild){
+					cell = cell.lastChild;
+				}
+				//then trim
+				contents = (cell.innerHTML)? cell.innerHTML.trim(): '';
+				
 				if ( col && col._bAttrSrc ) {
 					var setter = _fnSetObjectDataFn( col.mData._ );
 					setter( d, contents );
 	
-					attr( col.mData.sort, cell );
-					attr( col.mData.type, cell );
-					attr( col.mData.filter, cell );
+					attr( col.mData.sort, cell); //cell
+					attr( col.mData.type, cell);
+					attr( col.mData.filter, cell);
 				}
 				else {
 					// Depending on the `data` option for the columns the data can
@@ -6927,7 +6931,7 @@
 	
 		// Remove duplicates
 		this.context = _unique( settings );
-	
+
 		// Initial data
 		if ( data ) {
 			$.merge( this, data );
@@ -12969,7 +12973,33 @@
 		 *      } );
 		 *    } );
 		 */
-		"sWidth": null
+		"sWidth": null,
+
+		/**
+		 * Defines whether the data is sourced directly from the td (including any HTML Structure) 
+		 * or whether the inner HTML structure is disregarded and that data is taken from the lastChild element.
+		 * 
+		 * This is useful in environments where table data may be embedded in multiple levels of HTML after the <td> element.
+		 * @name DataTable.defaults.column.srcDataFromLastChild
+		 * @type bool
+		 * @default false
+		 * 
+		 *  @example
+		 *		// Using `columnDefs`
+		 *    $(document).ready( function() {
+		 *      $('#example').dataTable( {
+		 *        "columnDefs": [
+		 *         {
+		 *         	srcDataFromLastChild: true,
+		 *         	targets : '_all'
+		 *         }
+		 *        ]
+		 *      } );
+		 *    } );
+		 *
+		 */
+		"srcDataFromLastChild": false  
+		 
 	};
 	
 	_fnHungarianMap( DataTable.defaults.column );
@@ -15958,6 +15988,7 @@
             var column = table.column(this.colExists ? this.s.index : 0);
             var colOpts = this.s.colOpts;
             var rowData = this.s.rowData;
+            
             // Other Variables
             var countMessage = table.i18n('searchPanes.count', '{total}');
             var filteredMessage = table.i18n('searchPanes.countFiltered', '{shown} ({total})');
@@ -15991,9 +16022,13 @@
                 if (!this.s.dt.page.info().serverSide) {
                     // Only run populatePane if the data has not been collected yet
                     if (rowData.arrayFilter.length === 0) {
-                        this._populatePane(last);
+                    		console.log("ROW DATA = "+ JSON.stringify(rowData));
+                        this._populatePane(last); //this is where the data is gathered
+                        
                         this.s.rowData.totalOptions = 0;
+                        
                         this._detailsPane();
+                        
                         if (loadedFilter && loadedFilter.searchPanes && loadedFilter.searchPanes.panes) {
                             // If the index is not found then no data has been added to the state for this pane,
                             //  which will only occur if it has previously failed to meet the criteria to be
@@ -16014,6 +16049,8 @@
                         }
                     }
                     var binLength = Object.keys(rowData.binsOriginal).length;
+                    console.log("bin length = " + binLength);
+                    
                     var uniqueRatio = this._uniqueRatio(binLength, table.rows()[0].length);
                     // Don't show the pane if there isn't enough variance in the data, or there is only 1 entry for that pane
                     if (this.s.displayed === false && ((colOpts.show === undefined && colOpts.threshold === null ?
@@ -16486,6 +16523,7 @@
          * @param bins The bins object that is to be populated with the row counts
          */
         SearchPane.prototype._populatePaneArray = function (rowIdx, arrayFilter, settings, bins) {
+        		//console.log(arrayFilter);
             if (bins === void 0) { bins = this.s.rowData.bins; }
             var colOpts = this.s.colOpts;
             // Retrieve the rendered data from the cell using the fnGetCellData function
