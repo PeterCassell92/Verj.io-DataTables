@@ -3,17 +3,17 @@ $(document).ready(function(){
 	$('#employeesTable .table-striped').DataTable({
 //			buttons:[
 //		'searchPanes'],
+			dom: '<"dtsp-verticalContainer"<"dtsp-verticalPanes"P><"dtsp-dataTable"frtip>>',
 			searchPane: true,
 			searchPanes:{
-				layout: 'columns-4'
+				layout: 'columns-2'
 			},
-			dom: 'Pfrtip',
 			columnDefs:[
 			{
 				searchPanes:{
 					show: true
 				},
-				targets: [1,2,4,5],
+				targets: [4,5],
 			},
 			{
 				searchPanes:{
@@ -21,7 +21,7 @@ $(document).ready(function(){
 				}
 				,
 				type: "num",
-				targets: [0,3,6,7]				
+				targets: [0,1,2,3,6,7]				
 			},
 			{
 		   	srcDataFromLastChild: true,

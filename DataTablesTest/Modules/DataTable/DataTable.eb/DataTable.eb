@@ -2,15 +2,15 @@
 <ebase version="5.8.0">
     <webForm formHeaderTextRef="Txt9erBGO" htmlTitleTextRef="Txt6XwOVn" finishButtonTextRef="Txt3rvkor" backButtonSupport="yes" docType="HTML5" template="/Modules/Shared/Client/PresentationTemplate/DataTablesTest_Bootstrap4" firstPage="Page_1" preferredScriptFolder="/Modules/DataTable/Scripts" id="DataTable" dateCreated="2020-06-04T15:45:45.243+01:00">
         <clientScripts>
-            <clientScript path="$ws/DataTables/datatables.js"/>
-            <clientScript path="$ws/DataTables/Select/js/dataTables.select.js"/>
+            <clientScript path="$ws/Modules/Shared/Client/JavaScript/DataTables/datatables.js"/>
+            <clientScript path="$ws/Modules/Shared/Client/JavaScript/DataTables/dataTables.select.js"/>
             <clientScript path="$ws/Modules/DataTable/Scripts/initiateDataTables.js"/>
         </clientScripts>
         <styleSheets>
-            <styleSheet ref="$ws/DataTables/datatables.min.css" relation="stylesheet" media="all"/>
-            <styleSheet ref="$ws/DataTables/DataTables-1.10.21/css/dataTables.bootstrap4.min.css" relation="stylesheet" media="all"/>
-            <styleSheet ref="$ws/DataTables/SearchPanes-1.1.1/css/searchPanes.dataTables.min.css" relation="stylesheet" media="all"/>
-            <styleSheet ref="$ws/DataTables/SearchPanes-1.1.1/css/searchPanes.bootstrap4.min.css" relation="stylesheet" media="all"/>
+            <styleSheet ref="$ws/Modules/Shared/Client/CSS/datatables.min.css" relation="stylesheet" media="all"/>
+            <styleSheet ref="$ws/Modules/Shared/Client/CSS/dataTables.bootstrap4.min.css" relation="stylesheet" media="all"/>
+            <styleSheet ref="$ws/Modules/Shared/Client/CSS/searchPanes.dataTables.min.css" relation="stylesheet" media="all"/>
+            <styleSheet ref="$ws/Modules/Shared/Client/CSS/searchPanes.bootstrap4.min.css" relation="stylesheet" media="all"/>
         </styleSheets>
         <resources>
             <resource name="employees" path="/Modules/DataTable/Resources/employees"/>
