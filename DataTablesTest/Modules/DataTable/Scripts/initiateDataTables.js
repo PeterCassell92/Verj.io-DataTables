@@ -16,15 +16,19 @@ $(document).ready(function(){
 				targets: [4,5],
 			},
 			{
-				searchPanes:{
-					show: false
-				}
-				,
 				type: "num",
-				targets: [0,1,2,3,6,7]				
+				targets: [0,3,6,7]				
 			},
 			{
-		   	srcDataFromLastChild: true,
+	
+				searchPanes:{
+					show: false
+				},
+				targets: [0,1,2,3,6,7]			
+			},
+			
+			{
+		   	stripHTML: true,
 		   	targets : '_all'
 		  }
 			]

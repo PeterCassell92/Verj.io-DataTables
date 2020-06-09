@@ -2987,7 +2987,7 @@
 			objectRead ?
 				{} :
 				[];
-		console.log(columns);
+		//console.log(columns);
 		var attr = function ( str, td  ) {
 			if ( typeof str === 'string' ) {
 				var idx = str.indexOf('@');
@@ -3004,13 +3004,14 @@
 		var cellProcess = function ( cell ) {
 			if ( colIdx === undefined || colIdx === i ) {
 				col = columns[i];
-
-				//if specified, read data from last child of cell
-				if(col.srcDataFromLastChild && cell.lastChild){
-					cell = cell.lastChild;
+				//if specified, ignore additional markup and only store innerText as data
+				if(col.stripHTML){
+					contents = (cell.innerText)? cell.innerText.trim(): '';
 				}
-				//then trim
-				contents = (cell.innerHTML)? cell.innerHTML.trim(): '';
+				else{
+					contents = (cell.innerHTML)? cell.innerHTML.trim(): '';
+				}
+				
 				
 				if ( col && col._bAttrSrc ) {
 					var setter = _fnSetObjectDataFn( col.mData._ );
@@ -12976,11 +12977,14 @@
 		"sWidth": null,
 
 		/**
-		 * Defines whether the data is sourced directly from the td (including any HTML Structure) 
-		 * or whether the inner HTML structure is disregarded and that data is taken from the lastChild element.
+		 * Defines whether the cell data includes the HTML content or not.  
+		 * This means that when the data contents of the cell are set, the innerText property is used rather than innerHTML.
 		 * 
-		 * This is useful in environments where table data may be embedded in multiple levels of HTML after the <td> element.
-		 * @name DataTable.defaults.column.srcDataFromLastChild
+		 * This is useful in environments where table data may be embedded in multiple levels of HTML after the <td> element for two reasons:-
+		 * 	-DataTables extensions such as searchPanes can compare cell data without comparing HTML data.
+		 * 	-Performance increase for processing tables which have a large amount of additional markup as less data is saved to memory.		 * 
+		 * 
+		 * @name DataTable.defaults.column.stripHTML
 		 * @type bool
 		 * @default false
 		 * 
@@ -12990,7 +12994,7 @@
 		 *      $('#example').dataTable( {
 		 *        "columnDefs": [
 		 *         {
-		 *         	srcDataFromLastChild: true,
+		 *         	dataStripsHTML: true,
 		 *         	targets : '_all'
 		 *         }
 		 *        ]
@@ -12998,7 +13002,7 @@
 		 *    } );
 		 *
 		 */
-		"srcDataFromLastChild": false  
+		"stripsHTML": false  
 		 
 	};
 	

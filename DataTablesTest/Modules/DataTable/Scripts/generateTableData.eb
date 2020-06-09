@@ -78,7 +78,11 @@ function basicTxtFileToArray(filePath){
 
 function selectRandomFromArr(arr){
 	var rand = Math.random()*(arr.length-1);
-	var selection = arr[Math.round(rand)]; 
+	var selection = arr[Math.round(rand)];
+
+	if(!selection){
+		selection = selectRandomFromArr(arr);
+	}
 
 	return selection;
 }
