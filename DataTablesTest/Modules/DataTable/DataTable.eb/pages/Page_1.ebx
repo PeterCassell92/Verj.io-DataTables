@@ -4,9 +4,7 @@
         <page bootstrapContainerType="@0" contentClass="content-root" cssClass="testytest" ctrl="pageControl" outputType="0" pdfFooterText="LocalTxt1i6K3Q" pdfHeaderText="LocalTxt7wooWA" uid="8ODqlAHe">
             <bootstrapcontainer ctrl="BsContainerpYIiB" uid="AkmFKVRm">
                 <bootstraprow cssClass="py-3" ctrl="BsRowekQM2" horizontalAlignment="@0" rowType="Form Row" uid="9her76mj" verticalAlignment="@0">
-                    <bootstrapcolumn cssClass="order-2" ctrl="BsColumnJdBgD" uid="2Vas3Yzx"/>
-                    <bootstrapcolumn cssClass="order-1" ctrl="BsColumneJojL" uid="RqIqXByI"/>
-                    <bootstrapcolumn cssClass="order-0 order-md-2" ctrl="BsColumnVWKEW" uid="3I4JftFg" verticalAlignment="@0">
+                    <bootstrapcolumn cssClass="@0" ctrl="BsColumnVWKEW" uid="3I4JftFg" verticalAlignment="@0">
                         <text cssClass="display-4" ctrl="TexkwMnj" text="LocalTxt8dTlfq" uid="CqMj7ryB"/>
                     </bootstrapcolumn>
                 </bootstraprow>

@@ -12994,7 +12994,7 @@
 		 *      $('#example').dataTable( {
 		 *        "columnDefs": [
 		 *         {
-		 *         	dataStripsHTML: true,
+		 *         	stripHTML: true,
 		 *         	targets : '_all'
 		 *         }
 		 *        ]
@@ -13002,7 +13002,7 @@
 		 *    } );
 		 *
 		 */
-		"stripsHTML": false  
+		"stripHTML": false  
 		 
 	};
 	
